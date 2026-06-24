@@ -4,4 +4,4 @@
 
 git add .
 git commit -m "INGRESO"
-git push origin master
+git push origin main
