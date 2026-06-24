@@ -1,0 +1,288 @@
+.performance {
+  background-color: var(--color-principal);
+  color: var(--color-terciario);
+  position: relative;
+  overflow: hidden;
+}
+
+.container-performance {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.performance__wrapper {
+  display: flex;
+  min-height: 450px;
+  align-items: center;
+}
+
+.performance__image {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 450px;
+  margin: 50px auto;
+}
+
+.performance__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.performance__content {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 60px 40px;
+}
+
+.performance__text h3 {
+  margin-bottom: 5px;
+}
+
+.performance__text li {
+  margin-bottom: 10px;
+}
+
+
+/* TABLETS */
+@media (max-width: 1100px) {
+  .performance__wrapper {
+    flex-direction: column;
+  }
+  .performance__image {
+    width: 100%;
+    max-width: 100%;
+    height: 350px;
+    margin: 0px auto;
+  }
+  .performance__content {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .performance__text h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .performance__image {
+    height: 300px;
+  }
+  .performance__content {
+    padding: 30px;
+  }
+}
+
+/* -------------- */
+.cards-section-gestion {
+  position: relative; 
+  padding: 60px 40px;
+  background: url('../recursos-multimedia/gestion-desempeno/cards-a-background.webp') center/cover no-repeat;
+}
+
+.cards-section-gestion::before {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  background: rgba(4, 79, 140, 0.6); 
+  z-index: 1;
+}
+
+.cards-container-gestion {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.card-gestion {
+  background: var(--color-terciario);
+  color: var(--color-principal);
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border-radius: 4px;
+}
+
+.card-gestion:hover {
+  background-color: var(--color-principal); /* azul */
+  color: var(--color-terciario);
+}
+
+.card-gestion img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+
+.card-gestion-body {
+  padding: 30px;
+  text-align: center;
+}
+
+/*.card-gestion-body h3{
+  font-size: 22px;
+  font-weight: normal;
+}*/
+
+.card-gestion-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease;
+  text-align: left;
+}
+
+.card-gestion:hover {
+  transform: translateY(-5px);
+}
+
+.card-gestion:hover .card-gestion-extra {
+  max-height: 300px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .cards-container-gestion {
+    flex-direction: column;
+  }
+
+  /* 
+  .card-gestion-extra {
+    max-height: none;
+  }*/
+}
+
+/* --------- */
+.cards-info {
+    padding: 60px 40px;
+    position: relative; 
+    background: url('../recursos-multimedia/gestion-desempeno/cards-b-background.webp') center/cover no-repeat;
+}
+
+.cards-info::before {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  background: rgba(124, 159, 204, 0.7); 
+  z-index: 1;
+}
+
+.cards-info-header{
+    max-width: 1250px;
+    margin: 0 auto 40px auto;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: white;
+}
+
+.cards-info-header p{
+    margin-bottom: 10px;
+}
+
+.cards-info-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    z-index: 2;
+    position: relative;
+
+    align-items: stretch;
+}
+
+.card-info {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--color-principal);
+    transition: transform 0.6s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info:hover {
+  transform: scale(1.03);
+}
+
+.card-info-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    margin: 30px 30px 10px 30px;
+    border-radius: 16px;
+}
+
+.card-info-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* empieza oculto */
+  background: rgba(0, 0, 0, 0.4);
+  transition: height 0.6s ease;
+}
+
+.card-info:hover .overlay {
+  height: 100%;
+}
+
+.card-info-body {
+    padding: 10px 40px 20px 40px;
+    color: white;
+
+    flex: 1; 
+    display: flex;
+    flex-direction: column;     
+    justify-content: center;
+}
+
+.card-info-feedback-img{
+    width: 100%;
+    max-width: 150px;
+    margin: 0px auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+    .cards-info-container {
+        flex-direction: column;
+    }
+
+    .card-info-body h4{
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-info-container {
+        flex-direction: column;
+    }
+
+    .card-info-body h4{
+        text-align: center;
+    }
+
+    .card-info-body {
+        padding: 10px 25px 20px 25px;
+    }
+}

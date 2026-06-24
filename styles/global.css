@@ -1,0 +1,340 @@
+/* ESTILOS GENERALES*/
+:root{
+
+/* COLORES */
+--color-principal:#044f8c;
+--color-secundario:rgb(225, 37, 27);
+--color-terciario:rgb(255, 255, 255);
+--color-cuarto: #000000;
+--color-quinto: rgb(124, 159, 204);
+--color-sexto: rgb(248, 248, 248);
+--color-menu-seleccionado: #7c9fcc;
+
+--color-principal-hover: #0881e4;
+--color-secundario-hover: #c90000;
+--color-quinto-hover: #94c3fd;
+
+
+/* TIPOGRAFIA */
+--font-principal:"Roboto", sans-serif;
+--font-secundario:"Arimo", sans-serif;
+
+/* Tamanos*/
+--h1-size: 46px;
+--h2-size: 40px;
+--h3-size: 34px;
+--h4-size: 28px;
+--h5-size: 22px;
+
+
+--p1: 22px;
+--p2: 20px;
+--p3: 18px;
+--p4: 16px;
+--p5: 14px;
+}
+
+
+body {
+  font-family: var(--font-principal);
+}
+
+h1,h2,h3,h4,h5{
+  font-family: var(--font-principal);
+}
+
+h1 {
+  font-size: var(--h1-size);
+}
+
+h2 {
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-size: var(--h3-size);
+}
+
+h4 {
+  font-size: var(--h4-size);
+}
+
+h5 {
+  font-size: var(--h5-size);
+}
+
+.text-p1 {
+  font-size: var(--p1);
+}
+
+.text-p2 {
+  font-size: var(--p2);
+}
+
+.text-p3 {
+  font-size: var(--p3);
+}
+
+.text-p4 {
+  font-size: var(--p4);
+}
+.text-p5 {
+  font-size: var(--p5);
+}
+
+/* ---------- Menu normal -------- */
+.navbar{ 
+  background-color: var(--color-terciario) !important;
+  font-family: var(--font-secundario);
+  --bs-navbar-color:var(--color-principal); /* Color texto Menu normal*/
+  --bs-navbar-hover-color:var(--color-principal-hover);  /*Color al pasar el mouse*/
+  --bs-navbar-active-color:var(--color-menu-seleccionado); /* Color texto Menu / opcion activada*/
+  --bs-navbar-toggler-border-color: var(--color-principal);/*icono del menú móvil*/
+}
+
+.dropdown-item{ /* --- Menu desplegable --- */
+  color: var(--color-principal);
+}
+
+.dropdown-item:hover{
+  color:var(--color-principal-hover); 
+}
+
+.navbar-toggler-icon{ /* Color menu hamburguesa*/
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23044f8c' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dropdown-submenu { /* --- Submenu desplegable --- */
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    display: none;
+    position: absolute;
+}
+
+.dropdown-submenu:hover > .dropdown-menu { /* Mostrar submenu al hover */
+    display: block;
+}
+
+.dropdown-item.active,
+.dropdown-item:active{
+    background-color: var(--color-terciario) !important;
+    color: var(--color-menu-seleccionado) !important;
+}
+
+.dropdown-item:hover{
+    background-color: var(--color-terciario);
+    color: var(--color-menu-seleccionado);
+}
+
+
+@media (min-width: 992px){
+    .dropdown-submenu:hover > .dropdown-menu{
+        display: block;
+    }
+}
+
+@media (max-width: 991px){
+    .dropdown-submenu .dropdown-menu{
+        position: static;
+        display: none;
+        margin-left: 30px;
+    }
+
+    .dropdown-submenu.open > .dropdown-menu{
+        display: block;
+    }
+
+    .dropdown-menu{
+        border: none !important;
+    }
+
+    .navbar-nav .nav-link{
+        padding-bottom: 0px; /* vertical | horizontal */
+        padding-top: 15px; /* vertical | horizontal */
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .dropdown-menu{
+        padding-top: 0px;
+        padding-bottom: 5px;
+        margin-top: 0px;
+        padding-left: 30px;
+    }
+
+    .dropdown-submenu .dropdown-menu{
+        padding-left: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 5px;
+    }
+}
+
+
+/* --------- Footer ------------*/
+.footer .container{
+  max-width:1250px;
+  margin:auto;
+}
+
+.footer{
+  background: var(--color-principal);
+  color: var(--color-terciario);
+  padding:60px 40px;
+  font-family: var(--font-principal);
+}
+
+.footer-logo-box{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.footer-logo{
+  width:200px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:50px;
+  align-items:start;
+  padding-left: 100px;
+}
+
+.footer h5{
+  margin-bottom:20px;
+}
+
+.footer h6{
+  margin-bottom:2px;
+}
+
+.footer p{
+  margin-bottom:2px;
+}
+
+.footer-col a{
+  color:inherit;          /* mantiene el mismo color del texto */
+  text-decoration:none;   /* quita el subrayado */
+  display:inline-block;
+}
+
+.contacto{
+  display:flex;
+  align-items:center;
+  margin-bottom:0px;
+  margin-top:0px;
+}
+
+.icono{
+  width:20px;
+  height:20px;
+  background:var(--color-terciario);
+  color:var(--color-principal);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:8px;
+  font-size:12px;
+}
+
+.btn-contacto{
+  display:block;
+  margin:18px 25% 0 25%; /* centra el botón */
+  padding:10px 25px;
+  background:var(--color-secundario);
+  color:var(--color-terciario);
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+  width:fit-content;
+}
+
+.btn-contacto:hover{
+  transform:scale(1.05);
+}
+
+.redes{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.redes img{
+  height:32px;
+  width:auto;
+  object-fit:contain;
+  cursor:pointer;
+  transition:0.2s;
+  margin-top: 5px;
+}
+
+.redes img:hover{
+  transform:scale(1.1);
+}
+
+@media (max-width:1000px){
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    text-align:center;
+    row-gap:10px;
+    padding-left: 0px;
+  }
+  
+  .footer-col:last-child{
+    grid-column:1 / -1;   /* ocupa las dos columnas */
+    text-align:center;    /* centra el contenido */
+    justify-self:center;  /* centra el bloque */
+  }
+
+  .redes{
+    justify-content:center;
+  }
+}
+
+@media (max-width:600px){
+  .footer h5{
+    margin-bottom:10px;
+  }
+
+  .btn-contacto{
+    margin-bottom: 15px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+    row-gap:20px;
+    padding-left: 0px;
+  }
+
+  .contacto{
+    justify-content:center;
+  }
+
+  .redes{
+    justify-content:center;
+  }
+}
+
+/* ----------------- Icono de whatsApp ------------------ */
+.whatsapp-float{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.whatsapp-float img{
+    width: 50px;
+    height: auto;
+}
+
+.whatsapp-float img:hover{
+    transform: scale(1.05);
+}
+

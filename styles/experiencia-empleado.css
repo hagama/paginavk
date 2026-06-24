@@ -1,0 +1,372 @@
+/* ----------- */ 
+.performance {
+  background: url('../recursos-multimedia/experiencia-empleado/employee-background.webp') center/cover no-repeat;
+  color: var(--color-terciario);
+  position: relative;
+  overflow: hidden;
+}
+
+.performance::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.container-performance {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.performance__wrapper {
+  display: flex;
+  min-height: 450px;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+}
+
+.performance__text {
+  background-color: var(--color-principal);
+  padding: 50px 30px;
+  border-radius: 20px;
+}
+
+.performance__image {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.performance__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.performance__content {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.performance__text h2 {
+  margin-bottom: 10px;
+}
+
+
+.performance__text li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .performance__wrapper {
+        flex-direction: column;
+    }
+
+    .performance__text h3 {
+        text-align: center;
+    }
+
+    .performance__image {
+        width: 100%;
+        height: 400px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .performance__content {
+        width: 100%;
+    }
+
+    .container-performance {
+        padding: 40px 40px;
+    }
+}
+
+/* -------------- */
+.cards-section-gestion {
+  position: relative; 
+  padding: 60px 40px;
+  background: url('../recursos-multimedia/experiencia-empleado/cards-background.webp') center/cover no-repeat;
+}
+
+.cards-section-gestion::before {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  background: rgba(4, 79, 140, 0.6); 
+  z-index: 1;
+}
+
+.cards-container-gestion {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.card-gestion {
+  background: var(--color-terciario);
+  color: var(--color-principal);
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border-radius: 4px;
+}
+
+.card-gestion:hover {
+  background-color: var(--color-secundario); 
+  color: var(--color-terciario);
+}
+
+.card-gestion img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+
+.card-gestion-body {
+  padding: 30px;
+  text-align: center;
+}
+
+/*.card-gestion-body h3{
+  font-size: 22px;
+  font-weight: normal;
+}*/
+
+.card-gestion-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease;
+  text-align: left;
+}
+
+.card-gestion:hover {
+  transform: translateY(-5px);
+}
+
+.card-gestion:hover .card-gestion-extra {
+  max-height: 400px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .cards-container-gestion {
+    flex-direction: column;
+  }
+
+  /* 
+  .card-gestion-extra {
+    max-height: none;
+  }*/
+}
+
+/* -------------------- */
+.hero {
+  position: relative;
+  background: url("../recursos-multimedia/experiencia-empleado/hero-background.webp") center/cover no-repeat;
+  padding: 60px 40px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(225, 37, 27, 0.8); /* rojo overlay */
+}
+
+.hero-container {
+  position: relative;
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1;
+}
+
+.hero-text {
+  flex: 1;
+  color: var(--color-terciario);
+}
+
+.hero-text h4 {
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--color-terciario);
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .hero-container h4 {
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* --------------------------- */
+.video-section{
+    width: 100%;
+    background: var(--color-principal);
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container{
+    width: 100%;
+    max-width: 1250px;
+}
+
+.video-wrapper{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.video-wrapper iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px){
+
+    .video-section{
+        padding: 50px 20px;
+    }
+
+    .video-wrapper{
+        border-radius: 16px;
+    }
+}
+
+/* ---------- */ 
+.success-section {
+  padding: 60px 40px;
+  position: relative;
+  background: url('../recursos-multimedia/experiencia-empleado/success-background.webp') top/cover no-repeat;
+}
+
+.success-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(124, 159, 204, 0.75);
+  z-index: 1;
+}
+
+.success-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap:2%;
+  row-gap:15px;
+  position: relative;
+  z-index: 2;
+}
+
+.success-text {
+  flex: 1;
+  color: var(--color-terciario);
+}
+
+.ioda-logo{
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.success-text h2 {
+  margin-bottom: 20px;
+}
+
+.success-text ul {
+  padding-left: 20px;
+}
+
+.success-text li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.success-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.success-image img {
+  width: 100%;
+  max-width: 380px;
+  height: 100%;  
+  object-fit: cover;
+
+}
+
+@media (max-width: 900px) {
+    .success-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ioda-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .success-text ul {
+        text-align: left;
+    }
+
+    .success-image img {
+        max-width: 300px;
+        margin-left: 10px;
+    }
+
+    .success-section {
+        padding: 60px 40px;
+    }
+}

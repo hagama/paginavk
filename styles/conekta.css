@@ -1,0 +1,272 @@
+
+/* -----------------------*/
+.hero-conekta{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-sexto);
+    overflow: hidden;
+}
+
+.hero-content{
+    width:1250px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hero-text{
+    background:var(--color-principal);
+    color: var(--color-terciario);
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex:1;
+    position:relative; /* EXTENDER EL FONDO */
+
+}
+
+.hero-text::after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:100%;
+    width:100vw;
+    height:100%;
+    background:var(--color-principal);
+}
+
+
+.hero-logo{
+    background: var(--color-sexto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.hero-logo img{
+    width: 300px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform .3s ease;
+}
+
+.hero-logo img:hover{
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px){
+    .hero-content{
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text{
+        text-align: center;
+        padding: 50px 30px;
+    }
+
+    .hero-logo{
+        padding: 50px 20px;
+    }
+
+    .hero-logo img{
+        width: 240px;
+    }
+}
+
+/* ---------- */ 
+.success-section {
+  padding: 60px 40px;
+  position: relative;
+  background: url('../recursos-multimedia/conekta/success-background.webp') top/cover no-repeat;
+}
+
+.success-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(225, 37, 27, 0.75);
+  z-index: 1;
+}
+
+.success-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap:2%;
+  row-gap:15px;
+  position: relative;
+  z-index: 2;
+}
+
+.success-text {
+  flex: 1;
+  color: var(--color-terciario);
+}
+
+.success-text h3 {
+  margin-bottom: 20px;
+}
+
+.success-text ul {
+  padding-left: 20px;
+}
+
+.success-text li {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.success-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.success-image img {
+  width: 100%;
+  max-width: 380px;
+  height: 100%;  
+  object-fit: cover;
+
+}
+
+@media (max-width: 900px) {
+    .success-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .success-text ul {
+        text-align: left;
+    }
+
+    .success-image img {
+        max-width: 300px;
+        margin-left: 10px;
+    }
+
+    .success-section {
+        padding: 60px 40px;
+    }
+}
+
+
+
+/* -------------- */
+.cards-section-desarrollo {
+  position: relative; 
+  padding: 60px 40px;
+  background: url('../recursos-multimedia/conekta/cards-background.webp') center/cover no-repeat;
+}
+
+.cards-section-desarrollo::before {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  background: rgba(4, 79, 140, 0.7); 
+  z-index: 1;
+}
+
+.cards-container-desarrollo {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+.card-desarrollo {
+  background: var(--color-terciario);
+  color: var(--color-principal);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border-radius: 4px;
+}
+
+.card-desarrollo:hover {
+  background-color: var(--color-secundario); /* azul */
+  color: var(--color-terciario);
+}
+
+.card-desarrollo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+
+.card-desarrollo-body{
+  padding: 30px;
+  text-align: center;
+
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.card-desarrollo:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 900px) {
+  .cards-container-desarrollo {
+    flex-direction: column;
+  }
+}
+
+/* --------------------------- */
+.video-section{
+    width: 100%;
+    background: var(--color-principal);
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container{
+    width: 100%;
+    max-width: 1250px;
+}
+
+.video-wrapper{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.video-wrapper iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px){
+    .video-section{
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 0px;
+    }
+
+    .video-wrapper{
+        border-radius: 16px;
+    }
+}

@@ -1,0 +1,410 @@
+/* ----------- */ 
+.performance {
+  background-color: var(--color-principal);
+  color: var(--color-terciario);
+  position: relative;
+  overflow: hidden;
+}
+
+.container-performance {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.performance__wrapper {
+  display: flex;
+  min-height: 450px;
+}
+
+.performance__image {
+  width: 50vw;
+  height: 500px;
+  margin: auto 0;
+  margin-left: auto;
+}
+
+.performance__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.performance__content {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.performance__text h2 {
+  margin-bottom: 10px;
+}
+
+
+.performance__text li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .performance__wrapper {
+        flex-direction: column;
+    }
+
+    .performance__text h3 {
+        text-align: center;
+    }
+
+    .performance__text .subtitle{
+        text-align: center;
+    }
+
+    .performance__image {
+        width: 100%;
+        height: 400px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .performance__content {
+        width: 100%;
+    }
+
+    .container-performance {
+        padding: 40px 40px;
+    }
+}
+
+
+/* ---------------------------- */
+.problemas-section{
+    position:relative;
+    padding:80px 20px;
+    background:url("../recursos-multimedia/desarrollo-carrera-personas/cards-a-background.webp") top/cover no-repeat;
+    overflow:hidden;
+}
+
+.problemas-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255, 255, 255, 0.75);
+    z-index:1;
+}
+
+.problemas-section .container{
+    position:relative;
+    z-index:2;
+}
+
+.grid-problemas{
+    display:grid;
+    grid-template-columns:repeat(1,1fr);
+    gap:25px;
+    align-items:stretch;
+}
+
+.card-problema{
+    display:flex;
+    background:var(--color-terciario);
+    transition:0.3s;
+    color: var(--color-principal);
+    height:100%;
+    min-height: 150px;
+}
+
+.card-img{
+    width:25%;
+}
+
+.card-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-text{
+    width:75%;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.card-problema:hover{
+    background:var(--color-secundario);
+    color:var(--color-terciario);
+}
+
+.paas-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.paas-logo img{
+    max-width:350px;
+    width:100%;
+    transition: transform .3s ease;
+}
+
+.paas-logo:hover img{
+    transform: translateY(-4px) scale(1.03);
+}
+
+
+@media (max-width:900px){
+    .grid-problemas{
+        grid-template-columns:1fr;
+    }
+
+    .paas-logo{
+      margin-top:30px;
+    }
+
+}
+
+@media (max-width:600px){
+    .card-problema{
+        flex-direction:column;
+    }
+    .card-img,
+    .card-text{
+        width:100%;
+    }
+    .paas-logo{
+        padding:40px 0;
+    }
+}
+
+
+/* ---------- */ 
+.success-section-1 {
+  padding: 60px 40px;
+  position: relative;
+  background: url('../recursos-multimedia/desarrollo-carrera-personas/success-1-background.webp') top/cover no-repeat;
+}
+
+.success-section-1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 79, 140, 0.75);
+  z-index: 1;
+}
+
+.success-container-1 {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap:2%;
+  row-gap:15px;
+  position: relative;
+  z-index: 2;
+}
+
+.success-text-1 {
+  flex: 1;
+  color: var(--color-terciario);
+}
+
+.conekta-logo{
+    max-width: 230px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.success-text-1 h2 {
+  margin-bottom: 20px;
+}
+
+.success-text-1 ul {
+  padding-left: 20px;
+}
+
+.success-text-1 li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.success-image-1 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.success-image-1 img {
+  width: 100%;
+  max-width: 380px;
+  height: 100%;  
+  object-fit: cover;
+
+}
+
+@media (max-width: 900px) {
+    .success-container-1 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .conekta-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .success-text-1 ul {
+        text-align: left;
+    }
+
+    .success-image-1 img {
+        max-width: 300px;
+        margin-left: 10px;
+    }
+
+    .success-section-1 {
+        padding: 60px 40px;
+    }
+}
+
+/* ---------- */ 
+.success-section-2 {
+  padding: 60px 40px;
+  position: relative;
+  background: url('../recursos-multimedia/desarrollo-carrera-personas/success-2-background.webp') top/cover no-repeat;
+}
+
+.success-section-2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(124, 159, 204, 0.75);
+  z-index: 1;
+}
+
+.success-container-2 {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap:2%;
+  row-gap:15px;
+  position: relative;
+  z-index: 2;
+}
+
+.success-text-2 {
+  flex: 1;
+  color: var(--color-terciario);
+}
+
+.ioda-logo{
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.success-text-2 h2 {
+  margin-bottom: 20px;
+}
+
+.success-text-2 ul {
+  padding-left: 20px;
+}
+
+.success-text-2 li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.success-image-2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.success-image-2 img {
+  width: 100%;
+  max-width: 380px;
+  height: 100%;  
+  object-fit: cover;
+
+}
+
+@media (max-width: 900px) {
+    .success-container-2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ioda-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .success-text-2 ul {
+        text-align: left;
+    }
+
+    .success-image-2 img {
+        max-width: 300px;
+        margin-left: 10px;
+    }
+
+    .success-section-2 {
+        padding: 60px 40px;
+    }
+}
+
+
+/* --------------------------- */
+.video-section{
+    width: 100%;
+    background: var(--color-tercero);
+    padding: 60px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container{
+    width: 100%;
+    max-width: 1250px;
+}
+
+.video-container h3{
+    text-align: center;
+    color: var(--color-principal);
+    margin-bottom: 30px;
+}
+
+.video-wrapper{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.video-wrapper iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px){
+    .video-section{
+        padding: 50px 20px;
+    }
+
+    .video-wrapper{
+        border-radius: 16px;
+    }
+}
