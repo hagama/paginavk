@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VK - Eventos</title>
+    <title>VK - Agora Abierta</title>
     <link rel="icon" type="image/x-icon" href="../recursos-multimedia/logos/icon-vasquez-kennedy.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Hojas de Estilos -->
@@ -67,7 +67,7 @@
                     <a class="nav-link" href="https://conektavk.com/">Conekta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../pages/eventos.php">Eventos</a>
+                    <a class="nav-link active" href="../pages/eventos.php">Agora Abierta</a>
                 </li>
             </ul>
             </div>
