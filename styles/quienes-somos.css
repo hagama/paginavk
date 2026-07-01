@@ -759,7 +759,7 @@
     align-items: center;
     justify-content: center;
     gap: 25px;
-    background: var(--color-principal);
+    background: var(--color-terciario);
     padding: 40px 20px;
 }
 
@@ -770,12 +770,12 @@
     top: 0;
     width: 100vw;
     height: 100%;
-    background: var(--color-principal);
+    background: var(--color-terciario);
     z-index: -1;
 }
 
 .clientes-carrusel::before {
-    right: 100%;
+    right: calc(100% - 1px);
 }
 
 .clientes-carrusel::after {
@@ -810,13 +810,13 @@
     object-fit: contain;
     padding: 0 30px;
     flex-shrink: 0;
-    filter: brightness(0) invert(1);
+    filter: none;
 }
 
 .arrow {
     background: transparent;
     border: none;
-    color: var(--color-terciario);
+    color: var(--color-principal);
     font-size: 42px;
     cursor: pointer;
     transition: 0.3s;

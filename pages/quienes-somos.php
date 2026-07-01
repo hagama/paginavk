@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3 sticky-top">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
                 <img src="../recursos-multimedia/logos/logo-vasquez-kennedy.webp" alt="Logo Vásquez-Kennedy" width="120" height="50">
@@ -65,7 +65,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://conektavk.com/">Conekta</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" hidden>
                     <a class="nav-link" href="../pages/eventos.php">Agora Abierta</a>
                 </li>
             </ul>
@@ -249,7 +249,7 @@
         </div>
     </section>
     
-    <section class="talento-section">
+    <section class="talento-section" hidden>
         <h3>Conoce nuestro Talento:</h3>
         <p class="text-p3">Cada miembro de nuestro equipo profesional se desempeña en el trabajo correcto, trabaja cada día por una visión personal de éxito profesional y se asegura de que su trabajo en Vásquez Kennedy le provea felicidad.</p>
         <div class="carousel-talento">

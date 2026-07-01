@@ -18,7 +18,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3 sticky-top">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
                 <img src="../recursos-multimedia/logos/logo-vasquez-kennedy.webp" alt="Logo Vásquez-Kennedy" width="120" height="50">
@@ -66,7 +66,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://conektavk.com/">Conekta</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" hidden>
                     <a class="nav-link" href="../pages/eventos.php">Agora Abierta</a>
                 </li>
             </ul>
@@ -270,52 +270,7 @@
         </div>
     </section>
 
-    <section class="ecosistema">
-        <div class="container ecosistema-grid">
-            <div class="ecosistema-content">
-                <h2>Ruta de aprendizaje</h2>
-                <div class="eco-item">
-                    <div class="eco-number text-p3">01</div>
-                    <div class="eco-text">
-                        <h4>Formación y desarrollo</h4>
-                        <ul>
-                            <li class="text-p3">Conekta, plataforma tecnológica de aprendizaje</li>
-                            <li class="text-p3">Escuelas Gerenciales</li>
-                            <li class="text-p3">Equipos de productividad</li>
-                            <li class="text-p3">Salas de intercambio</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="eco-item">
-                    <div class="eco-number text-p3">02</div>
-                    <div class="eco-text">
-                        <h4>Red y conexiones</h4>
-                        <ul>
-                            <li class="text-p3">Comunidad VK</li>
-                            <li class="text-p3"><i>Networking</i></li>
-                            <li class="text-p3">Banco de Talento</li>
-                            <li class="text-p3">Centro de información de mercado</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="eco-item" style="margin-bottom: 0px;">
-                    <div class="eco-number text-p3">03</div>
-                    <div class="eco-text">
-                        <h4>Apoyo integral</h4>
-                        <ul>
-                            <li class="text-p3">Acompañamiento individual</li>
-                            <li class="text-p3">Asesoría financiera</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="ecosistema-img">
-                <img src="../recursos-multimedia/outplacement-empresas/ecosistema-img.webp" alt="Ecosistema de apoyo profesional con formación, networking y acompañamiento">
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonios">
+    <section class="testimonios" hidden>
         <h2>Testimonios</h2>
         <div class="carousel">
             <div class="carousel-track">

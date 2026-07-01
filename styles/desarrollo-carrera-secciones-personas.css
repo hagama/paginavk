@@ -1,0 +1,184 @@
+.problemas-section {
+    position: relative;
+    padding: 80px 20px;
+    background: url("../recursos-multimedia/desarrollo-carrera-personas/cards-a-background.webp") top/cover no-repeat;
+    overflow: hidden;
+}
+
+.problemas-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: 1;
+}
+
+.problemas-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.grid-problemas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    align-items: stretch;
+}
+
+.card-problema {
+    display: flex;
+    min-height: 150px;
+    height: 100%;
+    color: var(--color-principal);
+    background: var(--color-terciario);
+    transition: 0.3s;
+}
+
+.card-problema .card-img {
+    width: 25%;
+}
+
+.card-problema .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-problema .card-text {
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-problema:hover {
+    color: var(--color-terciario);
+    background: var(--color-secundario);
+}
+
+.success-section-1,
+.success-section-2 {
+    padding: 60px 40px;
+    position: relative;
+}
+
+.success-section-1 {
+    background: url("../recursos-multimedia/desarrollo-carrera-personas/success-1-background.webp") top/cover no-repeat;
+}
+
+.success-section-2 {
+    background: url("../recursos-multimedia/desarrollo-carrera-personas/success-2-background.webp") top/cover no-repeat;
+}
+
+.success-section-1::before,
+.success-section-2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.success-section-1::before {
+    background: rgba(4, 79, 140, 0.75);
+}
+
+.success-section-2::before {
+    background: rgba(124, 159, 204, 0.75);
+}
+
+.success-container-1,
+.success-container-2 {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    column-gap: 2%;
+    row-gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.success-text-1,
+.success-text-2 {
+    flex: 1;
+    color: var(--color-terciario);
+}
+
+.success-text-1 ul,
+.success-text-2 ul {
+    padding-left: 20px;
+}
+
+.success-text-1 li,
+.success-text-2 li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.success-image-1,
+.success-image-2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.success-image-1 img,
+.success-image-2 img {
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.conekta-logo {
+    display: block;
+    width: 100%;
+    max-width: 230px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.ioda-logo {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .success-container-1,
+    .success-container-2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .conekta-logo,
+    .ioda-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .success-text-1 ul,
+    .success-text-2 ul {
+        text-align: left;
+    }
+
+    .success-image-1 img,
+    .success-image-2 img {
+        max-width: 300px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-problema {
+        flex-direction: column;
+    }
+
+    .card-problema .card-img,
+    .card-problema .card-text {
+        width: 100%;
+    }
+}

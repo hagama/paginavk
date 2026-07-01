@@ -9,6 +9,7 @@
     <!-- Hojas de Estilos -->
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/desarrollo-carrera.css" />
+    <link rel="stylesheet" href="../styles/desarrollo-carrera-secciones-personas.css" />
     <!-- Fuente de texto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +19,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-3 pb-3 sticky-top">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
                 <img src="../recursos-multimedia/logos/logo-vasquez-kennedy.webp" alt="Logo Vásquez-Kennedy" width="120" height="50">
@@ -66,7 +67,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://conektavk.com/">Conekta</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" hidden>
                     <a class="nav-link" href="../pages/eventos.php">Agora Abierta</a>
                 </li>
             </ul>
@@ -147,54 +148,100 @@
         </div>
     </section>
 
-    <section class="success-section">
-        <div class="success-container">
-            <div class="success-text">
-                <img 
-                    src="../recursos-multimedia/logos/logo-conekta-negativo.webp" 
-                    alt="Logo Conekta"
-                    class="conekta-logo"
-                >
+    <section class="problemas-section">
+        <div class="container">
+            <div class="grid-problemas">
+                <div class="card-problema">
+                    <div class="card-img">
+                        <img src="../recursos-multimedia/desarrollo-carrera-personas/card-a-1.webp" alt="Gestión centralizada de datos en plataforma digital">
+                    </div>
+                    <div class="card-text">
+                        <p class="text-p3" style="margin-bottom: 0;"><b>Nuestra metodología: </b>Vásquez Kennedy te ofrece una combinación de canales de aprendizaje profundamente transformadora.</p>
+                        <ul>
+                            <li class="text-p3">Nos basamos en nuestras propias plataformas de aprendizaje y de gestión del desarrollo de los empleados.</li>
+                            <li class="text-p3">Contamos con herramientas tecnológicas exclusivas para la medición pre y post de los aprendizajes.</li>
+                            <li class="text-p3">Nuestra metodología es comprobada, trascendente e impecable en su fondo y en su forma.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-problema">
+                    <div class="card-img">
+                        <img src="../recursos-multimedia/desarrollo-carrera-personas/card-a-2.webp" alt="Profesionales en reunión de negocios analizando información y tomando decisiones estratégicas">
+                    </div>
+                    <div class="card-text">
+                        <p class="text-p3" style="margin-bottom: 0;"><b>Guías de desarrollo de Vásquez Kennedy:</b></p>
+                        <ul>
+                            <li class="text-p3">Metodología única en el mercado para definir prioridades de aprendizaje a partir del autoconocimiento y construir el plan para su desarrollo.</li>
+                            <li class="text-p3">El área de Desarrollo Humano de tu empresa no tendrá que decirte en qué te debes desarrollar, tú se los dirás.</li>
+                            <li class="text-p3">5 sesiones de coaching con nuestras Guías de Autodesarrollo bastan para que definas tus prioridades de aprendizaje y tu plan de acción.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-problema">
+                    <div class="card-img">
+                        <img src="../recursos-multimedia/desarrollo-carrera-personas/card-a-3.webp" alt="Manos sosteniendo engranajes digitales que representan las áreas de aprendizaje con Vásquez-Kennedy">
+                    </div>
+                    <div class="card-text">
+                        <p class="text-p3" style="margin-bottom: 0;"><b>Escuela de <i>management</i>:</b> Cursos blended learning que combinan tecnología educativa e IA con el apoyo de especialistas, para aprender el doble en la mitad del tiempo, en estas áreas:</p>
+                        <ul>
+                            <li class="text-p3">Crear una visión.</li>
+                            <li class="text-p3">Ser inspirador.</li>
+                            <li class="text-p3">Lograr resultados.</li>
+                            <li class="text-p3">Ser eficiente.</li>
+                            <li class="text-p3">Crear sinergias.</li>
+                            <li class="text-p3">Desarrollar equipos efectivos.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-problema">
+                    <div class="card-img">
+                        <img src="../recursos-multimedia/desarrollo-carrera-personas/card-a-4.webp" alt="Líder enfocado en fortalecer el talento humano">
+                    </div>
+                    <div class="card-text">
+                        <p class="text-p3" style="margin-bottom: 0;"><b>Coaching ejecutivo: </b><br>Un equipo estelar de coaches sénior con certificaciones internacionales y una metodología altamente estructurada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-section-1">
+        <div class="success-container-1">
+            <div class="success-text-1">
+                <img src="../recursos-multimedia/logos/logo-conekta-negativo.webp" alt="Logo Conekta" class="conekta-logo">
                 <ul>
+                    <li class="text-p3">Plataforma exclusiva que combina tecnología educativa, IA y el apoyo de especialistas.</li>
                     <li class="text-p3">La herramienta de aprendizaje para el desarrollo humano más avanzada en el mercado.</li>
                     <li class="text-p3">Programas de capacitación trascendentes, accesibles e impecables.</li>
                     <li class="text-p3">Tecnología educativa avanzada apoyada en IA.</li>
                     <li class="text-p3">Variedad de recursos interactivos de capacitación.</li>
                     <li class="text-p3">Desarrollo de contenidos por los mejores especialistas.</li>
-                    <li class="text-p3">¿En qué nos basamos para ofrecerle altas probabilidades de éxito?</li>
-                    <ul>
-                        <li class="text-p3">Tres décadas de experiencia sirviendo al éxito de la carrera de más de 15.000 gerentes y profesionales.</li>
-                        <li class="text-p3">Tecnología avanzada con IA para el desarrollo e los empleados.</li>
-                        <li class="text-p3">Un equipo humano HUMANO.</li>
-                    </ul>
-                    <li class="text-p3">Una combinación de canales de aprendizaje profundamente transformadora.</li>
-                    <ul>
-                        <li class="text-p3">Nos basamos en nuestras propias plataformas de aprendizaje y de gestión del desarrollo de los empleados.</li>
-                        <li class="text-p3">Contamos con herramientas tecnológicas exclusivas para la medición pre y post de los aprendizajes.</li>
-                        <li class="text-p3">Nuestra metodología es comprobada, trascendente e impecable en su fondo y en su forma.</li>
-                    </ul>
                 </ul>
-                <ol>
-                    <li class="text-p3"><b>Guías para el Autodesarrollo:</b><br>No necesitará decirle a sus gerentes ni empleados en qué se deben desarrollar: ellos se lo dirán a usted. 5 sesiones de coaching con nuestras Guías de Autodesarrollo bastan para que cada directivo y cada empleado defina sus prioridades de aprendizaje y su plan de acción.</li>
-                        <ul>
-                            <li class="text-p3">Metodología revolucionaria exclusiva de Vásquez Kennedy para la autogestión del desarrollo.</li>
-                        </ul>
-                    <li class="text-p3"><b>Escuela de Management:</b> Cursos individuales o grupales blended learning que combinan tecnología educativa e IA con el apoyo de especialistas, para aprender el doble en la mitad del tiempo:</li>
-                        <ul>
-                            <li class="text-p3">Pensamiento estratégico. Pensamiento creativo. Productividad profesional. Gestión del desempeño. El arte de retroalimentar. El lado humano del cambio. Alineación de equipos.</li>
-                        </ul>
-                    <li class="text-p3"><b>Pruebas focales de evaluación 360°:</b> Pruebas 360° para medir 17 competencias de liderazgo.</li>
-                    <li class="text-p3"><b>Coaching ejecutivo:</b> un equipo estelar de coaches sénior con certificaciones internacionales y una metodología altamente estructurada.</li>
-                </ol>
             </div>
-
-            <div class="success-image">
-                <img src="../recursos-multimedia/desarrollo-carrera/persona-trabajando.webp" alt="Profesional colaborando en procesos de aprendizaje y desarrollo de carrera">
+            <div class="success-image-1">
+                <img src="../recursos-multimedia/desarrollo-carrera-personas/success-1-img.webp" alt="Líder de equipo revisando indicadores de clima laboral">
             </div>
         </div>
     </section>
 
-    <section class="video-section">
+    <section class="success-section-2">
+        <div class="success-container-2">
+            <div class="success-image-2">
+                <img src="../recursos-multimedia/desarrollo-carrera-personas/success-2-img.webp" alt="Líder de equipo revisando indicadores de clima laboral">
+            </div>
+            <div class="success-text-2">
+                <img src="../recursos-multimedia/logos/logo-ioda-negativo.webp" alt="Logo IODA" class="ioda-logo">
+                <h3>¿En qué nos basamos para ofrecerle altas probabilidades de éxito?</h3>
+                <ul>
+                    <li class="text-p3">Tres décadas de experiencia sirviendo al éxito de la carrera de más de 15.000 gerentes y profesionales.</li>
+                    <li class="text-p3">Tecnología avanzada con IA para el desarrollo e los empleados.</li>
+                    <li class="text-p3">Un equipo humano HUMANO.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section" hidden>
         <div class="video-container">
             <h3>Testimonios</h3>
             <div class="video-wrapper">
