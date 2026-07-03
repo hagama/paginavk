@@ -1,14 +1,16 @@
+<?php require_once dirname(__DIR__) . '/cache-control.php'; ?>
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VK - Outplacement Empresas</title>
+<?php render_open_graph(); ?>
     <link rel="icon" type="image/x-icon" href="../recursos-multimedia/logos/icon-vasquez-kennedy.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Hojas de Estilos -->
-    <link rel="stylesheet" href="../styles/global.css" />
-    <link rel="stylesheet" href="../styles/outplacement-empresas.css" />
+    <link rel="stylesheet" href="<?= asset_url('../styles/global.css') ?>" />
+    <link rel="stylesheet" href="<?= asset_url('../styles/outplacement-empresas.css') ?>" />
     <!-- Fuente de texto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -407,6 +409,6 @@
     <!-- Bootstrap 5: JS y Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="../js/carousel-testimonios.js"></script>
+    <script src="<?= asset_url('../js/carousel-testimonios.js') ?>"></script>
   </body>
 </html>

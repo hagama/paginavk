@@ -1,0 +1,10 @@
+<IfModule mod_headers.c>
+    <FilesMatch "\.(?:css|js|png|jpe?g|gif|webp|svg|ico)$">
+        Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 0 seconds"
+</IfModule>
