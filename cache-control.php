@@ -40,7 +40,10 @@ function render_open_graph(): void
 {
     $title = 'Vásquez Kennedy - Career Success';
     $description = 'Tres décadas acompañando el desarrollo del éxito de más de 15.000 profesionales en el éxito de sus carreras. Tecnología avanzada e IA para el desarrollo de los empleados. Un equipo humano HUMANO.';
-    $image = absolute_site_url('/recursos-multimedia/logos/logo-vasquez-kennedy.webp');
+    $imagePath = '/recursos-multimedia/logos/open-graph-vasquez-kennedy.png';
+    $imageFile = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, $imagePath);
+    $imageVersion = is_file($imageFile) ? '?v=' . filemtime($imageFile) : '';
+    $image = absolute_site_url($imagePath . $imageVersion);
     $url = absolute_site_url();
     $escape = static function (string $value): string {
         return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -54,9 +57,9 @@ function render_open_graph(): void
     echo '    <meta property="og:description" content="' . $escape($description) . '">' . PHP_EOL;
     echo '    <meta property="og:url" content="' . $escape($url) . '">' . PHP_EOL;
     echo '    <meta property="og:image" content="' . $escape($image) . '">' . PHP_EOL;
-    echo '    <meta property="og:image:type" content="image/webp">' . PHP_EOL;
-    echo '    <meta property="og:image:width" content="1526">' . PHP_EOL;
-    echo '    <meta property="og:image:height" content="647">' . PHP_EOL;
+    echo '    <meta property="og:image:type" content="image/png">' . PHP_EOL;
+    echo '    <meta property="og:image:width" content="1730">' . PHP_EOL;
+    echo '    <meta property="og:image:height" content="909">' . PHP_EOL;
     echo '    <meta property="og:image:alt" content="Logo de Vásquez Kennedy - Career Success">' . PHP_EOL;
     echo '    <meta name="twitter:card" content="summary_large_image">' . PHP_EOL;
     echo '    <meta name="twitter:title" content="' . $escape($title) . '">' . PHP_EOL;
