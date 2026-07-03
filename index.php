@@ -392,7 +392,7 @@
                 </div>
                 <div class="webinar-video">
                     <iframe 
-                        src="https://youtu.be/s_yZB5Uq-Ss"
+                        src="https://www.youtube.com/watch?v=s_yZB5Uq-Ss"
                         title="Webinar"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
