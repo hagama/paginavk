@@ -1,9 +1,18 @@
 const track = document.getElementById("logosTrack");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
-const logos = document.querySelectorAll(".logos-track img");
+const logos = document.querySelectorAll(".client-logo");
 let index = 0;
-const totalLogos = logos.length / 2;
+
+function obtenerLogosVisibles() {
+    if (window.innerWidth <= 576) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 4;
+}
+
+function obtenerIndiceMaximo() {
+    return Math.max(0, logos.length - obtenerLogosVisibles());
+}
 
 function obtenerAncho() {
     return logos[0].clientWidth;
@@ -16,7 +25,7 @@ function actualizarCarrusel() {
 
 function siguienteLogo() {
     index++;
-    if (index >= totalLogos) {
+    if (index > obtenerIndiceMaximo()) {
         index = 0;
     }
     actualizarCarrusel();
@@ -25,7 +34,7 @@ function siguienteLogo() {
 function anteriorLogo() {
     index--;
     if (index < 0) {
-        index = totalLogos - 1;
+        index = obtenerIndiceMaximo();
     }
     actualizarCarrusel();
 }
@@ -44,4 +53,9 @@ prevBtn.addEventListener("click", () => {
     autoplay = setInterval(siguienteLogo, 2000);
 });
 
-window.addEventListener("resize", actualizarCarrusel);
+window.addEventListener("resize", () => {
+    if (index > obtenerIndiceMaximo()) {
+        index = obtenerIndiceMaximo();
+    }
+    actualizarCarrusel();
+});

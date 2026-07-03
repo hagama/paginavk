@@ -528,12 +528,57 @@
                 </button>
                 <div class="logos-wrapper">
                     <div class="logos-track" id="logosTrack">
-                        <img src="../recursos-multimedia/quienes-somos/logos-empresas/uniminuto.webp" alt="Empresa cliente de Vásquez Kennedy">
-                        <img src="../recursos-multimedia/quienes-somos/logos-empresas/terranvm.webp" alt="Empresa cliente de Vásquez Kennedy">
-                        <img src="../recursos-multimedia/quienes-somos/logos-empresas/teleperformance.webp" alt="Empresa cliente de Vásquez Kennedy">
-                        <img src="../recursos-multimedia/quienes-somos/logos-empresas/redeban.webp" alt="Empresa cliente de Vásquez Kennedy">
-                        <img src="../recursos-multimedia/logos/logo-vasquez-kennedy-negativo.webp" alt="Empresa cliente de Vásquez Kennedy">
-                        <img src="../recursos-multimedia/logos/logo-vasquez-kennedy-negativo.webp" alt="Empresa cliente de Vásquez Kennedy">
+<?php
+$clientes = [
+    ['JERÓNIMO MARTINS', 'jeronimo-martins.png'],
+    ['LEVAPAN', 'levapan.png'],
+    ['MAGNEX', 'magnex.png'],
+    ['IJM', 'ijm.png'],
+    ['IGT', 'igt.png'],
+    ['GRAN TIERRA', 'gran-tierra.png'],
+    ['GIVAUDAN', 'givaudan.png'],
+    ['GEA', 'gea.png'],
+    ['FDN', 'fdn.png'],
+    ['ASPEN', 'aspen.png'],
+    ['ASTELLAS', 'astellas.png'],
+    ['DAVIbank', 'davibank.png'],
+    ['STANLEY BLACK & DECKER', 'stanley-black-decker.png'],
+    ['CHALLENGER', 'challenger.png'],
+    ['DAVIVIENDA', 'davivienda.png'],
+    ['ALPINA', 'alpina.png'],
+    ['ALLIANZ', 'allianz.png'],
+    ['WOM', null],
+    ['iSHOP', null],
+    ['INTERNEXA', 'internexa.png'],
+    ['INALDE', 'inalde.png'],
+    ['PARQUE ARAUCO', 'parque-arauco.png'],
+    ['UNIMINUTO', 'uniminuto.webp'],
+    ['TERRANUM', 'terranum.webp'],
+    ['REDEBAN', 'redeban.webp'],
+    ['QUALA', 'quala.png'],
+    ['PRODESA', 'prodesa.png'],
+    ['PERNOD RICARD', 'pernod-ricard.png'],
+    ['DISAN', 'disan.svg'],
+    ['SEGUROS LA EQUIDAD', null],
+    ['BRIGARD & URRUTIA', 'brigard-urrutia.png'],
+    ['CIEDI', null],
+    ['MORE PRODUCTS', 'more-products.png'],
+    ['FALABELLA', 'falabella.png'],
+    ['BELCORP', 'belcorp.png'],
+    ['POPSY', null],
+    ['PAT PRIMO', 'pat-primo.png'],
+    ['CENIPALMA', 'cenipalma.png'],
+];
+
+foreach ($clientes as [$nombre, $archivo]):
+?>
+                        <div class="client-logo<?= $archivo === null ? ' client-logo-text' : '' ?>">
+<?php if ($archivo !== null): ?>
+                            <img src="<?= asset_url('../recursos-multimedia/quienes-somos/logos-clientes/' . $archivo) ?>" alt="Logo de <?= htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8') ?>">
+<?php endif; ?>
+                            <span><?= htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8') ?></span>
+                        </div>
+<?php endforeach; ?>
                     </div>
                 </div>
                 <button class="arrow right" id="nextBtn">
