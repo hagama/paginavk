@@ -283,6 +283,7 @@
                                 <p>
                                     Plataforma para una experiencia de aprendizaje trascendente y para crear intercambios con actores claves.
                                 </p>
+                                <span class="flip-more-hint">Clic para más información</span>
                             </div>
                         </div>
                     </a>
@@ -299,6 +300,7 @@
                                 <p>
                                     Plataforma para gestionar el desarrollo de los empleados y tomar decisiones basadas en el uso inteligente de los datos de los empleados.
                                 </p>
+                                <span class="flip-more-hint">Clic para más información</span>
                             </div>
                         </div>
                     </a>
