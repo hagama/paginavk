@@ -8,7 +8,7 @@
 --color-cuarto: #000000;
 --color-quinto: rgb(124, 159, 204);
 --color-sexto: rgb(248, 248, 248);
---color-menu-seleccionado: #7c9fcc;
+--color-menu-seleccionado: #044f8c;
 
 --color-principal-hover: #0881e4;
 --color-secundario-hover: #c90000;
@@ -16,8 +16,8 @@
 
 
 /* TIPOGRAFIA */
---font-principal:"Roboto", sans-serif;
---font-secundario:"Arimo", sans-serif;
+--font-principal:Arial, Helvetica, sans-serif;
+--font-secundario:Arial, Helvetica, sans-serif;
 
 /* Tamanos*/
 --h1-size: 46px;
@@ -37,6 +37,22 @@
 
 body {
   font-family: var(--font-principal);
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: var(--color-terciario);
+  color: var(--color-principal);
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 h1,h2,h3,h4,h5{
@@ -94,6 +110,7 @@ h5 {
 
 .dropdown-item{ /* --- Menu desplegable --- */
   color: var(--color-principal);
+  min-height: 44px;
 }
 
 .dropdown-item:hover{
@@ -204,12 +221,17 @@ h5 {
   padding-left: 100px;
 }
 
-.footer h5{
+.footer h5,
+.footer-title{
   margin-bottom:20px;
+  font-size: var(--h5-size);
+  font-weight: 700;
 }
 
-.footer h6{
+.footer h6,
+.footer-subtitle{
   margin-bottom:2px;
+  font-size: 16px;
 }
 
 .footer p{
@@ -220,6 +242,13 @@ h5 {
   color:inherit;          /* mantiene el mismo color del texto */
   text-decoration:none;   /* quita el subrayado */
   display:inline-block;
+}
+
+.footer-col p.text-p5 a {
+  min-height: 28px;
+  padding: 3px 4px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .contacto{
@@ -262,6 +291,14 @@ h5 {
   display:flex;
   align-items:center;
   gap:20px;
+}
+
+.redes a {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .redes img{
@@ -327,14 +364,18 @@ h5 {
     bottom: 25px;
     right: 25px;
     z-index: 1000;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .whatsapp-float img{
     width: 50px;
-    height: auto;
+    height: 50px;
 }
 
 .whatsapp-float img:hover{
     transform: scale(1.05);
 }
-

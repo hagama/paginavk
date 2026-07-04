@@ -3,6 +3,7 @@
     position: relative;
     height: 700px;
     overflow: hidden;
+    background: var(--color-principal);
 }
 
 .hero-slide video{ /* Video ocupando todo el fondo */
@@ -67,8 +68,12 @@
 }
 
 .carousel-indicators [data-bs-target] {
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  margin-left: 6px;
+  border: 6px solid transparent;
+  background-clip: content-box;
   /*opacity: 1;*/
 }
 
@@ -134,7 +139,7 @@
     text-align: center;
 }
 
-.banner-content h3{
+.banner-content h2{
     color:var(--color-principal);
     font-weight:600;
     margin-bottom:10px;
@@ -159,7 +164,7 @@
         width: 200px;
     }  
 
-    .banner-content h3{
+    .banner-content h2{
         font-size:20px;
     }
 
@@ -377,12 +382,13 @@
     transition: transform .8s ease;
 }
 
-.servicio-frame h5{
+.servicio-frame h3{
     margin-bottom:0;
     text-align: left;
+    font-size: var(--h5-size);
 }
 
-.servicio-frame:hover h5{
+.servicio-frame:hover h3{
     padding-bottom: 0px !important;
 }
 
@@ -497,7 +503,7 @@
     z-index: 2;
 }
 
-.banner-tarjetas h5{
+.banner-tarjetas h2{
     color: var(--color-principal);
     margin-bottom: 20px;
     text-align: center;
@@ -594,6 +600,7 @@
 .card-logo{
     max-width:300px;
     width:80%;
+    height:auto;
 }
 
 .flip-link{
@@ -626,12 +633,46 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.18);
 }
 
-.video-wrapper iframe{
+.video-wrapper iframe,
+.video-wrapper .lite-video{
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.lite-video {
+    padding: 0;
+    background: #000;
+    cursor: pointer;
+}
+
+.lite-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lite-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 68px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #c90000;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+}
+
+.lite-video:focus-visible {
+    outline: 4px solid var(--color-terciario);
+    outline-offset: -6px;
 }
 
 @media (max-width: 768px){
@@ -704,6 +745,7 @@
 
 .about-image img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 
@@ -770,6 +812,7 @@
   margin-bottom: 15px;
   max-height: 200px;
   object-fit: cover;
+  aspect-ratio: 800 / 533;
 }
 
 .card-valores h3 {
@@ -850,7 +893,8 @@
     padding-top: 56.25%;
 }
 
-.webinar-video iframe {
+.webinar-video iframe,
+.webinar-video .lite-video {
     position: absolute;
     inset: 0;
     width: 100%;
