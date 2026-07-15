@@ -42,13 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
         video.play().catch(() => {});
     }
 
+    function startCarouselTimer() {
+        if (carouselTimer || heroSlides.length <= 1) return;
+        carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 3500);
+    }
+
     function enableHeroMedia() {
         if (heroMediaEnabled) return;
         heroMediaEnabled = true;
         loadAndPlay(document.querySelector(".carousel-item.active video[data-video-src]"));
-        if (heroSlides.length > 1) {
-            carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 3500);
-        }
     }
 
     ["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
@@ -71,12 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    startCarouselTimer();
+
     heroIndicators.forEach((indicator, indicatorIndex) => {
         indicator.addEventListener("click", () => {
             showSlide(indicatorIndex);
             if (carouselTimer) {
                 window.clearInterval(carouselTimer);
-                carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 3500);
+                carouselTimer = null;
+                startCarouselTimer();
             }
         });
     });

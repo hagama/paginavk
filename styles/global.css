@@ -211,7 +211,12 @@ h5 {
 }
 
 .footer-logo{
-  width:200px;
+  display:block;
+  width:260px;
+  max-width:55vw;
+  height:auto;
+  margin:0 auto;
+  object-fit:contain;
 }
 .footer-grid{
   display:grid;
