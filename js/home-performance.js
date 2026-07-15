@@ -53,10 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         loadAndPlay(document.querySelector(".carousel-item.active video[data-video-src]"));
     }
 
-    ["pointerdown", "keydown", "touchstart"].forEach((eventName) => {
-        window.addEventListener(eventName, enableHeroMedia, { once: true, passive: true });
-    });
-
     function showSlide(index) {
         if (!heroSlides.length) return;
         activeSlide = (index + heroSlides.length) % heroSlides.length;
@@ -73,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    enableHeroMedia();
     startCarouselTimer();
 
     heroIndicators.forEach((indicator, indicatorIndex) => {
