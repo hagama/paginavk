@@ -85,6 +85,10 @@
             <h5 class="blogs-title">
                 Blogs
             </h5>
+            <p class="blogs-intro">
+                El espacio donde compartimos ideas, conversaciones y recursos sobre carreras, liderazgo y productividad.
+                Blogs, eventos, webinars y podcasts para que tu vida profesional crezca.
+            </p>
             <div class="blogs-slider">
                 <div class="blogs-track">
                     <!-- BLOG 1 -->
@@ -168,8 +172,8 @@
                 <div class="podcast-top">
                     <div class="podcast-info">
                         <h3>
-                            Alguna frase que llame la atención que haya dicho
-                            Camilo en uno de sus podcast
+                            Las ideas que transforman una carrera no siempre vienen de un libro.
+                            A veces vienen de una conversación.
                         </h3>
                         <div class="podcast-platforms">
                             <a href="#" class="platform-btn">
