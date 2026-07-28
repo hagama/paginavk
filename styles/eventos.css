@@ -53,28 +53,32 @@
     background: rgba(255,255,255,0.72);
     border: 2px solid var(--color-principal);
     border-radius: 14px;
-    padding: 22px;
+    padding: 0;
     box-sizing: border-box;
     backdrop-filter: blur(4px);
     transition: 0.3s ease;
+    overflow: hidden;
 }
 
 .blog-card:hover {
     transform: translateY(-5px);
 }
 
-.blog-content h4 {
-    color: var(--color-principal);
-    margin-bottom: 2px;
-}
-
-.blog-content h4 a {
+.blog-card-link {
+    display: block;
+    height: 100%;
+    padding: 22px;
     color: inherit;
     text-decoration: none;
 }
 
-.blog-content h4 a:hover {
+.blog-card-link:hover h4 {
     color: var(--color-principal-hover);
+}
+
+.blog-content h4 {
+    color: var(--color-principal);
+    margin-bottom: 2px;
 }
 
 .blog-date {
@@ -94,6 +98,13 @@
 .blog-content p {
     color: var(--color-principal);
     line-height: 1.25;
+}
+
+.blog-more {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color-secundario);
+    font-weight: 700;
 }
 
 .blogs-dots {

@@ -93,9 +93,10 @@
                 <div class="blogs-track">
                     <!-- BLOG 1 -->
                     <article class="blog-card">
+                        <a class="blog-card-link" href="../pages/blogs/blog1.php">
                         <div class="blog-content">
                             <h4>
-                                <a href="../pages/blogs/blog1.php">“SEXALESCENTES”</a>
+                                “SEXALESCENTES”
                             </h4>
                             <span class="blog-date text-p4">
                                 23 Mayo, 2026
@@ -105,14 +106,17 @@
                                 Se ha configurado una nueva generación: los “sexalescentes”, o sexagenarios
                                 adolescentes. Antes eran ancianos de 60 o más años de edad que hoy no son viejos.
                             </p>
+                            <span class="blog-more text-p5">+ info</span>
                         </div>
+                        </a>
                     </article>
 
                     <!-- BLOG 2 -->
                     <article class="blog-card">
+                        <a class="blog-card-link" href="../pages/blogs/blog2.php">
                         <div class="blog-content">
                             <h4>
-                                <a href="../pages/blogs/blog2.php">EL NUEVO PODER DEL AUTODESARROLLO</a>
+                                EL NUEVO PODER DEL AUTODESARROLLO
                             </h4>
                             <span class="blog-date text-p4">
                                 23 Mayo, 2026
@@ -122,30 +126,29 @@
                                 Nadie aprende si no quiere aprender. Todo el que sepa lo que quiere y conozca
                                 sus recursos internos puede tener una carrera exitosa.
                             </p>
+                            <span class="blog-more text-p5">+ info</span>
                         </div>
+                        </a>
                     </article>
 
                     <!-- BLOG 3 -->
                     <article class="blog-card">
+                        <a class="blog-card-link" href="../pages/blogs/blog3.php">
                         <div class="blog-content">
                             <h4>
-                                Título del blog
+                                CÓMO ES UNA “MARCA PERSONAL CONQUISTADORA”
                             </h4>
                             <span class="blog-date text-p4">
                                 23 Mayo, 2026
                             </span>
                             <div class="blog-line"></div>
                             <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea
-                                commodo consequat.
+                                Ni imagen sin sustento, ni trabajo sin proyección de la imagen personal.
+                                La marca personal comunica sus atributos reales, relevantes y distintivos.
                             </p>
+                            <span class="blog-more text-p5">+ info</span>
                         </div>
+                        </a>
                     </article>
                 </div>
             </div>
