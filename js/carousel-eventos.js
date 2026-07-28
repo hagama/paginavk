@@ -63,7 +63,7 @@ function iniciarAutoSlide() {
             index = 0;
         }
         moverCarrusel();
-    }, 5000);
+    }, 10000);
 }
 
 function reiniciarAutoSlide() {
