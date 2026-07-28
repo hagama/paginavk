@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VK - El nuevo poder del autodesarrollo</title>
+    <title>VK - Sexalescentes, una nueva generación</title>
 <?php render_open_graph(); ?>
     <link rel="icon" type="image/x-icon" href="../../recursos-multimedia/logos/icon-vasquez-kennedy.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -84,73 +84,37 @@
                     Volver a Ágora abierta
                 </a>
                 <p class="blog-kicker text-p4">Blog</p>
-                <h1>EL NUEVO PODER DEL AUTODESARROLLO</h1>
-                <p class="blog-subtitle text-p2">Nadie aprende si no quiere aprender.</p>
+                <h1>“SEXALESCENTES”, UNA NUEVA GENERACIÓN</h1>
+                <p class="blog-subtitle text-p2">Los jubilados que no son viejos.</p>
                 <p class="blog-author text-p4">Por Camilo Vásquez Kennedy</p>
             </div>
         </section>
 
         <section class="blog-article-section">
             <article class="container blog-article">
-                <p class="text-p3">Nadie aprende si no quiere aprender. Todo el que sepa lo que quiere y conozca sus recursos internos puede tener una carrera exitosa. Lo más valioso que la empresa puede hacer es ayudar a la gente a profundizar en el conocimiento más valioso de todos: el de sí mismo.</p>
+                <p class="text-p3">Se ha configurado una nueva generación: los “sexalescentes”, o sexagenarios adolescentes. Antes eran ancianos de 60 o más años de edad que hoy no son viejos y que lo que más desean es vivir en libertad y dependiendo de sus propias fuerzas.</p>
 
-                <p class="text-p3">Los profesionales de las áreas de Desarrollo Humano suelen vivir grandes frustraciones. Una de ellas es que estructuran programas muy bien fundamentados, pero no consiguen que a los empleados se interesen lo suficiente.</p>
+                <p class="text-p3">En 1960, la esperanza de vida en Colombia era de 57,6 años, y hoy es de 77,3; la edad de jubilación en 1960 era de 60 años para los hombres y 55 para las mujeres, y hoy de 62 y 57. La esperanza de vida ha aumentado 20 años en los últimos 60 años, y la de edad de jubilación solamente dos.</p>
 
-                <p class="text-p3">Otra, que los empleados participen pero que sus comportamientos no cambien.</p>
+                <p class="text-p3">Hoy hay más jubilados, que viven más tiempo en esa condición. Hace dos generaciones las personas con más de 60 años eran ancianos. Hoy puede decirse que son “sexalescentes”, sexagenarios adolescentes. Demográficamente esto es novedoso como la aparición, en su momento, del término “adolescente”, que también fue una franja social nueva que surgió a mediados del Siglo XX para denominar a los que anteriormente eran considerados unos “niños grandes”.</p>
 
-                <p class="text-p3">Y una más, que los directivos de la empresa no valoren esta como una inversión importante para el negocio.</p>
+                <p class="text-p3">La “sexalescencia” comprende a los adultos con una edad de 60, 70 y más años. Su manera de ser y su actitud es firme, constante, resuelta, llena de energía y vigor frente a la vida y sus contingencias. No piensan ni remotamente en la muerte. Han eliminado de su vocabulario las palabras “sexagenario”, “tercera edad” o “viejo” porque, sencillamente, no tienen entre sus planes la posibilidad de volverse un viejo abuelo o abuela.</p>
 
-                <p class="text-p3">Estos problemas se profundizan en la complejidad del conocimiento del mundo moderno y su cambio continuo. No parece pueda mantenerse centralizadas en unas áreas especializadas las decisiones sobre las personas. El Autodesarrollo es un concepto que se debe implantar.</p>
+                <h2>Libertad y autonomía</h2>
 
-                <h2>Nadie aprende si no quiere aprender</h2>
+                <p class="text-p3">Quizás lo que más desean es vivir en libertad y dependiendo de sus propias fuerzas, en su probablemente tranquila economía personal, y alcanzar todas las metas que aún siguen planificando. Un “sexalescente” típico se mantiene actualizado en las nuevas tecnologías, siente gran satisfacción por sentirse productivo, trabaja y puede que busque desarrollarse en aquellas áreas con la que siempre soñó.</p>
 
-                <p class="text-p3">El “autodesarrollo” de carrera es un desarrollo auto concebido y autodirigido por los empleados para el éxito en su trabajo.</p>
+                <p class="text-p3">Quizás, este adulto ya pensionado busque una nueva forma de trabajar, en labores amables altamente satisfactorias, remuneradas o no. La “remuneración emocional” cuenta. Desarrollar un trabajo profesional competitivo remunerado, o unirse a voluntariados, o involucrarse en actividades grupales de educación, o darles rienda suelta a los sueños postergados, son opciones sobre la mesa. “Lo más importante es que el trabajo no plantee demasiadas exigencias físicas y haya una reducción en la intensidad horaria”, dice el Informe Mundial sobre el Envejecimiento y la Salud de la OMS.</p>
 
-                <p class="text-p3">Nadie aprende si no quiere aprender. Nadie puede remplazar a una persona en la construcción de su éxito profesional. Todo el mundo puede tener una carrera exitosa siempre que sepa lo que quiere, cuáles son sus mejores recursos internos y cómo hacer un plan de carrera.</p>
+                <h2>Transición exitosa a la jubilación</h2>
 
-                <p class="text-p3">Si se mira bien, al autodesarrollo es la única manera de que la gente en verdad progrese.</p>
+                <p class="text-p3">Este cambio debería ser una transición productiva y saludable, para la que lo mejor es prepararse con toda la anticipación. Debe ser inaceptable ser invitado por la empresa al retiro por haber cumplido los requisitos para la pensión de jubilación, y no saber qué hacer en adelante con el tiempo ahora totalmente disponible.</p>
 
-                <p class="text-p3">Es un enfoque para gerenciar el desarrollo del talento en el que las empresas, antes que capacitar a su gente en habilidades técnicas, la capacitan sobre cómo conocerse más, cómo construir un plan de carrera y cómo hacerse cargo de él.</p>
+                <p class="text-p3">Las personas y las empresas tienen la “obligación” de planear esta transición, y adoptar programas de preparación a la jubilación donde el foco principal sea la exploración de las mejores opciones para desarrollar una vida activa como persona jubilada. Dejar de trabajar, además, puede afectar seriamente la salud. Dawn C. Carr, del Centro de la Longevidad de Stanford, Estados Unidos, dice que “se ha observado que hay una disminución impresionante en el rendimiento cognitivo, que va de la mano con la jubilación, porque cuando dejamos de participar en tareas complejas, el cerebro se empieza a dañar”. En un foro sobre alzhéimer realizado en la Clínica Mayo en Miami, se señaló que, “para evitar el deterioro cognoscitivo, lo principal es seguir usando el cerebro en labores que exijan pensamiento complejo”. La evidencia científica muestra que seguir trabajando genera un beneficio emocional, debido al reto intelectual y a las relaciones sociales.</p>
 
-                <p class="text-p3">Estas empresas valoran más las decisiones de carrera que toma cada persona, que los planes que hacen sobre ellas las áreas especializadas.</p>
+                <p class="text-p3">Como es poco probable conseguir un nuevo empleo de tiempo completo, como si nada hubiera pasado, las formas de trabajo independiente merecen ser exploradas. Allí el próximo jubilado se enfrenta a los temores y las creencias limitantes alrededor de la independencia laboral, que a veces paralizan. Pero los tiempos modernos han multiplicado las opciones para la prestación de servicios profesionales bajo modalidades novedosas como los “Interim Managers” -gerentes que se vinculan a una empresa para liderar proyectos específicos por tiempo definido y con jornadas parciales-, o la provisión de servicios tercerizados, o el servicio en juntas directivas o la consultoría profesional, y muchas otras.</p>
 
-                <p class="text-p3">El autodesarrollo de la gente se logra, primero, ayudando a cada uno a profundizar en el conocimiento de sus talentos, motivaciones y limitaciones y a clarificar su visión personal de éxito. Si la gente no se conoce, no sabe lo que quiere ni lo que tiene, no puede haber autodesarrollo. El desarrollo genuino de un empleado está profundamente articulado con su visión personal de éxito profesional.</p>
-
-                <h2>El conocimiento más valioso de todos</h2>
-
-                <p class="text-p3">A través de diversas prácticas de evaluación, de capacitación y de coaching, la empresa puede ayudar a la gente a profundizar en el conocimiento más valioso para todo el mundo: el de sí mismo.</p>
-
-                <p class="text-p3">Cuando la gente amplía la comprensión de sus áreas de talento y de motivación, de su personalidad y de sus limitaciones internas, cuando clarifica su visión de éxito profesional y construye un plan de aprendizaje motivador y realista, se pone en condiciones superiores para lograr el éxito de su carrera.</p>
-
-                <p class="text-p3">“Cuando una persona tiene un propósito significativo, el poder para tomar decisiones y los recursos para trabajar por ese propósito, no necesita discursos motivacionales ni metas desafiantes”, dice Frederic Laloux en su libro Reinventar las organizaciones, donde publicó una investigación profunda sobre empresas que funcionan dentro de estos esquemas.</p>
-
-                <p class="text-p3">El segundo apoyo esencial para los empleados consiste en proveerles un método para la construcción de los planes para su autodesarrollo. Las personas no suelen saber cómo hacer para conducir su desarrollo profesional.</p>
-
-                <p class="text-p3">Lo que sigue es la alienación de esas prioridades individuales con los planes de la empresa y con las exigencias de su rol, que debería incluir un ejercicio de discusión con los representantes apropiados de la empresa. Deberá asegurarse de que sus directivos estén debidamente capacitados en el arte de conversar con sus empleados sobre su desarrollo y facilitar acuerdos y apoyos organizacionales.</p>
-
-                <h2>¿En qué empresas se puede hacer autodesarrollo?</h2>
-
-                <p class="text-p3">El autodesarrollo se practica en empresas en donde se respira un ambiente de confianza y de responsabilidad. “Cuando las organizaciones se construyen (…) sobre estructuras y prácticas que engendran confianza y responsabilidad, comienzan a suceder cosas extraordinarias e inesperadas”, afirmó Laloux. Allí demostró que “hay empresas gobernadas por leyes diferentes y exitosas. La base principal es la confianza y la responsabilidad”. Y son exitosas y ningún empleado tiene interés en abandonarla.</p>
-
-                <p class="text-p3">Las empresas que practican el autodesarrollo invierten en el progreso de su gente y asumen sin miedo el riesgo de hacerla más atractiva en el mercado laboral. Creen en la paradoja del desarrollo según la cual “toda persona que sienta que está prosperando profesionalmente en su empresa y haciéndose más empleable, tenderá a permanecer en ella”.</p>
-
-                <p class="text-p3">El autodesarrollo se puede hacer en empresas que confían en la capacidad de sus empleados para autodirigirse y que respetan y apoyan su autonomía.</p>
-
-                <p class="text-p3">Estas empresas no le programan actividades de capacitación o de coaching a los empleados, definidas por los especialistas desde la cima. Más bien, ponen a si alcance recursos para la autocapacitación mediante cursos, asesores y prácticas que cada persona puede escoger y usar.</p>
-
-                <p class="text-p3">Necesariamente, son objetivas y transparentes en la oferta de vacantes para los empleados y equitativas en las decisiones. Alientan a las personas a que se postulen a las oportunidades internas y las capacitan continuamente para que sean eficaces eligiendo las postulaciones apropiadas. Siempre dan retroalimentación a los postulantes elegidos y no elegidos.</p>
-
-                <p class="text-p3">Estas son empresas que reconocen que, como describe Laloux, “las personas con el poder para decidir por sí mismas tienen energía, potencial creativo y rumbo propios y no hay que decirles qué hacer”.</p>
-
-                <h2>¿Qué no hacen las empresas donde hay autodesarrollo?</h2>
-
-                <p class="text-p3">Las empresas coherentes con un enfoque de Autodesarrollo no tienen planes de carreras sobre los empleados, desconocidos por ellos. No programan actividades obligatorias de capacitación ni sancionan la no participación en ellas. Se basan menos en lo que dicen los especialistas sobre cada persona, que en lo que las mismas personas dicen. No tienen ningún tipo de favoritismo ni subjetividad en las decisiones sobre el personal. No dejan de mirar a profundidad cada vez que una persona decide dejar la compañía, porque una empresa donde la gente aprende y prospera es un sitio del que nadie se quiere ir.</p>
-
-                <p class="text-p3">En resumen, el autodesarrollo de las personas en una empresa es la mejor forma de lograr procesos genuinos de desarrollo de los mejor del talento de cada individuo. Se fundamenta en el autoconocimiento y en la autodirección de los planes de desarrollo. La gente es capacitada para hacer planes para su desarrollo profesional y accede con equidad a oportunidades de capacitación, evaluación, coaching, promoción y retroalimentación.</p>
-
-                <p class="text-p3">Vásquez Kennedy cuenta con la Guía de Autodesarrollo de Carrera, con la cual una persona profundiza en su autoconocimiento, establece sus prioridades de aprendizaje, las alinea con la empresa y construye su plan de acción.</p>
-
-                <p class="text-p3">Este proceso suele ser acompañado por un coach y los resultados descritos se logran en cinco sesiones o menos. El desarrollo del plan se complementa con pruebas focales de evaluación de liderazgo 360°, pre y post, y con un catálogo de cursos de capacitación en línea, alrededor de las prioridades de desarrollo elegidas. La Guía se articula fluidamente con los demás recursos disponibles en la empresa para el desarrollo del talento.</p>
+                <p class="text-p3">Para casi todas ellas es posible prepararse. El nuevo jubilado probablemente no tenga que inventarse nada nuevo sino armar una buena propuesta para el entorno, basada en los conocimientos, habilidades y experiencias de una vida de trabajo, empacada ahora de manera diferente. Prepararse a tiempo puede hacer que esta última etapa de la vida sea lo que debe ser: un verdadero júbilo.</p>
             </article>
         </section>
     </main>

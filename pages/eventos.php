@@ -95,15 +95,15 @@
                     <article class="blog-card">
                         <div class="blog-content">
                             <h4>
-                                <a href="../pages/blogs/blog1.php">EL NUEVO PODER DEL AUTODESARROLLO</a>
+                                <a href="../pages/blogs/blog1.php">“SEXALESCENTES”</a>
                             </h4>
                             <span class="blog-date text-p4">
                                 23 Mayo, 2026
                             </span>
                             <div class="blog-line"></div>
                             <p>
-                                Nadie aprende si no quiere aprender. Todo el que sepa lo que quiere y conozca
-                                sus recursos internos puede tener una carrera exitosa.
+                                Se ha configurado una nueva generación: los “sexalescentes”, o sexagenarios
+                                adolescentes. Antes eran ancianos de 60 o más años de edad que hoy no son viejos.
                             </p>
                         </div>
                     </article>
@@ -112,21 +112,15 @@
                     <article class="blog-card">
                         <div class="blog-content">
                             <h4>
-                                Título del blog
+                                <a href="../pages/blogs/blog2.php">EL NUEVO PODER DEL AUTODESARROLLO</a>
                             </h4>
                             <span class="blog-date text-p4">
                                 23 Mayo, 2026
                             </span>
                             <div class="blog-line"></div>
                             <p>
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea
-                                commodo consequat.
+                                Nadie aprende si no quiere aprender. Todo el que sepa lo que quiere y conozca
+                                sus recursos internos puede tener una carrera exitosa.
                             </p>
                         </div>
                     </article>
