@@ -8,6 +8,8 @@ const blogsDotsContainer = document.querySelector(".blogs-dots");
 
 let blogsPerView = window.innerWidth <= 1024 ? 1 : 2;
 let currentBlogIndex = 0;
+let totalBlogSlides = 0;
+let blogsAutoSlide;
 
 /* CREAR DOTS */
 function createBlogDots() {
@@ -16,9 +18,9 @@ function createBlogDots() {
 
     blogsPerView = window.innerWidth <= 1024 ? 1 : 2;
 
-    const totalDots = Math.ceil(blogCards.length / blogsPerView);
+    totalBlogSlides = Math.ceil(blogCards.length / blogsPerView);
 
-    for (let i = 0; i < totalDots; i++) {
+    for (let i = 0; i < totalBlogSlides; i++) {
 
         const dot = document.createElement("div");
 
@@ -31,6 +33,7 @@ function createBlogDots() {
         dot.addEventListener("click", () => {
             currentBlogIndex = i;
             updateBlogsSlider();
+            restartBlogsAutoSlide();
         });
 
         blogsDotsContainer.appendChild(dot);
@@ -56,6 +59,21 @@ function updateBlogsSlider() {
 
 }
 
+function startBlogsAutoSlide() {
+    blogsAutoSlide = setInterval(() => {
+        currentBlogIndex++;
+        if (currentBlogIndex >= totalBlogSlides) {
+            currentBlogIndex = 0;
+        }
+        updateBlogsSlider();
+    }, 7000);
+}
+
+function restartBlogsAutoSlide() {
+    clearInterval(blogsAutoSlide);
+    startBlogsAutoSlide();
+}
+
 /* RESIZE */
 window.addEventListener("resize", () => {
 
@@ -66,9 +84,11 @@ window.addEventListener("resize", () => {
     createBlogDots();
 
     updateBlogsSlider();
+    restartBlogsAutoSlide();
 
 });
 
 /* INIT */
 createBlogDots();
 updateBlogsSlider();
+startBlogsAutoSlide();
