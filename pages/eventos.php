@@ -110,15 +110,14 @@ function cargarEventosAgora(): array
     $inicioMes = $fechaMes->format('Y-m-01');
     $finMes = (clone $fechaMes)->modify('first day of next month')->format('Y-m-d');
     $eventoExcluido = 'Comunidad Ejecutiva Global';
-    $tipoExcluido = 'Escuelas Gerenciales';
 
-    $stmt = $lms->prepare("SELECT nombre, fecha, detalle, tiempo, calendly, imagen, tipo, hora FROM eventos WHERE fecha >= ? AND fecha < ? AND nombre <> ? AND tipo <> ? ORDER BY fecha ASC, hora ASC, nombre ASC");
+    $stmt = $lms->prepare("SELECT nombre, fecha, detalle, tiempo, calendly, imagen, tipo, hora FROM eventos WHERE fecha >= ? AND fecha < ? AND nombre <> ? ORDER BY fecha ASC, hora ASC, nombre ASC");
 
     if (!$stmt) {
         return [];
     }
 
-    $stmt->bind_param('ssss', $inicioMes, $finMes, $eventoExcluido, $tipoExcluido);
+    $stmt->bind_param('sss', $inicioMes, $finMes, $eventoExcluido);
     $stmt->execute();
     $resultado = $stmt->get_result();
     $eventos = $resultado ? $resultado->fetch_all(MYSQLI_ASSOC) : [];
