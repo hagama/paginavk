@@ -95,10 +95,11 @@
         <div class="video-container">
             <div class="video-wrapper">
                 <iframe 
-                    src="https://www.youtube.com/embed/jefIPuiP3NI"
-                    title="Video Conekta"
+                    src="https://www.youtube-nocookie.com/embed/jefIPuiP3NI?rel=0"
+                    title="Video IODA"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen>
                 </iframe>
             </div>
