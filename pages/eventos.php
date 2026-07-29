@@ -1,4 +1,135 @@
-<?php require_once dirname(__DIR__) . '/cache-control.php'; ?>
+<?php
+require_once dirname(__DIR__) . '/cache-control.php';
+
+date_default_timezone_set('America/Bogota');
+
+$mesesEventos = [
+    1 => 'enero',
+    2 => 'febrero',
+    3 => 'marzo',
+    4 => 'abril',
+    5 => 'mayo',
+    6 => 'junio',
+    7 => 'julio',
+    8 => 'agosto',
+    9 => 'septiembre',
+    10 => 'octubre',
+    11 => 'noviembre',
+    12 => 'diciembre',
+];
+
+function mesEventosPredeterminado(): string
+{
+    $hoy = new DateTime('today');
+    $ultimoDiaMes = (int) $hoy->format('t');
+    $diaActual = (int) $hoy->format('j');
+
+    if ($diaActual >= $ultimoDiaMes - 2) {
+        return (clone $hoy)->modify('first day of next month')->format('Y-m');
+    }
+
+    return $hoy->format('Y-m');
+}
+
+function cargarConexionEventos(): ?mysqli
+{
+    if (isset($GLOBALS['lms']) && $GLOBALS['lms'] instanceof mysqli) {
+        return $GLOBALS['lms'];
+    }
+
+    $candidatos = [
+        dirname(__DIR__, 5) . '/edu/server/conection.php',
+        dirname(__DIR__, 2) . '/server/conection.php',
+        ($_SERVER['DOCUMENT_ROOT'] ?? '') . '/../server/conection.php',
+        ($_SERVER['DOCUMENT_ROOT'] ?? '') . '/server/conection.php',
+    ];
+
+    foreach ($candidatos as $rutaConexion) {
+        if ($rutaConexion && is_file($rutaConexion)) {
+            include_once $rutaConexion;
+
+            if (isset($GLOBALS['lms']) && $GLOBALS['lms'] instanceof mysqli) {
+                return $GLOBALS['lms'];
+            }
+        }
+    }
+
+    return null;
+}
+
+function limpiarEventoTexto(?string $texto): string
+{
+    return trim(strip_tags((string) $texto));
+}
+
+function horaEvento(array $evento): string
+{
+    if (!empty($evento['hora'])) {
+        $hora = DateTime::createFromFormat('H:i:s', $evento['hora'])
+            ?: DateTime::createFromFormat('H:i', $evento['hora']);
+
+        if ($hora) {
+            $periodo = (int) $hora->format('H') >= 12 ? 'p. m.' : 'a. m.';
+            return (int) $hora->format('g') . ':' . $hora->format('i') . ' ' . $periodo;
+        }
+
+        return (string) $evento['hora'];
+    }
+
+    return 'Horario por confirmar';
+}
+
+function fechaEventoCompleta(array $evento, array $meses): string
+{
+    $fecha = new DateTime($evento['fecha']);
+    $mes = ucfirst($meses[(int) $fecha->format('n')]);
+
+    return $fecha->format('d') . ' ' . $mes . ', ' . $fecha->format('Y') . ' - ' . horaEvento($evento);
+}
+
+function imagenEvento(array $evento): string
+{
+    $imagen = trim((string) ($evento['imagen'] ?? ''));
+
+    if ($imagen === '') {
+        return '../recursos-multimedia/eventos/cards-a-1.webp';
+    }
+
+    return $imagen;
+}
+
+function cargarEventosAgora(): array
+{
+    $lms = cargarConexionEventos();
+
+    if (!$lms) {
+        return [];
+    }
+
+    $mesParam = mesEventosPredeterminado();
+    $fechaMes = DateTime::createFromFormat('Y-m-d', $mesParam . '-01') ?: new DateTime('first day of this month');
+    $inicioMes = $fechaMes->format('Y-m-01');
+    $finMes = (clone $fechaMes)->modify('first day of next month')->format('Y-m-d');
+    $eventoExcluido = 'Comunidad Ejecutiva Global';
+    $tipoExcluido = 'Escuelas Gerenciales';
+
+    $stmt = $lms->prepare("SELECT nombre, fecha, detalle, tiempo, calendly, imagen, tipo, hora FROM eventos WHERE fecha >= ? AND fecha < ? AND nombre <> ? AND tipo <> ? ORDER BY fecha ASC, hora ASC, nombre ASC");
+
+    if (!$stmt) {
+        return [];
+    }
+
+    $stmt->bind_param('ssss', $inicioMes, $finMes, $eventoExcluido, $tipoExcluido);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $eventos = $resultado ? $resultado->fetch_all(MYSQLI_ASSOC) : [];
+    $stmt->close();
+
+    return $eventos;
+}
+
+$eventosAgora = cargarEventosAgora();
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -246,7 +377,52 @@
         <div class="container">
             <h4 class="eventos-title">Eventos programados para el próximo mes sobre: educación continua, reuniones y eventos con usuarios, master classes, paneles.</h4>
             <div class="eventos-slider">
-                <div class="eventos-track"> 
+                <div class="eventos-track">
+                    <?php if (empty($eventosAgora)): ?>
+                        <article class="evento-card evento-card-vacio">
+                            <div class="evento-content evento-content-vacio">
+                                <h3>No hay eventos disponibles</h3>
+                                <span class="evento-date text-p4">Pronto publicaremos nuevas fechas.</span>
+                                <div class="evento-line"></div>
+                                <p>Vuelve a consultar esta seccion para conocer los proximos espacios de Agora Abierta.</p>
+                            </div>
+                        </article>
+                    <?php endif; ?>
+
+                    <?php foreach ($eventosAgora as $evento): ?>
+                        <?php
+                            $fechaEvento = new DateTime($evento['fecha']);
+                            $detalleEvento = limpiarEventoTexto($evento['detalle'] ?? '');
+                            $calendlyEvento = trim((string) ($evento['calendly'] ?? ''));
+                        ?>
+                        <article class="evento-card">
+                            <img src="<?= htmlspecialchars(imagenEvento($evento), ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars('Evento ' . ($evento['nombre'] ?? 'Vasquez Kennedy'), ENT_QUOTES, 'UTF-8') ?>" class="evento-img">
+                            <div class="evento-info">
+                                <div class="evento-fecha">
+                                    <span class="dia text-p1"><b><?= htmlspecialchars($fechaEvento->format('d'), ENT_QUOTES, 'UTF-8') ?></b></span>
+                                    <span class="dia text-p5"><b><?= htmlspecialchars(ucfirst(substr($mesesEventos[(int) $fechaEvento->format('n')], 0, 3)), ENT_QUOTES, 'UTF-8') ?></b></span>
+                                </div>
+
+                                <div class="evento-content">
+                                    <h3><?= htmlspecialchars($evento['nombre'], ENT_QUOTES, 'UTF-8') ?></h3>
+                                    <span class="evento-date text-p4">
+                                        <?= htmlspecialchars(fechaEventoCompleta($evento, $mesesEventos), ENT_QUOTES, 'UTF-8') ?>
+                                    </span>
+                                    <div class="evento-line"></div>
+                                    <?php if ($detalleEvento !== ''): ?>
+                                        <p><?= htmlspecialchars($detalleEvento, ENT_QUOTES, 'UTF-8') ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($calendlyEvento !== ''): ?>
+                                        <a class="evento-inscripcion text-p5" href="<?= htmlspecialchars($calendlyEvento, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><b>Inscribirme</b></a>
+                                    <?php else: ?>
+                                        <span class="evento-inscripcion evento-inscripcion-disabled text-p5"><b>Inscripcion proximamente</b></span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+
+                    <?php if (false): ?>
                     <!-- Evento 1 -->
                     <article class="evento-card">
                         <img src="../recursos-multimedia/eventos/cards-a-1.webp" alt="Evento organizado por Vásquez Kennedy" class="evento-img">
@@ -317,6 +493,7 @@
                             </div>
                         </div>
                     </article>
+                    <?php endif; ?>
                 </div>
             </div>
             <!-- Puntos para pasar tarjetas -->

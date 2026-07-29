@@ -2,6 +2,10 @@ const track = document.querySelector(".eventos-track");
 const cards = document.querySelectorAll(".evento-card");
 const dotsContainer = document.querySelector(".eventos-dots");
 
+if (!track || !dotsContainer || cards.length === 0) {
+    throw new Error("No hay tarjetas de eventos para inicializar el carrusel.");
+}
+
 let index = 0;
 let cardsPerView = 2;
 let totalSlides = 0;
@@ -57,6 +61,10 @@ function actualizarDots() {
 }
 
 function iniciarAutoSlide() {
+    if(totalSlides <= 1) {
+        return;
+    }
+
     autoSlide = setInterval(() => {
         index++;
         if(index >= totalSlides) {

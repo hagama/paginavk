@@ -503,6 +503,47 @@
     max-width: 320px;
 }
 
+.evento-inscripcion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 38px;
+    margin-top: 6px;
+    padding: 8px 18px;
+    border-radius: 4px;
+    background: var(--color-secundario);
+    color: var(--color-terciario);
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.evento-inscripcion:hover {
+    background: var(--color-principal);
+    color: var(--color-terciario);
+}
+
+.evento-inscripcion-disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.evento-card-vacio {
+    justify-content: center;
+    min-height: 230px;
+}
+
+.evento-content-vacio {
+    margin-left: 0;
+    max-width: 560px;
+    text-align: center;
+}
+
+.evento-content-vacio .evento-line {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .eventos-dots {
     display: flex;
     justify-content: center;
