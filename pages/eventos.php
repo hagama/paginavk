@@ -229,7 +229,7 @@
                             <div class="spotify-player">
                                 <iframe
                                     style="border-radius:12px"
-                                    src="https://creators.spotify.com/pod/show/vsquez-kennedy8/embed/episodes/Entrevista-sobre-Experiencia-del-Usuario-e3mllgn/a-acprqs8"
+                                    src="https://open.spotify.com/embed/episode/47JU8QWcx7M92ZrGKxIy4s?utm_source=generator&theme=0"
                                     width="100%"
                                     height="152"
                                     frameBorder="0"
@@ -239,7 +239,7 @@
                                     loading="lazy">
                                 </iframe>
                             </div>
-                            <a class="podcast-fallback-link text-p5" href="https://creators.spotify.com/pod/profile/vsquez-kennedy8/episodes/Entrevista-sobre-Experiencia-del-Usuario-e3mllgn/a-acprqs8" target="_blank" rel="noopener">Abrir episodio en Spotify</a>
+                            <a class="podcast-fallback-link text-p5" href="https://open.spotify.com/episode/47JU8QWcx7M92ZrGKxIy4s" target="_blank" rel="noopener">Abrir episodio en Spotify</a>
                         </div>
                     </article>
                 </div>
