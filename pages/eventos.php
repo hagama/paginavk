@@ -21,10 +21,9 @@ $mesesEventos = [
 function mesEventosPredeterminado(): string
 {
     $hoy = new DateTime('today');
-    $ultimoDiaMes = (int) $hoy->format('t');
     $diaActual = (int) $hoy->format('j');
 
-    if ($diaActual >= $ultimoDiaMes - 2) {
+    if ($diaActual >= 28) {
         return (clone $hoy)->modify('first day of next month')->format('Y-m');
     }
 
