@@ -399,6 +399,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-tatiana-padilla.png" alt="Tatiana Padilla">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Tatiana Padilla</h4>
+                            <p class="text-p4">No tiene</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="carousel-talento-dots"></div>
