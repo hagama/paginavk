@@ -177,29 +177,71 @@
                     </div>
                 </div>
 
-                <div class="podcast-player-card">
-                    <div class="podcast-cover">
-                        <img src="../recursos-multimedia/eventos/podcast-foto-camilo.webp" alt="Camilo presentando el podcast de Vásquez Kennedy">
-                    </div>
-                    <div class="podcast-content">
-                        <div class="podcast-header">
-                            <h4>Nombre del podcast</h4>
-                            <span class="text-p4">23 Mayo, 2026</span>
+                <div class="podcast-carousel" aria-label="Episodios del podcast">
+                    <article class="podcast-player-card">
+                        <div class="podcast-content">
+                            <div class="podcast-header">
+                                <h4>Innovaciones en la gestión humana en Colombia</h4>
+                                <p class="text-p4">Lorem ipsum por el momento</p>
+                            </div>
+                            <div class="spotify-player">
+                                <iframe
+                                    style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/episode/50paq06ubwgz07o27atRo5?utm_source=generator&theme=0"
+                                    width="100%"
+                                    height="152"
+                                    frameBorder="0"
+                                    allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
                         </div>
-                        <!-- Spotify Embed -->
-                        <div class="spotify-player">
-                            <iframe
-                                style="border-radius:12px"
-                                src="https://open.spotify.com/embed/episode/0IDCXhmJImVUd770VxogQc?si=_IvG6KBQS46n83CC5Bsjdw?utm_source=generator&theme=0"
-                                width="100%"
-                                height="80"
-                                frameBorder="0"
-                                allowfullscreen=""
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy">
-                            </iframe>
+                    </article>
+
+                    <article class="podcast-player-card">
+                        <div class="podcast-content">
+                            <div class="podcast-header">
+                                <h4>Decisiones de carrera: si tu trabajo puede hacerte más feliz</h4>
+                                <p class="text-p4">Lorem ipsum</p>
+                            </div>
+                            <div class="spotify-player">
+                                <iframe
+                                    style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/episode/4W5YCPEApI8g2NilhdPK8Y?utm_source=generator&theme=0"
+                                    width="100%"
+                                    height="152"
+                                    frameBorder="0"
+                                    allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="podcast-player-card">
+                        <div class="podcast-content">
+                            <div class="podcast-header">
+                                <h4>Entrevista sobre Experiencia del Usuario</h4>
+                                <p class="text-p4">Gabriel Santos es uno de los mayores expertos en Experiencia del Empleado en el país. Al oírlo se comprende bien por qué la Experiencia del Empleado es un pilar esencial en la gestión del talento humano.</p>
+                            </div>
+                            <div class="spotify-player">
+                                <iframe
+                                    style="border-radius:12px"
+                                    src="https://creators.spotify.com/pod/show/vsquez-kennedy8/embed/episodes/Entrevista-sobre-Experiencia-del-Usuario-e3mllgn/a-acprqs8"
+                                    width="100%"
+                                    height="152"
+                                    frameBorder="0"
+                                    scrolling="no"
+                                    allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <a class="podcast-fallback-link text-p5" href="https://creators.spotify.com/pod/profile/vsquez-kennedy8/episodes/Entrevista-sobre-Experiencia-del-Usuario-e3mllgn/a-acprqs8" target="_blank" rel="noopener">Abrir episodio en Spotify</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>

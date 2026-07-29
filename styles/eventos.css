@@ -245,24 +245,45 @@
     display: block;
 }
 
-.podcast-player-card {
+.podcast-carousel {
     position: relative;
     margin: 40px auto 0;
+    max-width: 1000px;
+    max-height: 310px;
+    display: grid;
+    gap: 18px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 8px 8px 0;
+    scroll-snap-type: y mandatory;
+    scrollbar-color: var(--color-principal) rgba(255,255,255,0.45);
+}
+
+.podcast-carousel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.podcast-carousel::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.45);
+    border-radius: 999px;
+}
+
+.podcast-carousel::-webkit-scrollbar-thumb {
+    background: var(--color-principal);
+    border-radius: 999px;
+}
+
+.podcast-player-card {
+    position: relative;
     background: var(--color-terciario);
     border-radius: 5px;
     display: flex;
     align-items: center;
     gap: 24px;
     padding: 24px;
-    max-width: 1000px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-.podcast-cover img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 50%;
+    min-height: 292px;
+    scroll-snap-align: start;
 }
 
 .podcast-content {
@@ -271,21 +292,29 @@
 }
 
 .podcast-header {
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 }
 
 .podcast-header h4 {
     color: var(--color-principal);
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
 
-.podcast-header span {
+.podcast-header p {
     color: var(--color-principal);
+    margin-bottom: 0;
+}
+
+.podcast-fallback-link {
+    color: var(--color-principal);
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: underline;
 }
 
 /* SPOTIFY */
 .spotify-player  {
-    height: 80px;
+    height: 152px;
 }
 
 .spotify-player iframe {
@@ -307,15 +336,9 @@
         max-width: 100%;
     }
 
-    .podcast-player-card {
-        /*flex-direction: column;
-        align-items: flex-start;*/
+    .podcast-carousel {
         margin-top: 40px;
-    }
-
-    .podcast-cover img {
-        width: 90px;
-        height: 90px;
+        max-height: 330px;
     }
 
     .podcast-hero-2 {
@@ -357,9 +380,8 @@
     }
 
     .podcast-player-card {
-        padding-left:0px;
-        padding-right:0px;
-        padding-bottom: 0px;
+        min-height: 320px;
+        padding: 18px;
         gap: 18px;
         flex-direction: column;
         align-items: center;
@@ -377,12 +399,6 @@
 
     .podcast-header h4 {
         font-size: 1.2rem;
-    }
-
-    .podcast-cover img {
-        margin-bottom: -10px;
-        width: 100px;
-        height: 100px;
     }
 }
 
