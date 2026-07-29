@@ -744,6 +744,14 @@
     margin-bottom: 20px;
 }
 
+.networking-intro {
+    max-width: 920px;
+    color: var(--color-principal);
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 28px;
+}
+
 .networking-wrapper{
     display: flex;
     gap: 20px;

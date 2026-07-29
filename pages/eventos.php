@@ -642,6 +642,9 @@ $eventosAgora = cargarEventosAgora();
             <h3 class="networking-title">
                 Eventos <i>networking</i>
             </h3>
+            <p class="networking-intro text-p3">
+                Espacios presenciales donde nuestros usuarios en transición de carrera se conectan directamente con líderes de gestión humana y headhunters. El 80% de las oportunidades laborales nunca se publican, se encuentran en las conversaciones correctas.
+            </p>
 
             <div class="networking-wrapper">
                 <!-- VIDEO -->
