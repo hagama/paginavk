@@ -18,16 +18,20 @@ $mesesEventos = [
     12 => 'diciembre',
 ];
 
-function mesEventosPredeterminado(): string
+function rangoEventosAgora(): array
 {
     $hoy = new DateTime('today');
     $diaActual = (int) $hoy->format('j');
+    $finRango = new DateTime('first day of next month');
 
     if ($diaActual >= 28) {
-        return (clone $hoy)->modify('first day of next month')->format('Y-m');
+        $finRango->modify('first day of next month');
     }
 
-    return $hoy->format('Y-m');
+    return [
+        $hoy->format('Y-m-d'),
+        $finRango->format('Y-m-d'),
+    ];
 }
 
 function cargarConexionEventos(): ?mysqli
@@ -97,19 +101,120 @@ function imagenEvento(array $evento): string
     return $imagen;
 }
 
+function leerEventosDesdeUrl(string $url): ?array
+{
+    $contenido = false;
+
+    if (ini_get('allow_url_fopen')) {
+        $contexto = stream_context_create([
+            'http' => [
+                'timeout' => 2,
+            ],
+        ]);
+        $contenido = @file_get_contents($url, false, $contexto);
+    }
+
+    if ($contenido === false && function_exists('curl_init')) {
+        $curl = curl_init($url);
+        curl_setopt_array($curl, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 2,
+            CURLOPT_TIMEOUT => 4,
+        ]);
+        $contenido = curl_exec($curl);
+        curl_close($curl);
+    }
+
+    if ($contenido === false || $contenido === '') {
+        return null;
+    }
+
+    $eventos = json_decode($contenido, true);
+
+    return is_array($eventos) ? $eventos : null;
+}
+
+function cargarEventosAgoraDesdeEndpoint(string $inicioMes, string $finMes, string $eventoExcluido): array
+{
+    $eventos = [];
+    $inicio = new DateTime($inicioMes);
+    $fin = new DateTime($finMes);
+    $fechasConEventos = [];
+
+    for ($bloqueInicio = clone $inicio; $bloqueInicio < $fin; $bloqueInicio->modify('+7 days')) {
+        $bloqueFin = (clone $bloqueInicio)->modify('+6 days');
+        $ultimoDia = (clone $fin)->modify('-1 day');
+
+        if ($bloqueFin > $ultimoDia) {
+            $bloqueFin = $ultimoDia;
+        }
+
+        $urlSemana = 'https://conektavk.com/ecosistema/components/OP_PRIN!/get_week_events.php?start='
+            . $bloqueInicio->format('Y-m-d') . '&end=' . $bloqueFin->format('Y-m-d');
+        $eventosSemana = leerEventosDesdeUrl($urlSemana);
+
+        if (!$eventosSemana) {
+            continue;
+        }
+
+        foreach (array_keys($eventosSemana) as $fechaEvento) {
+            $fechasConEventos[$fechaEvento] = true;
+        }
+    }
+
+    if (empty($fechasConEventos)) {
+        $proximos = leerEventosDesdeUrl('https://conektavk.com/ecosistema/components/OP_PRIN!/get_event.php?proximos=1') ?? [];
+
+        foreach ($proximos as $evento) {
+            $fechaEvento = $evento['fecha'] ?? '';
+
+            if ($fechaEvento >= $inicioMes && $fechaEvento < $finMes) {
+                $fechasConEventos[$fechaEvento] = true;
+            }
+        }
+    }
+
+    ksort($fechasConEventos);
+
+    foreach (array_keys($fechasConEventos) as $fechaEvento) {
+        $url = 'https://conektavk.com/ecosistema/components/OP_PRIN!/get_event.php?date=' . $fechaEvento;
+        $eventosDia = leerEventosDesdeUrl($url);
+
+        if (!$eventosDia) {
+            continue;
+        }
+
+        foreach ($eventosDia as $evento) {
+            if (($evento['nombre'] ?? '') === $eventoExcluido) {
+                continue;
+            }
+
+            $eventos[] = $evento;
+        }
+    }
+
+    usort($eventos, static function (array $a, array $b): int {
+        return strcmp(($a['fecha'] ?? '') . ' ' . ($a['hora'] ?? ''), ($b['fecha'] ?? '') . ' ' . ($b['hora'] ?? ''));
+    });
+
+    return $eventos;
+}
+
 function cargarEventosAgora(): array
 {
+    [$inicioMes, $finMes] = rangoEventosAgora();
+    $eventoExcluido = 'Comunidad Ejecutiva Global';
+    $eventosEndpoint = cargarEventosAgoraDesdeEndpoint($inicioMes, $finMes, $eventoExcluido);
+
+    if (!empty($eventosEndpoint)) {
+        return $eventosEndpoint;
+    }
+
     $lms = cargarConexionEventos();
 
     if (!$lms) {
         return [];
     }
-
-    $mesParam = mesEventosPredeterminado();
-    $fechaMes = DateTime::createFromFormat('Y-m-d', $mesParam . '-01') ?: new DateTime('first day of this month');
-    $inicioMes = $fechaMes->format('Y-m-01');
-    $finMes = (clone $fechaMes)->modify('first day of next month')->format('Y-m-d');
-    $eventoExcluido = 'Comunidad Ejecutiva Global';
 
     $stmt = $lms->prepare("SELECT nombre, fecha, detalle, tiempo, calendly, imagen, tipo, hora FROM eventos WHERE fecha >= ? AND fecha < ? AND nombre <> ? ORDER BY fecha ASC, hora ASC, nombre ASC");
 
