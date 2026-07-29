@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let index = 0;
     let interval;
+    const autoSlideDelay = 7000;
 
 
     function getVisibleCards(){
@@ -62,13 +63,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function resetAuto(){
         clearInterval(interval);
-        interval = setInterval(autoSlide,4000);
+        interval = setInterval(autoSlide, autoSlideDelay);
     }
 
     createDots();
     updateCarousel();
 
-    interval = setInterval(autoSlide,4000);
+    interval = setInterval(autoSlide, autoSlideDelay);
 
     window.addEventListener("resize", ()=>{
         createDots();
