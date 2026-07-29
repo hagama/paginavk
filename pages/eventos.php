@@ -231,7 +231,7 @@
                                     loading="lazy">
                                 </iframe>
                             </div>
-                            <a class="podcast-fallback-link text-p5" href="https://open.spotify.com/episode/47JU8QWcx7M92ZrGKxIy4s" target="_blank" rel="noopener">Abrir episodio en Spotify</a>
+                        
                         </div>
                     </article>
                 </div>
@@ -244,7 +244,7 @@
     <section class="eventos-section">
         <div class="eventos-overlay"></div>
         <div class="container">
-            <h4 class="eventos-title"><b>¡PRONTO!</b> eventos programados para el próximo mes o dos meses sobre: educación continua, reuniones y eventos con usuarios, master classes, paneles.</h4>
+            <h4 class="eventos-title">Eventos programados para el próximo mes sobre: educación continua, reuniones y eventos con usuarios, master classes, paneles.</h4>
             <div class="eventos-slider">
                 <div class="eventos-track"> 
                     <!-- Evento 1 -->
