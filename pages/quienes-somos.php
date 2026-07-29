@@ -251,218 +251,151 @@
         </div>
     </section>
     
-    <section class="talento-section" hidden>
+    <section class="talento-section">
         <h3>Conoce nuestro Talento:</h3>
         <p class="text-p3">Cada miembro de nuestro equipo profesional se desempeña en el trabajo correcto, trabaja cada día por una visión personal de éxito profesional y se asegura de que su trabajo en Vásquez Kennedy le provea felicidad.</p>
         <div class="carousel-talento">
             <div class="carousel-talento-track">
-                <!-- Persona A -->
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-camilo-vasquez.png" alt="Camilo Vásquez">
                         </div>
                         <div class="talento-back">
                             <h4>Camilo Vásquez</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <p class="text-p4">Socio fundador de Vásquez Kennedy, líder del equipo y promotor de la evolución del negocio. Asesor de gerentes en la implementación de cambios y en las decisiones difíciles.</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alvaro-bermudez.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Álvaro Bermúdez</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Pablo Emilio</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Ángela María Ramírez</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Harold Gama</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Mónica Cubides</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Gabriel Santos</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alfred-penaloza.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Alfred Peñaloza</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Humberto Coral</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>María Camila Diago</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-vilma-fuentes.png" alt="Vilma Fuentes">
                         </div>
                         <div class="talento-back">
                             <h4>Vilma Fuentes</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <p class="text-p4">Pendiente</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-gabriel-santos.png" alt="Gabriel Santos">
                         </div>
                         <div class="talento-back">
-                            <h4>Jairo Rámirez</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <h4>Gabriel Santos</h4>
+                            <p class="text-p4">Experto en Experiencia del Empleado. Ayudo a las empresas a generar conexión emocional con sus empleados, para crear valor mutuo.</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-maria-sierra.webp" alt="Miembro del equipo Vásquez Kennedy">
-                        </div>
-                        <div class="talento-back">
-                            <h4>Maria Alejandra Sierra</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="talento-card">
-                    <div class="talento-inner">
-                        <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-diana-ruiz.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-diana-ruiz.png" alt="Diana Ruiz">
                         </div>
                         <div class="talento-back">
                             <h4>Diana Ruiz</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <p class="text-p4">Lideró el área de mercadeo y acompañó a los profesionales en sus procesos de transición con metodología, estructura y empatía.</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-pablo-emilio.png" alt="Pablo Emilio">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Pablo Emilio</h4>
+                            <p class="text-p4">Consultor en Finanzas Personales para un manejo estratégico en la etapa de transición laboral.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-angela-ramirez.png" alt="Angela Ramirez">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Angela Ramirez</h4>
+                            <p class="text-p4">Coach ejecutiva en liderazgo, mentora en desarrollo de emprendimientos y marca personal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-humberto-coral.png" alt="Humberto Coral">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Humberto Coral</h4>
+                            <p class="text-p4">Coach de liderazgo consciente. Acompañó a las personas hacia su independencia laboral con sentido, propósito y disfrute.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-monica-cubides.png" alt="Monica Cubides">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Monica Cubides</h4>
+                            <p class="text-p4">Acompañó la experiencia de usuarios y la coordinación de proyectos de outplacement y desarrollo, asegurando un servicio cercano, estratégico y efectivo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-tatiana-rodriguez.png" alt="Tatiana Rodríguez">
                         </div>
                         <div class="talento-back">
                             <h4>Tatiana Rodríguez</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <p class="text-p4">Pendiente</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Gina Sanchez">
                         </div>
                         <div class="talento-back">
-                            <h4>Cristina Herrera</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <h4>Gina Sanchez</h4>
+                            <p class="text-p4">Impulsó el crecimiento laboral con metodologías y estrategias que transforman y potencian talento.</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Marita Teresa Figueroa">
                         </div>
                         <div class="talento-back">
-                            <h4>Luz Helena García</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <h4>Marita Teresa Figueroa</h4>
+                            <p class="text-p4">Facilitó transiciones de carrera con foco en empleabilidad y desarrollo humano.</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alfredo-penaloza.png" alt="Alfredo Peñaloza">
                         </div>
                         <div class="talento-back">
-                            <h4>Gina Paola Sánchez</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <h4>Alfredo Peñaloza</h4>
+                            <p class="text-p4">Acompañó procesos de transición de carrera, desarrollo de talento y medición de experiencia del empleado.</p>
                         </div>
                     </div>
                 </div>
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Miembro del equipo Vásquez Kennedy">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-harold-gama.png" alt="Harold Gama">
                         </div>
                         <div class="talento-back">
-                            <h4>María Teresa Figueroa</h4>
-                            <p class="text-p4">Descripción de su función o cargo</p>
+                            <h4>Harold Gama</h4>
+                            <p class="text-p4">Facilitó la implementación de soluciones tecnológicas con foco en eficiencia operativa, continuidad del negocio y mejora de la experiencia del usuario.</p>
                         </div>
                     </div>
                 </div>

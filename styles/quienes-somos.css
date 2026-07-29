@@ -574,6 +574,13 @@
     margin-bottom:10px;
 }
 
+.talento-back p{
+    margin:0;
+    max-width:100%;
+    text-align:center;
+    line-height:1.35;
+}
+
 .carousel-talento-dots{
     margin-top:30px;
     display:flex;
