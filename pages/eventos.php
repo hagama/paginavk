@@ -166,14 +166,6 @@
                             Las ideas que transforman una carrera no siempre vienen de un libro.
                             A veces vienen de una conversación.
                         </h3>
-                        <div class="podcast-platforms">
-                            <a href="#" class="platform-btn">
-                                <img src="../recursos-multimedia/eventos/podcast-youtube.webp" alt="Podcast de Vásquez Kennedy en YouTube" style="height: 28px;">
-                            </a>
-                            <a href="#" class="platform-btn">
-                                <img src="../recursos-multimedia/eventos/podcast-spotify.webp" alt="Podcast de Vásquez Kennedy en Spotify" style="height: 35px;">
-                            </a>
-                        </div>
                     </div>
                 </div>
 
