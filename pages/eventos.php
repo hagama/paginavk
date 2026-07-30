@@ -613,7 +613,7 @@ $eventosAgora = cargarEventosAgora();
             <div class="webinars-content">
                 <div class="webinar-video">
                     <iframe 
-                        src="https://www.youtube.com/embed/x91MPoITQ3I"
+                        src="https://youtu.be/Rysv5GMm4sM"
                         title="Webinar"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -622,13 +622,9 @@ $eventosAgora = cargarEventosAgora();
                 </div>
 
                 <div class="webinar-info text-p3">
-                    <p>
-                        Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat.
+                    <h3>Panel Internacional: "Gestiòn Humana y productividad empresarial"</h3>
+                    <p>Las principales barreras para productividad de nuestras empresas no son externas a ellas sino internas: la micro gerencia, el castigo al error, las reuniones ineficientes, el premio al trabajo en jornadas largas vs a los resultados, la conexión 7x24, la poca delegación, la falta de confianza en las personas y otros. Mejorar la productividad es esencial para los empleados, las empresas y los gobiernos.  Ell área de Recursos Humanos es el motor principal, como quedó demostrado en el panel internacional “Gestión humana y productividad empresarial” que realizó Vásquez Kennedy en julio de 2026, en el que participaron expertos de alto nivel de España, Portugal, Brasil y Colombia.  Este es el video resumen
+
                     </p>
                 </div>
             </div>
