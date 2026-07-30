@@ -501,8 +501,9 @@
 
 .evento-content p {
     color:  var(--color-principal);
-    line-height: 1.4;
+    line-height: 1.55;
     max-width: 320px;
+    white-space: pre-line;
 }
 
 .evento-inscripcion {

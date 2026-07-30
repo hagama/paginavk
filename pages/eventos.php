@@ -62,7 +62,15 @@ function cargarConexionEventos(): ?mysqli
 
 function limpiarEventoTexto(?string $texto): string
 {
-    return trim(strip_tags((string) $texto));
+    $texto = html_entity_decode((string) $texto, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $texto = preg_replace('#<(br|/p|/div|/li)\b[^>]*>#i', "\n", $texto);
+    $texto = preg_replace('#<li\b[^>]*>#i', "\n", $texto);
+    $texto = strip_tags((string) $texto);
+    $texto = str_replace("\xc2\xa0", ' ', $texto);
+    $texto = preg_replace("/[ \t]+/", ' ', $texto);
+    $texto = preg_replace("/\n{3,}/", "\n\n", $texto);
+
+    return trim((string) $texto);
 }
 
 function horaEvento(array $evento): string
