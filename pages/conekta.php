@@ -137,7 +137,7 @@
         <div class="video-container">
             <div class="video-wrapper">
                 <iframe 
-                    src="https://www.youtube.com/embed/VDPAlYEoCgM"
+                    src="https://www.youtube-nocookie.com/embed/VDPAlYEoCgM?rel=0"
                     title="Video Conekta"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
