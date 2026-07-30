@@ -783,6 +783,10 @@
     align-content: stretch;
 }
 
+.networking-gallery > .gallery-item:not(.gallery-item-new) {
+    display: none;
+}
+
 .gallery-item{
     position: relative;
     overflow: hidden;

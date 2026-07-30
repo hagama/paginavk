@@ -662,13 +662,32 @@ $eventosAgora = cargarEventosAgora();
                 <!-- VIDEO -->
                 <div class="networking-video">
                     <iframe 
-                        src="https://www.youtube-nocookie.com/embed/x91MPoITQ3I"
+                        src="https://www.youtube-nocookie.com/embed/sAvssxGKL1w"
+                        title="Eventos networking"
                         allowfullscreen>
                     </iframe>
                 </div>
 
                 <!-- GALERIA -->
                 <div class="networking-gallery">
+                    <div class="gallery-item horizontal gallery-item-new" data-index="0" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                        <img src="../recursos-multimedia/eventos/galeria/networking-1.jpeg" alt="Evento networking Vasquez Kennedy">
+                    </div>
+                    <div class="gallery-item vertical gallery-item-new" data-index="1" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                        <img src="../recursos-multimedia/eventos/galeria/networking-2.jpeg" alt="Evento networking Vasquez Kennedy">
+                    </div>
+                    <div class="gallery-item vertical gallery-item-new" data-index="2" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                        <img src="../recursos-multimedia/eventos/galeria/networking-3.jpeg" alt="Evento networking Vasquez Kennedy">
+                    </div>
+                    <div class="gallery-item horizontal gallery-item-new" data-index="3" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                        <img src="../recursos-multimedia/eventos/galeria/networking-4.jpeg" alt="Evento networking Vasquez Kennedy">
+                    </div>
+                    <div class="gallery-item horizontal gallery-item-new" data-index="4" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                        <img src="../recursos-multimedia/eventos/galeria/networking-5.jpeg" alt="Evento networking Vasquez Kennedy">
+                    </div>
+                    <div class="gallery-item vertical gallery-item-new" data-index="5" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                        <img src="../recursos-multimedia/eventos/galeria/networking-6.jpeg" alt="Evento networking Vasquez Kennedy">
+                    </div>
                     <div class="gallery-item horizontal" data-index="0" data-bs-toggle="modal" data-bs-target="#galleryModal">
                         <img src="../recursos-multimedia/eventos/galeria/img-1.webp" alt="Comunidad Vásquez Kennedy">
                     </div>
@@ -699,19 +718,22 @@ $eventosAgora = cargarEventosAgora();
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="../recursos-multimedia/eventos/galeria/img-1.webp" class="d-block w-100" alt="">
+                                <img src="../recursos-multimedia/eventos/galeria/networking-1.jpeg" class="d-block w-100" alt="Evento networking Vasquez Kennedy">
                             </div>
                             <div class="carousel-item">
-                                <img src="../recursos-multimedia/eventos/galeria/img-2.webp" class="d-block w-100" alt="">
+                                <img src="../recursos-multimedia/eventos/galeria/networking-2.jpeg" class="d-block w-100" alt="Evento networking Vasquez Kennedy">
                             </div>
                             <div class="carousel-item">
-                                <img src="../recursos-multimedia/eventos/galeria/img-3.webp" class="d-block w-100" alt="">
+                                <img src="../recursos-multimedia/eventos/galeria/networking-3.jpeg" class="d-block w-100" alt="Evento networking Vasquez Kennedy">
                             </div>
                             <div class="carousel-item">
-                                <img src="../recursos-multimedia/eventos/galeria/img-4.webp" class="d-block w-100" alt="">
+                                <img src="../recursos-multimedia/eventos/galeria/networking-4.jpeg" class="d-block w-100" alt="Evento networking Vasquez Kennedy">
                             </div>
                             <div class="carousel-item">
-                                <img src="../recursos-multimedia/eventos/galeria/img-5.webp" class="d-block w-100" alt="">
+                                <img src="../recursos-multimedia/eventos/galeria/networking-5.jpeg" class="d-block w-100" alt="Evento networking Vasquez Kennedy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../recursos-multimedia/eventos/galeria/networking-6.jpeg" class="d-block w-100" alt="Evento networking Vasquez Kennedy">
                             </div>
                         </div>
                         <button class="carousel-control-prev"
