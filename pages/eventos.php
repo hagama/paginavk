@@ -98,7 +98,15 @@ function imagenEvento(array $evento): string
         return '../recursos-multimedia/eventos/cards-a-1.webp';
     }
 
-    return $imagen;
+    if (preg_match('#^https?://#i', $imagen)) {
+        return $imagen;
+    }
+
+    if (strpos($imagen, '//') === 0) {
+        return 'https:' . $imagen;
+    }
+
+    return 'https://conektavk.com/' . ltrim($imagen, '/');
 }
 
 function leerEventosDesdeUrl(string $url): ?array
