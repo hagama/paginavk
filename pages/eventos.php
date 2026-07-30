@@ -424,7 +424,7 @@ $eventosAgora = cargarEventosAgora();
                         <div class="podcast-content">
                             <div class="podcast-header">
                                 <h4>Innovaciones en la gestión humana en Colombia</h4>
-                                <p class="text-p4">Lorem ipsum por el momento</p>
+                                <p class="text-p4">Camilo Vásquez, socio fundador de Vásquez Kennedy, y Andrea Villamizar Giraldo, fundadora y gerente de GSO Grupo Soluciones Horizonte, nos comparten su visión sobre los cambios estratégicos en la gestión del talento humano en el país. Desde la digitalización hasta el enfoque en People Analytics, descubren cómo estas transformaciones están marcando el camino para las empresas de hoy.</p>
                             </div>
                             <div class="spotify-player">
                                 <iframe
@@ -445,7 +445,7 @@ $eventosAgora = cargarEventosAgora();
                         <div class="podcast-content">
                             <div class="podcast-header">
                                 <h4>Decisiones de carrera: si tu trabajo puede hacerte más feliz</h4>
-                                <p class="text-p4">Lorem ipsum</p>
+                                <p class="text-p4">En este episodio, Camilo Vásquez, socio fundador de Vásquez Kennedy, se une a Gabriela Barriga, gerente general de PELPAK, para una conversación reveladora sobre cómo tomar decisiones de carrera que verdaderamente importan. Explorarán cómo enfrentar miedos, superar barreras y construir un camino profesional que esté alineado con tus pasiones y objetivos personales. A través de sus experiencias y conocimientos, Camilo y Gabriela te invitan a reflexionar sobre lo que significa "Decisiones de carrera: si tu trabajo puede hacerte más feliz". No te pierdas esta charla que podría ser el primer paso para transformar tu vida profesional.</p>
                             </div>
                             <div class="spotify-player">
                                 <iframe
@@ -481,7 +481,48 @@ $eventosAgora = cargarEventosAgora();
                                     loading="lazy">
                                 </iframe>
                             </div>
-                        
+                        </div>
+                    </article>
+
+                    <article class="podcast-player-card">
+                        <div class="podcast-content">
+                            <div class="podcast-header">
+                                <h4>Marca Personal Conquistadora</h4>
+                                <p class="text-p4">El fin último de su marca personal es que usted se convierta en la opción preferente en un proceso de selección de un ejecutivo, de un aliado, de un socio o de un proveedor y se ponga de primero en la fila. La imagen es demasiado importante como para dejarla suelta.</p>
+                            </div>
+                            <div class="spotify-player">
+                                <iframe
+                                    style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/episode/3ihiog9yGDwbrOCOvNel6w?utm_source=generator&theme=0"
+                                    width="100%"
+                                    height="152"
+                                    frameBorder="0"
+                                    allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="podcast-player-card">
+                        <div class="podcast-content">
+                            <div class="podcast-header">
+                                <h4>La consultoría empresarial: "Un oficio que se aprende"</h4>
+                                <p class="text-p4">En este episodio, Camilo Vásquez socio y fundador de Vásquez Kennedy, entrevista a Jorge Enrique Morales, experto en estrategia con más de 30 años de experiencia, sobre lo que se necesita para ser un buen consultor. Exploran quién puede convertirse en consultor, las habilidades clave que son imprescindibles y los errores que deben evitarse, como la arrogancia. Jorge comparte su visión sobre cómo los consultores ayudan a las empresas a enfrentar retos sin necesidad de contratar talento gerencial a tiempo completo.</p>
+                            </div>
+                            <div class="spotify-player">
+                                <iframe
+                                    style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/episode/2xYZIByyim4QejHnFa7bO2?utm_source=generator&theme=0"
+                                    width="100%"
+                                    height="152"
+                                    frameBorder="0"
+                                    allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
                         </div>
                     </article>
                 </div>
