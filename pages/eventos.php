@@ -254,7 +254,7 @@ $eventosAgora = cargarEventosAgora();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VK - Agora Abierta</title>
+    <title>VK - Ágora Abierta</title>
 <?php render_open_graph(); ?>
     <link rel="icon" type="image/x-icon" href="../recursos-multimedia/logos/icon-vasquez-kennedy.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -318,8 +318,8 @@ $eventosAgora = cargarEventosAgora();
                 <li class="nav-item">
                     <a class="nav-link" href="https://conektavk.com/">Conekta</a>
                 </li>
-                <li class="nav-item" hidden>
-                    <a class="nav-link active" href="../pages/eventos.php">Agora Abierta</a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../pages/eventos.php">Ágora Abierta</a>
                 </li>
             </ul>
             </div>
@@ -503,7 +503,7 @@ $eventosAgora = cargarEventosAgora();
                                 <h3>No hay eventos disponibles</h3>
                                 <span class="evento-date text-p4">Pronto publicaremos nuevas fechas.</span>
                                 <div class="evento-line"></div>
-                                <p>Vuelve a consultar esta seccion para conocer los proximos espacios de Agora Abierta.</p>
+                                <p>Vuelve a consultar esta seccion para conocer los proximos espacios de Ágora Abierta.</p>
                             </div>
                         </article>
                     <?php endif; ?>

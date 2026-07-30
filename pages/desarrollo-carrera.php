@@ -69,8 +69,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://conektavk.com/">Conekta</a>
                 </li>
-                <li class="nav-item" hidden>
-                    <a class="nav-link" href="../pages/eventos.php">Agora Abierta</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/eventos.php">Ágora Abierta</a>
                 </li>
             </ul>
             </div>
