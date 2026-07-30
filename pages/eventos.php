@@ -535,7 +535,7 @@ $eventosAgora = cargarEventosAgora();
     <section class="eventos-section">
         <div class="eventos-overlay"></div>
         <div class="container">
-            <h4 class="eventos-title">Eventos programados para el próximo mes sobre: educación continua, reuniones y eventos con usuarios, master classes, paneles.</h4>
+            <h4 class="eventos-title">Esto es lo que viven cada semana quienes hacen parte de la Comunidad VK.<br>Las Salas de Intercambio son espacios de aprendizaje continuo, exclusivos para nuestros usuarios.</h4>
             <div class="eventos-slider">
                 <div class="eventos-track">
                     <?php if (empty($eventosAgora)): ?>
@@ -680,7 +680,7 @@ $eventosAgora = cargarEventosAgora();
 
                 <div class="webinar-info text-p3">
                     <h3>Panel Internacional: "Gestiòn Humana y productividad empresarial"</h3>
-                    <p>Las principales barreras para productividad de nuestras empresas no son externas a ellas sino internas: la micro gerencia, el castigo al error, las reuniones ineficientes, el premio al trabajo en jornadas largas vs a los resultados, la conexión 7x24, la poca delegación, la falta de confianza en las personas y otros. Mejorar la productividad es esencial para los empleados, las empresas y los gobiernos.  Ell área de Recursos Humanos es el motor principal, como quedó demostrado en el panel internacional “Gestión humana y productividad empresarial” que realizó Vásquez Kennedy en julio de 2026, en el que participaron expertos de alto nivel de España, Portugal, Brasil y Colombia.  Este es el video resumen
+                    <p>Las principales barreras para productividad de nuestras empresas no son externas a ellas sino internas: la micro gerencia, el castigo al error, las reuniones ineficientes, el premio al trabajo en jornadas largas vs a los resultados, la conexión 7x24, la poca delegación, la falta de confianza en las personas y otros. Mejorar la productividad es esencial para los empleados, las empresas y los gobiernos.  Ell área de Recursos Humanos es el motor principal, como quedó demostrado en el panel internacional “Gestión humana y productividad empresarial” que realizó Vásquez Kennedy en julio de 2026, en el que participaron expertos de alto nivel de España, Portugal, Brasil y Colombia.
 
                     </p>
                 </div>
