@@ -369,7 +369,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Gina Sanchez">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-gina-sanchez.jpg" alt="Gina Sanchez">
                         </div>
                         <div class="talento-back">
                             <h4>Gina Sanchez</h4>
@@ -380,7 +380,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-anonimo.webp" alt="Marita Teresa Figueroa">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-marita-teresa-figueroa.jpg" alt="Marita Teresa Figueroa">
                         </div>
                         <div class="talento-back">
                             <h4>Marita Teresa Figueroa</h4>
