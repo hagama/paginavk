@@ -613,7 +613,7 @@ $eventosAgora = cargarEventosAgora();
             <div class="webinars-content">
                 <div class="webinar-video">
                     <iframe 
-                        src="https://youtu.be/Rysv5GMm4sM"
+                        src="https://www.youtube-nocookie.com/embed/Rysv5GMm4sM"
                         title="Webinar"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -646,7 +646,7 @@ $eventosAgora = cargarEventosAgora();
                 <!-- VIDEO -->
                 <div class="networking-video">
                     <iframe 
-                        src="https://www.youtube.com/embed/x91MPoITQ3I"
+                        src="https://www.youtube-nocookie.com/embed/x91MPoITQ3I"
                         allowfullscreen>
                     </iframe>
                 </div>
