@@ -281,6 +281,17 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alvaro-bermudez.png" alt="Álvaro Bermúdez">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Álvaro Bermúdez</h4>
+                            <p class="text-p4">Pendiente</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
                             <img src="../recursos-multimedia/quienes-somos/talento/talento-gabriel-santos.png" alt="Gabriel Santos">
                         </div>
                         <div class="talento-back">
