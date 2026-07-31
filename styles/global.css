@@ -54,7 +54,9 @@ body {
 .skip-link:focus {
   transform: translateY(0);
 }
-
+.evento-inscripcion{
+    display:none !important;
+}
 h1,h2,h3,h4,h5{
   font-family: var(--font-principal);
 }
