@@ -16,6 +16,223 @@
       *,*::before,*::after{box-sizing:border-box}body{margin:0}.container{width:100%;max-width:1320px;margin-right:auto;margin-left:auto;padding-right:12px;padding-left:12px}.navbar{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}.navbar>.container{display:flex;flex-wrap:inherit;align-items:center;justify-content:space-between}.navbar-brand{display:block}.navbar-toggler{display:none}.navbar-collapse{display:flex!important;flex-basis:auto;align-items:center}.navbar-nav{display:flex;flex-direction:row;padding-left:0;margin:0 0 0 auto;list-style:none;column-gap:1rem}.nav-link{display:block;padding:.5rem;color:inherit;text-decoration:none}.dropdown{position:relative}.dropdown-menu{position:absolute;z-index:1000;display:none;min-width:10rem;padding:.5rem 0;margin:0;list-style:none;background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:.375rem}.dropdown-menu.show,.dropdown.show>.dropdown-menu{display:block}.dropdown-item{display:block;width:100%;padding:.25rem 1rem;text-align:inherit;text-decoration:none;background:transparent;border:0}.carousel{position:relative}.carousel-inner{position:relative;width:100%;overflow:hidden}.carousel-item{position:relative;display:none;width:100%;backface-visibility:hidden}.carousel-item.active{display:block}.carousel-indicators{position:absolute;right:0;bottom:0;left:0;z-index:2;display:flex;justify-content:center;padding:0;margin:0 15% 1rem;list-style:none}.pt-3{padding-top:1rem}.pb-3{padding-bottom:1rem}
       @media(max-width:991.98px){.navbar-toggler{display:block}.navbar-collapse{flex-basis:100%}.navbar-collapse:not(.show){display:none!important}.navbar-collapse.show{display:block!important}.navbar-nav{flex-direction:column}.dropdown-menu{position:static}}
     </style>
+
+    <style>
+      /* ===== Modal de contacto ===== */
+      body.modal-contacto-abierto { overflow: hidden; }
+
+      .contact-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .contact-modal.is-open { display: flex; }
+
+      .contact-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 25, 24, .72);
+        backdrop-filter: blur(3px);
+      }
+
+      .contact-modal-dialog {
+        position: relative;
+        z-index: 1;
+        width: min(1040px, 100%);
+        max-height: calc(100vh - 48px);
+        overflow-y: auto;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+      }
+
+      .contact-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        z-index: 3;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .95);
+        color: #1E2523;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, .15);
+      }
+
+      .contact-modal-close:hover { transform: scale(1.04); }
+
+      .contact-modal {
+        --contact-primary: #0F5C56;
+        --contact-primary-dark: #0B433F;
+        --contact-accent: #E8763B;
+        --contact-bg: #F6F7F5;
+        --contact-panel: #FFFFFF;
+        --contact-text: #1E2523;
+        --contact-muted: #5B6461;
+        --contact-border: #D7DBD8;
+        --contact-heading: Georgia, "Times New Roman", serif;
+        --contact-body: "Segoe UI", Roboto, Arial, sans-serif;
+      }
+
+      .contact-section { width: 100%; padding: 0; font-family: var(--contact-body); color: var(--contact-text); }
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        min-height: 650px;
+        overflow: hidden;
+        background: var(--contact-panel);
+        border-radius: 14px;
+      }
+      .contact-visual {
+        background:
+          radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 30%),
+          linear-gradient(160deg, var(--contact-primary) 0%, var(--contact-primary-dark) 100%);
+      }
+      .contact-panel { padding: 48px 56px; }
+      .contact-title {
+        margin: 0 40px 8px 0;
+        color: var(--contact-text);
+        font-family: var(--contact-heading);
+        font-size: 28px;
+        line-height: 1.3;
+      }
+      .contact-subtitle { margin: 0 0 28px; color: var(--contact-muted); font-size: 15px; }
+
+      .segmented-control {
+        display: inline-flex;
+        padding: 4px;
+        margin-bottom: 28px;
+        background: var(--contact-bg);
+        border: 1px solid var(--contact-border);
+        border-radius: 999px;
+      }
+      .segment {
+        padding: 10px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--contact-muted);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .segment.active { background: var(--contact-primary); color: #fff; }
+
+      .contact-form .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .contact-form .form-row.single { grid-template-columns: 1fr; }
+      .contact-form .field { position: relative; }
+      .contact-form .field input,
+      .contact-form .field select,
+      .contact-form .field textarea {
+        width: 100%;
+        padding: 16px 14px 8px;
+        border: 1px solid var(--contact-border);
+        border-radius: 8px;
+        outline: none;
+        background: var(--contact-panel);
+        color: var(--contact-text);
+        font-family: var(--contact-body);
+        font-size: 15px;
+      }
+      .contact-form .field textarea { min-height: 90px; resize: vertical; }
+      .contact-form .field input:focus,
+      .contact-form .field select:focus,
+      .contact-form .field textarea:focus { border-color: var(--contact-primary); }
+
+      .contact-form .field label {
+        position: absolute;
+        top: 15px;
+        left: 14px;
+        padding: 0 4px;
+        background: var(--contact-panel);
+        color: var(--contact-muted);
+        font-size: 15px;
+        pointer-events: none;
+        transition: .15s ease;
+      }
+      .contact-form .field input:focus + label,
+      .contact-form .field input:not(:placeholder-shown) + label,
+      .contact-form .field textarea:focus + label,
+      .contact-form .field textarea:not(:placeholder-shown) + label {
+        top: -9px;
+        left: 10px;
+        color: var(--contact-primary);
+        font-size: 12px;
+      }
+      .contact-form .label-select {
+        top: -9px !important;
+        left: 10px !important;
+        color: var(--contact-muted);
+        font-size: 12px !important;
+      }
+      .contact-form .field-empresa[hidden] { display: none; }
+      .contact-note { margin: 4px 0 20px; color: var(--contact-muted); font-size: 13px; }
+      .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 14px;
+        color: var(--contact-text);
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .checkbox-row input { margin-top: 3px; accent-color: var(--contact-primary); }
+      .submit-btn {
+        margin-top: 8px;
+        padding: 14px 40px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--contact-accent);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .submit-btn:hover { background: #cf6528; }
+      .submit-btn:disabled { opacity: .65; cursor: wait; }
+
+      .contact-status {
+        display: none;
+        margin: 18px 0 0;
+        padding: 12px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .contact-status.show { display: block; }
+      .contact-status.success { background: #e7f6ef; color: #155b3c; border: 1px solid #aadbc5; }
+      .contact-status.error { background: #fff0f0; color: #8a2424; border: 1px solid #efb5b5; }
+
+      /* Conserva la apariencia del enlace original al convertirlo en button */
+      button.btn-contacto {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      @media (max-width: 780px) {
+        .contact-modal { padding: 12px; }
+        .contact-modal-dialog { max-height: calc(100vh - 24px); }
+        .contact-wrapper { grid-template-columns: 1fr; }
+        .contact-visual { min-height: 110px; }
+        .contact-panel { padding: 32px 22px; }
+        .contact-title { font-size: 24px; }
+        .contact-form .form-row { grid-template-columns: 1fr; gap: 16px; }
+      }
+    </style>
+
   </head>
 
   <body>
@@ -404,6 +621,136 @@
     </section>
     </main>
 
+
+    <!-- Modal de contacto -->
+    <div class="contact-modal" id="modalContacto" role="dialog" aria-modal="true"
+         aria-labelledby="tituloModalContacto" aria-hidden="true">
+      <div class="contact-modal-backdrop" data-close-contact-modal></div>
+
+      <div class="contact-modal-dialog" role="document">
+        <button type="button" class="contact-modal-close"
+                aria-label="Cerrar formulario" data-close-contact-modal>&times;</button>
+
+        <section class="contact-section">
+          <div class="contact-wrapper">
+            <div class="contact-visual" aria-hidden="true"></div>
+
+            <div class="contact-panel">
+              <h2 class="contact-title" id="tituloModalContacto">
+                Contáctanos para acompañarte desde donde tú lo necesites
+              </h2>
+              <p class="contact-subtitle">
+                Cuéntanos tu situación y te escribiremos con la mejor solución para ti.
+              </p>
+
+              <form id="contactForm" class="contact-form" method="post"
+                    action="enviar-contacto.php" novalidate>
+                <!-- Campo trampa contra robots; debe permanecer vacío -->
+                <div style="position:absolute;left:-10000px;" aria-hidden="true">
+                  <label for="website">No completar</label>
+                  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="segmented-control" role="tablist" aria-label="Tipo de perfil">
+                  <button type="button" class="segment active" data-value="personas"
+                          role="tab" aria-selected="true">Personas</button>
+                  <button type="button" class="segment" data-value="empresas"
+                          role="tab" aria-selected="false">Empresas</button>
+                </div>
+                <input type="hidden" name="perfil" id="perfil" value="personas">
+
+                <div class="form-row">
+                  <div class="field">
+                    <input type="text" id="nombre" name="nombre" placeholder=" "
+                           maxlength="120" autocomplete="name" required>
+                    <label for="nombre">Nombre completo *</label>
+                  </div>
+                  <div class="field">
+                    <input type="tel" id="telefono" name="telefono" placeholder=" "
+                           maxlength="30" autocomplete="tel" required>
+                    <label for="telefono">Teléfono / Celular *</label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <input type="email" id="email" name="email" placeholder=" "
+                           maxlength="160" autocomplete="email" required>
+                    <label for="email">Correo electrónico *</label>
+                  </div>
+                  <div class="field field-empresa" id="empresaField" hidden>
+                    <input type="text" id="empresa" name="empresa" placeholder=" "
+                           maxlength="160" autocomplete="organization">
+                    <label for="empresa">Empresa *</label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <select id="pais" name="pais" required>
+                      <option value="" disabled selected hidden></option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="México">México</option>
+                      <option value="Perú">Perú</option>
+                      <option value="Chile">Chile</option>
+                      <option value="Argentina">Argentina</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                    <label for="pais" class="label-select">País *</label>
+                  </div>
+                  <div class="field">
+                    <input type="text" id="ciudad" name="ciudad" placeholder=" "
+                           maxlength="100" autocomplete="address-level2" required>
+                    <label for="ciudad">Ciudad *</label>
+                  </div>
+                </div>
+
+                <div class="form-row single">
+                  <div class="field">
+                    <select id="servicio" name="servicio">
+                      <option value="" disabled selected hidden></option>
+                      <option value="Orientación vocacional">Orientación vocacional</option>
+                      <option value="Coaching de empleabilidad">Coaching de empleabilidad</option>
+                      <option value="Coaching de liderazgo">Coaching de liderazgo</option>
+                      <option value="Transición de carrera">Transición de carrera</option>
+                      <option value="Desarrollo de equipos">Desarrollo de equipos</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                    <label for="servicio" class="label-select">¿En qué necesitas acompañamiento?</label>
+                  </div>
+                </div>
+
+                <div class="form-row single">
+                  <div class="field">
+                    <textarea id="mensaje" name="mensaje" placeholder=" "
+                              maxlength="3000" rows="4"></textarea>
+                    <label for="mensaje">Cuéntanos cómo podemos ayudarte</label>
+                  </div>
+                </div>
+
+                <p class="contact-note">
+                  Te responderemos por correo electrónico a la dirección que nos compartas.
+                </p>
+
+                <label class="checkbox-row">
+                  <input type="checkbox" id="politicas" name="politicas" value="1" required>
+                  <span>Acepto las políticas de tratamiento de datos *</span>
+                </label>
+
+                <label class="checkbox-row">
+                  <input type="checkbox" id="newsletter" name="newsletter" value="1">
+                  <span>Quiero inscribirme al newsletter</span>
+                </label>
+
+                <button type="submit" class="submit-btn" id="contactSubmit">Enviar</button>
+                <div id="contactStatus" class="contact-status" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-logo-box">
@@ -436,7 +783,13 @@
                         </span>
                         diana.ruiz@vasquezkennedy.com
                     </p>
-                    <a href="https://wa.link/s3ece3" class="btn-contacto text-p5"><b>Contáctanos</b></a>
+                    <button type="button"
+                            class="btn-contacto text-p5"
+                            id="abrirModalContacto"
+                            aria-haspopup="dialog"
+                            aria-controls="modalContacto">
+                        <b>Contáctanos</b>
+                    </button>
                 </div>
                 <!-- Columna 2 -->
                 <div class="footer-col">
@@ -494,6 +847,134 @@
     <!-- Bootstrap 5: JS y Popper -->
     <script src="<?= asset_url('js/home-performance.js') ?>"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    <script>
+      (function () {
+        'use strict';
+
+        var modal = document.getElementById('modalContacto');
+        var openButton = document.getElementById('abrirModalContacto');
+        var closeButtons = modal ? modal.querySelectorAll('[data-close-contact-modal]') : [];
+        var form = document.getElementById('contactForm');
+        var submitButton = document.getElementById('contactSubmit');
+        var statusBox = document.getElementById('contactStatus');
+        var lastFocusedElement = null;
+
+        function openModal() {
+          if (!modal) return;
+          lastFocusedElement = document.activeElement;
+          modal.classList.add('is-open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('modal-contacto-abierto');
+          window.setTimeout(function () {
+            var firstField = document.getElementById('nombre');
+            if (firstField) firstField.focus();
+          }, 50);
+        }
+
+        function closeModal() {
+          if (!modal) return;
+          modal.classList.remove('is-open');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('modal-contacto-abierto');
+          if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        if (openButton) {
+          openButton.addEventListener('click', openModal);
+        }
+
+        closeButtons.forEach(function (button) {
+          button.addEventListener('click', closeModal);
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+            closeModal();
+          }
+        });
+
+        document.querySelectorAll('#modalContacto .segment').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            document.querySelectorAll('#modalContacto .segment').forEach(function (item) {
+              item.classList.remove('active');
+              item.setAttribute('aria-selected', 'false');
+            });
+
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            var perfil = document.getElementById('perfil');
+            var empresaField = document.getElementById('empresaField');
+            var empresa = document.getElementById('empresa');
+
+            perfil.value = btn.dataset.value;
+
+            if (btn.dataset.value === 'empresas') {
+              empresaField.hidden = false;
+              empresa.required = true;
+            } else {
+              empresaField.hidden = true;
+              empresa.required = false;
+              empresa.value = '';
+            }
+          });
+        });
+
+        function showStatus(message, type) {
+          statusBox.textContent = message;
+          statusBox.className = 'contact-status show ' + type;
+        }
+
+        if (form) {
+          form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!form.checkValidity()) {
+              form.reportValidity();
+              return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            statusBox.className = 'contact-status';
+            statusBox.textContent = '';
+
+            try {
+              var response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+              });
+
+              var result = await response.json();
+
+              if (!response.ok || !result.ok) {
+                throw new Error(result.message || 'No fue posible enviar el formulario.');
+              }
+
+              showStatus(result.message, 'success');
+              form.reset();
+
+              document.getElementById('perfil').value = 'personas';
+              document.getElementById('empresaField').hidden = true;
+              document.getElementById('empresa').required = false;
+              document.querySelectorAll('#modalContacto .segment').forEach(function (item) {
+                var active = item.dataset.value === 'personas';
+                item.classList.toggle('active', active);
+                item.setAttribute('aria-selected', active ? 'true' : 'false');
+              });
+            } catch (error) {
+              showStatus(error.message || 'Ocurrió un error. Inténtalo nuevamente.', 'error');
+            } finally {
+              submitButton.disabled = false;
+              submitButton.textContent = 'Enviar';
+            }
+          });
+        }
+      }());
+    </script>
+
   </body>
 
 </html>
