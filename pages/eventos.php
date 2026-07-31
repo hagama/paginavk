@@ -572,7 +572,8 @@ $eventosAgora = cargarEventosAgora();
                                     <?php if ($detalleEvento !== ''): ?>
                                         <p><?= htmlspecialchars($detalleEvento, ENT_QUOTES, 'UTF-8') ?></p>
                                     <?php endif; ?>
-                                
+                                    <?php if ($calendlyEvento !== ''): ?>
+                                        <a class="evento-inscripcion text-p5" href="<?= htmlspecialchars($calendlyEvento, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener"><b>Inscribirme</b></a>
                                     <?php else: ?>
                                         <span class="evento-inscripcion evento-inscripcion-disabled text-p5"><b>Inscripcion proximamente</b></span>
                                     <?php endif; ?>
