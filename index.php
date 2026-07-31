@@ -709,12 +709,9 @@
                   <div class="field">
                     <select id="servicio" name="servicio">
                       <option value="" disabled selected hidden></option>
-                      <option value="Orientación vocacional">Orientación vocacional</option>
-                      <option value="Coaching de empleabilidad">Coaching de empleabilidad</option>
-                      <option value="Coaching de liderazgo">Coaching de liderazgo</option>
-                      <option value="Transición de carrera">Transición de carrera</option>
-                      <option value="Desarrollo de equipos">Desarrollo de equipos</option>
-                      <option value="Otro">Otro</option>
+                      <option value="Servicio para Personas">Servicio para Personas</option>
+                      <option value="Servicio para Empresas">Servicio para Empresas</option>
+      
                     </select>
                     <label for="servicio" class="label-select">¿En qué necesitas acompañamiento?</label>
                   </div>
