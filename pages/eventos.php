@@ -261,7 +261,6 @@ $eventosAgora = cargarEventosAgora();
     <!-- Hojas de Estilos -->
     <link rel="stylesheet" href="<?= asset_url('../styles/global.css') ?>" />
     <link rel="stylesheet" href="<?= asset_url('../styles/eventos.css') ?>" />
-    <link rel="stylesheet" href="<?= asset_url('../styles/contacto-modal.css') ?>" />
     <!-- Fuente de texto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -796,41 +795,6 @@ $eventosAgora = cargarEventosAgora();
         </div>
     </div>
 
-    <!-- Modal de contacto -->
-    <div class="contact-modal" id="modalContacto" role="dialog" aria-modal="true" aria-labelledby="tituloModalContacto" aria-hidden="true">
-      <div class="contact-modal-backdrop" data-close-contact-modal></div>
-      <div class="contact-modal-dialog" role="document">
-        <button type="button" class="contact-modal-close" aria-label="Cerrar formulario" data-close-contact-modal>&times;</button>
-        <section class="contact-section">
-          <div class="contact-wrapper">
-            <div class="contact-visual" aria-hidden="true"></div>
-            <div class="contact-panel">
-              <h2 class="contact-title" id="tituloModalContacto">Contáctanos para acompañarte desde donde tú lo necesites</h2>
-              <p class="contact-subtitle">Cuéntanos tu situación y te escribiremos con la mejor solución para ti.</p>
-              <form id="contactForm" class="contact-form" method="post" action="../enviar-contacto.php" novalidate>
-                <div class="contact-honeypot" aria-hidden="true"><label for="website">No completar</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
-                <div class="segmented-control" role="tablist" aria-label="Tipo de perfil">
-                  <button type="button" class="segment active" data-value="personas" role="tab" aria-selected="true">Personas</button>
-                  <button type="button" class="segment" data-value="empresas" role="tab" aria-selected="false">Empresas</button>
-                </div>
-                <input type="hidden" name="perfil" id="perfil" value="personas">
-                <div class="form-row"><div class="field"><input type="text" id="nombre" name="nombre" placeholder=" " maxlength="120" autocomplete="name" required><label for="nombre">Nombre completo *</label></div><div class="field"><input type="tel" id="telefono" name="telefono" placeholder=" " maxlength="30" autocomplete="tel" required><label for="telefono">Teléfono / Celular *</label></div></div>
-                <div class="form-row"><div class="field"><input type="email" id="email" name="email" placeholder=" " maxlength="160" autocomplete="email" required><label for="email">Correo electrónico *</label></div><div class="field field-empresa" id="empresaField" hidden><input type="text" id="empresa" name="empresa" placeholder=" " maxlength="160" autocomplete="organization"><label for="empresa">Empresa *</label></div></div>
-                <div class="form-row"><div class="field"><select id="pais" name="pais" required><option value="" disabled selected hidden></option><option value="Colombia">Colombia</option><option value="México">México</option><option value="Perú">Perú</option><option value="Chile">Chile</option><option value="Argentina">Argentina</option><option value="Otro">Otro</option></select><label for="pais" class="label-select">País *</label></div><div class="field"><input type="text" id="ciudad" name="ciudad" placeholder=" " maxlength="100" autocomplete="address-level2" required><label for="ciudad">Ciudad *</label></div></div>
-                <div class="form-row single"><div class="field"><select id="servicio" name="servicio"><option value="" disabled selected hidden></option><option value="Orientación vocacional">Orientación vocacional</option><option value="Coaching de empleabilidad">Coaching de empleabilidad</option><option value="Coaching de liderazgo">Coaching de liderazgo</option><option value="Transición de carrera">Transición de carrera</option><option value="Desarrollo de equipos">Desarrollo de equipos</option><option value="Otro">Otro</option></select><label for="servicio" class="label-select">¿En qué necesitas acompañamiento?</label></div></div>
-                <div class="form-row single"><div class="field"><textarea id="mensaje" name="mensaje" placeholder=" " maxlength="3000" rows="4"></textarea><label for="mensaje">Cuéntanos cómo podemos ayudarte</label></div></div>
-                <p class="contact-note">Te responderemos por correo electrónico a la dirección que nos compartas.</p>
-                <label class="checkbox-row"><input type="checkbox" id="politicas" name="politicas" value="1" required><span>Acepto las políticas de tratamiento de datos *</span></label>
-                <label class="checkbox-row"><input type="checkbox" id="newsletter" name="newsletter" value="1"><span>Quiero inscribirme al newsletter</span></label>
-                <button type="submit" class="submit-btn" id="contactSubmit">Enviar</button>
-                <div id="contactStatus" class="contact-status" role="status" aria-live="polite"></div>
-              </form>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-logo-box">
@@ -863,7 +827,7 @@ $eventosAgora = cargarEventosAgora();
                         </span>
                         diana.ruiz@vasquezkennedy.com
                     </p>
-                    <button type="button" class="btn-contacto text-p5" id="abrirModalContacto" aria-haspopup="dialog" aria-controls="modalContacto"><b>Contáctanos</b></button>
+                    <a href="https://wa.link/s3ece3" class="btn-contacto text-p5"><b>Contáctanos</b></a>
                 </div>
                 <!-- Columna 2 -->
                 <div class="footer-col">
@@ -923,6 +887,6 @@ $eventosAgora = cargarEventosAgora();
     <script src="<?= asset_url('../js/carousel-eventos.js') ?>"></script>
     <script src="<?= asset_url('../js/carousel-blogs.js') ?>"></script>
     <script src="<?= asset_url('../js/carousel-galeria-imagenes.js') ?>"></script>
-    <script src="<?= asset_url('../js/contacto-modal.js') ?>" defer></script>
   </body>
 </html>
+
