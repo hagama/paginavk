@@ -36,10 +36,10 @@ function absolute_site_url(string $path = ''): string
     return $scheme . '://' . $host . '/' . ltrim($path, '/');
 }
 
-function render_open_graph(): void
+function render_open_graph(?string $customTitle = null, ?string $customDescription = null): void
 {
-    $title = 'Vásquez Kennedy - Career Success';
-    $description = 'Tres décadas acompañando el desarrollo del éxito de más de 15.000 profesionales en el éxito de sus carreras. Tecnología avanzada e IA para el desarrollo de los empleados. Un equipo humano HUMANO.';
+    $title = $customTitle ?: 'Vásquez Kennedy - Career Success';
+    $description = $customDescription ?: 'Tres décadas acompañando el desarrollo del éxito de más de 15.000 profesionales en el éxito de sus carreras. Tecnología avanzada e IA para el desarrollo de los empleados. Un equipo humano HUMANO.';
     $imagePath = '/recursos-multimedia/logos/open-graph-vasquez-kennedy.png';
     $imageFile = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, $imagePath);
     $imageVersion = is_file($imageFile) ? '?v=' . filemtime($imageFile) : '';
