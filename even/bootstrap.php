@@ -34,3 +34,4 @@ function db(): PDO { static $pdo; if (!$pdo) {$dsn='mysql:host='.envv('DB_HOST',
 function csrf(): string { return $_SESSION['csrf'] ??= bin2hex(random_bytes(32)); }
 function json_response(array $data,int $status=200): never { http_response_code($status); header('Content-Type: application/json; charset=utf-8'); echo json_encode($data,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); exit; }
 function mask(string $v): string { return strlen($v)<5?'***':substr($v,0,2).'***'.substr($v,-2); }
+function app_setting(string $key, mixed $default=null): mixed { try {$q=db()->prepare('SELECT setting_value FROM app_settings WHERE setting_key=? LIMIT 1');$q->execute([$key]);$value=$q->fetchColumn();return $value===false?$default:$value;}catch(Throwable){return $default;} }
