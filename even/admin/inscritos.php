@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 require dirname(__DIR__) . '/bootstrap.php';
 
-if (empty($_SESSION['admin'])) {
+$authDisabled = filter_var(envv('ADMIN_AUTH_DISABLED', 'false'), FILTER_VALIDATE_BOOLEAN);
+if (!$authDisabled && empty($_SESSION['admin'])) {
     header('Location: index.php');
     exit;
 }
