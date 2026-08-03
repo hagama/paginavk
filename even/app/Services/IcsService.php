@@ -1,0 +1,3 @@
+<?php
+namespace App\Services;
+class IcsService { public static function make(array $r): string { $s=gmdate('Ymd\THis\Z',strtotime($r['selected_start_utc'].' UTC')); $e=gmdate('Ymd\THis\Z',strtotime($r['selected_start_utc'].' UTC')+3600); return "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Vasquez Kennedy//Calendl//ES\r\nBEGIN:VEVENT\r\nUID:{$r['uuid']}@vasquezkennedy.com\r\nDTSTAMP:".gmdate('Ymd\THis\Z')."\r\nDTSTART:$s\r\nDTEND:$e\r\nSUMMARY:Panel Internacional - Vasquez Kennedy\r\nDESCRIPTION:Reserva confirmada mediante Calendly\r\nORGANIZER:MAILTO:".envv('MAIL_FROM','eventos@vasquezkennedy.com')."\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"; } }

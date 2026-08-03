@@ -1,0 +1,1 @@
+<?php require dirname(__DIR__).'/bootstrap.php';$f=require dirname(__DIR__).'/config/form_fields.php';assert(count($f['fields'])===11);assert($f['fields'][0]['entry_id']==='877086558');assert(class_exists(App\Services\CalendlyService::class));echo "Smoke tests OK\n";

@@ -1,0 +1,4 @@
+<?php
+namespace App\Services;
+use PHPMailer\PHPMailer\PHPMailer;
+class MailService { public function send(array $r): void { $m=new PHPMailer(true); $m->isSMTP(); $m->Host=(string)envv('MAIL_HOST'); $m->Port=(int)envv('MAIL_PORT',587); $m->SMTPAuth=true; $m->Username=(string)envv('MAIL_USERNAME'); $m->Password=(string)envv('MAIL_PASSWORD'); $m->SMTPSecure=(string)envv('MAIL_ENCRYPTION','tls'); $m->setFrom((string)envv('MAIL_FROM'),(string)envv('MAIL_FROM_NAME')); $m->addAddress($r['email'],$r['full_name']); $m->isHTML(true); $m->Subject='Confirmación de inscripción y agenda'; $m->Body='<h2>¡Tu reserva está confirmada!</h2><p>Hola '.htmlspecialchars($r['full_name']).',</p><p>Fecha y hora: <strong>'.htmlspecialchars($r['selected_start_local']).' '.htmlspecialchars($r['timezone']).'</strong></p><p>Calendly también puede enviarte su invitación oficial.</p>'; $m->addStringAttachment(IcsService::make($r),'reserva.ics','base64','text/calendar'); $m->send(); } }
