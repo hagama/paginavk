@@ -274,7 +274,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Vilma Fuentes</h4>
-                            <p class="text-p4">Pendiente</p>
+                            <p class="text-p4"></p>
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Álvaro Bermúdez</h4>
-                            <p class="text-p4">Pendiente</p>
+                            <p class="text-p4"></p>
                         </div>
                     </div>
                 </div>
@@ -311,6 +311,18 @@
                         </div>
                     </div>
                 </div>
+                 <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alejandra.jpg" alt="Diana Ruiz">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Alejandra Sierra</h4>
+                            <p class="text-p4">Consultora Senior. Acompañó transiciones de carrera integrando estrategia, empleabilidad y gestión emocional.</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
@@ -362,7 +374,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Tatiana Rodríguez</h4>
-                            <p class="text-p4">Pendiente</p>
+                            <p class="text-p4">Impulso estrategias y alianzas en talento para fortalecer desarrollo y transformación empresarial.</p>
                         </div>
                     </div>
                 </div>
@@ -417,7 +429,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Tatiana Padilla</h4>
-                            <p class="text-p4">No tiene</p>
+                            <p class="text-p4">Gestionó los procesos administrativos y financieros de la compañía, brindando soporte oportuno y contribuyendo al buen funcionamiento de la operación.</p>
                         </div>
                     </div>
                 </div>
