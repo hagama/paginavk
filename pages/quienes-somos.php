@@ -314,7 +314,7 @@
                  <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alejandra.jpg" alt="Diana Ruiz">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alejandra.jpg" alt="Alejandra Sierrab">
                         </div>
                         <div class="talento-back">
                             <h4>Alejandra Sierra</h4>
