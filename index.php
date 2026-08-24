@@ -292,7 +292,7 @@
     </nav>
 
     <main id="contenido-principal">
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500" aria-label="Mensajes destacados">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3800" aria-label="Mensajes destacados">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="Mostrar mensaje 1" aria-current="true"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Mostrar mensaje 2"></button>
@@ -301,7 +301,7 @@
         <div class="carousel-inner">
             <!-- SLIDE 1 -->
             <div class="carousel-item active hero-slide">
-                <video muted loop playsinline preload="none" poster="<?= asset_url('recursos-multimedia/home/banner-1-background.webp') ?>" data-video-src="recursos-multimedia/home/banner-1.mp4" aria-hidden="true" tabindex="-1" fetchpriority="high">
+                <video muted loop playsinline preload="none"  data-video-src="recursos-multimedia/home/banner-1.mp4" aria-hidden="true" tabindex="-1" fetchpriority="high">
                     <track kind="captions" srclang="es" label="Español" src="<?= asset_url('recursos-multimedia/home/captions-es.vtt') ?>">
                 </video>
                 <div class="hero-overlay">
