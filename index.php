@@ -307,8 +307,8 @@
                 <div class="hero-overlay">
                     <div class="container">
                         <h1>
-                            ¿Le atemoriza la necesidad de competir
-                            con empresas globales en su propio mercado?
+                            Más de 15.000 gerentes y profesionales asistidos uno a uno de más de 500 empresas.
+
                         </h1>
                         <a class="btn-hero text-p3" href="https://wa.link/s3ece3"><b>Conoce más</b></a>
 
