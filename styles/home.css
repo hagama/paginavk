@@ -18,6 +18,18 @@
     object-position: center center; /* mueve el enfoque hacia la izquierda */
 }
 
+.hero-image-slide img{
+    position:static;
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.hero-image-slide{
+    height:auto;
+    min-height:0;
+}
+
 .hero-overlay{ /* Capa encima del video */
     position: absolute;
     top:0;

@@ -316,15 +316,8 @@
                 </div>
             </div>
             <!-- SLIDE 2 -->
-            <div class="carousel-item hero-slide">
-                <img src="<?= asset_url('recursos-multimedia/home/banner2.png') ?>" alt="" aria-hidden="true" loading="lazy" decoding="async">
-
-                <div class="hero-overlay">
-                    <div class="container">
-                        <h1>¿Es más lo que invierte su empresa en el desarrollo y el bienestar de los empleados que lo que logra en su productividad?</h1>
-                        <a class="btn-hero text-p3" href="https://wa.link/s3ece3"><b>Contáctanos</b></a>
-                    </div>
-                </div>
+            <div class="carousel-item hero-slide hero-image-slide">
+                <img src="<?= asset_url('recursos-multimedia/home/banner2.png') ?>" alt="Satisfacción de nuestros clientes en las cuatro sensaciones claves" loading="lazy" decoding="async">
             </div>
 
             <!-- SLIDE 3 -->
