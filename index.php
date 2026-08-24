@@ -317,9 +317,7 @@
             </div>
             <!-- SLIDE 2 -->
             <div class="carousel-item hero-slide">
-                <video muted loop playsinline preload="none" poster="<?= asset_url('recursos-multimedia/home/comunidad-vk-background.webp') ?>" data-video-src="recursos-multimedia/home/video-slide-2.mp4" aria-hidden="true" tabindex="-1">
-                    <track kind="captions" srclang="es" label="Español" src="<?= asset_url('recursos-multimedia/home/captions-es.vtt') ?>">
-                </video>
+                <img src="<?= asset_url('recursos-multimedia/home/banner2.png') ?>" alt="" aria-hidden="true" loading="lazy" decoding="async">
 
                 <div class="hero-overlay">
                     <div class="container">
@@ -331,12 +329,12 @@
 
             <!-- SLIDE 3 -->
             <div class="carousel-item hero-slide">
-                <video muted loop playsinline preload="none" poster="<?= asset_url('recursos-multimedia/home/banner-2-background.webp') ?>" data-video-src="recursos-multimedia/home/video-slide-3.mp4" aria-hidden="true" tabindex="-1">
+                <video muted loop playsinline preload="none" poster="<?= asset_url('recursos-multimedia/home/banner-2-background.webp') ?>" data-video-src="recursos-multimedia/home/banner-3.mp4" aria-hidden="true" tabindex="-1">
                     <track kind="captions" srclang="es" label="Español" src="<?= asset_url('recursos-multimedia/home/captions-es.vtt') ?>">
                 </video>
                 <div class="hero-overlay">
                     <div class="container">
-                        <h1>Cómo lograr el más alto nivel de desempeño de cada empleado en el corto plazo ¡ESTÁ INVENTADO!</h1>
+                        <h1>Servicio directo desde Bogotá en la región Andina y América Central y en 80 países a través de la red mundial CSG</h1>
                         <a class="btn-hero text-p3" href="https://wa.link/s3ece3"><b>Escríbenos</b></a>
                     </div>
                 </div>
