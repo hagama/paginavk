@@ -259,7 +259,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-camilo-vasquez.png" alt="Camilo Vásquez">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-camilo-vasquez.png" alt="Camilo Vásquez" width="600" height="800" loading="eager" fetchpriority="high" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Camilo Vásquez</h4>
@@ -270,7 +270,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-vilma-fuentes.png" alt="Vilma Fuentes">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-vilma-fuentes.png" alt="Vilma Fuentes" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Vilma Fuentes</h4>
@@ -281,7 +281,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alvaro-bermudez.png" alt="Álvaro Bermúdez">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alvaro-bermudez.png" alt="Álvaro Bermúdez" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Álvaro Bermúdez</h4>
@@ -292,7 +292,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-gabriel-santos.png" alt="Gabriel Santos">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-gabriel-santos.png" alt="Gabriel Santos" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Gabriel Santos</h4>
@@ -303,7 +303,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-diana-ruiz.png" alt="Diana Ruiz">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-diana-ruiz.png" alt="Diana Ruiz" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Diana Ruiz</h4>
@@ -314,7 +314,7 @@
                  <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alejandra.jpg" alt="Alejandra Sierrab">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alejandra.jpg" alt="Alejandra Sierra" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Alejandra Sierra</h4>
@@ -326,7 +326,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-pablo-emilio.png" alt="Pablo Emilio">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-pablo-emilio.png" alt="Pablo Emilio" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Pablo Emilio</h4>
@@ -337,7 +337,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-angela-ramirez.png" alt="Angela Ramirez">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-angela-ramirez.png" alt="Angela Ramirez" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Angela Ramirez</h4>
@@ -348,7 +348,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-humberto-coral.png" alt="Humberto Coral">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-humberto-coral.png" alt="Humberto Coral" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Humberto Coral</h4>
@@ -359,7 +359,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-monica-cubides.png" alt="Monica Cubides">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-monica-cubides.png" alt="Monica Cubides" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Monica Cubides</h4>
@@ -370,7 +370,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-tatiana-rodriguez.png" alt="Tatiana Rodríguez">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-tatiana-rodriguez.png" alt="Tatiana Rodríguez" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Tatiana Rodríguez</h4>
@@ -381,7 +381,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-gina-sanchez.jpg" alt="Gina Sanchez">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-gina-sanchez.jpg" alt="Gina Sanchez" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Gina Sanchez</h4>
@@ -392,7 +392,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-marita-teresa-figueroa.jpg" alt="Marita Teresa Figueroa">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-marita-teresa-figueroa.jpg" alt="Marita Teresa Figueroa" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Marita Teresa Figueroa</h4>
@@ -403,7 +403,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alfredo-penaloza.png" alt="Alfredo Peñaloza">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-alfredo-penaloza.png" alt="Alfredo Peñaloza" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Alfredo Peñaloza</h4>
@@ -414,7 +414,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-harold-gama.png" alt="Harold Gama">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-harold-gama.png" alt="Harold Gama" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Harold Gama</h4>
@@ -425,7 +425,7 @@
                 <div class="talento-card">
                     <div class="talento-inner">
                         <div class="talento-front">
-                            <img src="../recursos-multimedia/quienes-somos/talento/talento-tatiana-padilla.png" alt="Tatiana Padilla">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-tatiana-padilla.png" alt="Tatiana Padilla" width="600" height="800" loading="lazy" decoding="async">
                         </div>
                         <div class="talento-back">
                             <h4>Tatiana Padilla</h4>
