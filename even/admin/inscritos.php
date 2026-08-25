@@ -14,6 +14,7 @@ $pdo = db();
 $pdo->exec("CREATE TABLE IF NOT EXISTS app_settings (setting_key VARCHAR(100) PRIMARY KEY, setting_value TEXT NOT NULL, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)");
 $form = require dirname(__DIR__) . '/config/form_fields.php';
 $defaultTitle = (string) $form['title'];
+$defaultPhrase = 'Convierte la IA en tu sistema completo de búsqueda de empleo.';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!hash_equals(csrf(), (string) ($_POST['csrf'] ?? ''))) {
@@ -27,9 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $calendlyUrl = trim((string) ($_POST['calendly_url'] ?? ''));
         $eventDate = trim((string) ($_POST['event_date'] ?? ''));
         $eventTime = trim((string) ($_POST['event_time'] ?? ''));
+        $confirmationPhrase = trim((string) ($_POST['confirmation_phrase'] ?? ''));
         $titleLength = function_exists('mb_strlen') ? mb_strlen($newTitle) : strlen($newTitle);
+        $phraseLength = function_exists('mb_strlen') ? mb_strlen($confirmationPhrase) : strlen($confirmationPhrase);
         if ($newTitle === '' || $titleLength > 180) {
             $_SESSION['admin_flash'] = ['error', 'El nombre debe tener entre 1 y 180 caracteres.'];
+        } elseif ($confirmationPhrase === '' || $phraseLength > 500) {
+            $_SESSION['admin_flash'] = ['error', 'La frase de confirmación debe tener entre 1 y 500 caracteres.'];
         } elseif (!filter_var($calendlyUrl, FILTER_VALIDATE_URL) || parse_url($calendlyUrl, PHP_URL_SCHEME) !== 'https') {
             $_SESSION['admin_flash'] = ['error', 'Ingresa un enlace HTTPS válido de Calendly.'];
         } elseif (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $eventDate) || !preg_match('/^\d{2}:\d{2}$/', $eventTime)) {
@@ -50,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'event_date' => $eventDate,
                     'event_time' => $eventTime,
                     'event_timezone' => 'America/Bogota',
+                    'confirmation_phrase' => $confirmationPhrase,
                 ] as $key => $value) {
                     $q->execute([$key, $value]);
                 }
@@ -87,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $title = (string) app_setting('form_title', $defaultTitle);
+$confirmationPhrase = (string) app_setting('confirmation_phrase', $defaultPhrase);
 $event = event_config();
 $rows = $pdo->query('SELECT * FROM registrations ORDER BY id DESC')->fetchAll();
 $flash = $_SESSION['admin_flash'] ?? null;
@@ -97,6 +104,24 @@ $answersFor = static function (array $row): array {
     $answers = json_decode((string) ($row['form_response_json'] ?? ''), true);
     return is_array($answers) ? $answers : [];
 };
+
+if (($_GET['download'] ?? '') === 'excel') {
+    $downloadRows = $pdo->query('SELECT * FROM registrations ORDER BY id DESC')->fetchAll();
+    $columns = ['ID'];
+    foreach ($form['fields'] as $field) $columns[] = (string) $field['label'];
+    $columns[] = 'Fecha del evento'; $columns[] = 'Estado'; $columns[] = 'Fecha de registro';
+    header('Content-Type: text/csv; charset=UTF-8');
+    header('Content-Disposition: attachment; filename="inscritos-' . date('Y-m-d') . '.csv"');
+    echo "\xEF\xBB\xBF";
+    $out = fopen('php://output', 'w');
+    fputcsv($out, $columns, ';');
+    foreach ($downloadRows as $row) {
+        $answers = $answersFor($row); $line = [(string) $row['id']];
+        foreach ($form['fields'] as $field) $line[] = (string) ($answers[$field['name']] ?? match ($field['name']) {'email' => $row['email'] ?? '', 'phone' => $row['phone'] ?? '', default => ''});
+        $line[] = (string) $row['selected_start_local']; $line[] = (string) $row['status']; $line[] = (string) $row['created_at']; fputcsv($out, $line, ';');
+    }
+    fclose($out); exit;
+}
 ?>
 <!doctype html>
 <html lang="es">
@@ -124,6 +149,10 @@ $answersFor = static function (array $row): array {
             <label class="wide">Nombre visible y usado al compartir
                 <input type="text" name="form_title" value="<?=$escape($title)?>" maxlength="180" required>
             </label>
+            <label class="wide">Frase de confirmación
+                <input type="text" name="confirmation_phrase" value="<?=$escape($confirmationPhrase)?>" maxlength="500" required>
+                <span class="help">Aparece después de la inscripción y en el correo de confirmación.</span>
+            </label>
             <label class="wide">Enlace del evento de Calendly
                 <input type="url" name="calendly_url" value="<?=$escape($event['calendly_url'])?>" placeholder="https://calendly.com/usuario/evento" required>
                 <span class="help">Acepta el enlace público del evento o su URI API. El sistema identifica automáticamente el tipo de evento.</span>
@@ -141,7 +170,7 @@ $answersFor = static function (array $row): array {
 
     <section class="panel">
         <h2>Inscritos</h2>
-        <p class="summary"><strong><?=count($rows)?></strong> registros encontrados</p>
+        <p class="summary"><strong><?=count($rows)?></strong> registros encontrados · <a href="inscritos.php?download=excel">Descargar resultados para Excel</a></p>
         <div class="table-wrap" tabindex="0" aria-label="Tabla desplazable de inscritos">
             <?php if (!$rows): ?>
                 <p class="empty">Todavía no hay personas inscritas.</p>
