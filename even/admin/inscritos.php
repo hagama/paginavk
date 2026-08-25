@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require dirname(__DIR__) . '/bootstrap.php';
+use App\Services\CalendlyService;
 
 $authDisabled = filter_var(envv('ADMIN_AUTH_DISABLED', 'false'), FILTER_VALIDATE_BOOLEAN);
 if (!$authDisabled && empty($_SESSION['admin'])) {
@@ -21,15 +22,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $action = (string) ($_POST['action'] ?? '');
-    if ($action === 'update_title') {
+    if ($action === 'update_event_settings') {
         $newTitle = trim((string) ($_POST['form_title'] ?? ''));
+        $calendlyUrl = trim((string) ($_POST['calendly_url'] ?? ''));
+        $eventDate = trim((string) ($_POST['event_date'] ?? ''));
+        $eventTime = trim((string) ($_POST['event_time'] ?? ''));
         $titleLength = function_exists('mb_strlen') ? mb_strlen($newTitle) : strlen($newTitle);
         if ($newTitle === '' || $titleLength > 180) {
             $_SESSION['admin_flash'] = ['error', 'El nombre debe tener entre 1 y 180 caracteres.'];
+        } elseif (!filter_var($calendlyUrl, FILTER_VALIDATE_URL) || parse_url($calendlyUrl, PHP_URL_SCHEME) !== 'https') {
+            $_SESSION['admin_flash'] = ['error', 'Ingresa un enlace HTTPS válido de Calendly.'];
+        } elseif (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $eventDate) || !preg_match('/^\d{2}:\d{2}$/', $eventTime)) {
+            $_SESSION['admin_flash'] = ['error', 'Selecciona una fecha y hora válidas.'];
         } else {
-            $q = $pdo->prepare('INSERT INTO app_settings(setting_key,setting_value) VALUES(?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value)');
-            $q->execute(['form_title', $newTitle]);
-            $_SESSION['admin_flash'] = ['success', 'Nombre del formulario actualizado.'];
+            try {
+                $start = new DateTimeImmutable($eventDate . ' ' . $eventTime, new DateTimeZone('America/Bogota'));
+                if ($start <= new DateTimeImmutable('now', new DateTimeZone('America/Bogota'))) {
+                    throw new RuntimeException('La fecha y hora deben estar en el futuro.');
+                }
+                $eventTypeUri = (new CalendlyService())->resolveEventTypeUri($calendlyUrl);
+                $q = $pdo->prepare('INSERT INTO app_settings(setting_key,setting_value) VALUES(?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value)');
+                $pdo->beginTransaction();
+                foreach ([
+                    'form_title' => $newTitle,
+                    'calendly_url' => $calendlyUrl,
+                    'calendly_event_type_uri' => $eventTypeUri,
+                    'event_date' => $eventDate,
+                    'event_time' => $eventTime,
+                    'event_timezone' => 'America/Bogota',
+                ] as $key => $value) {
+                    $q->execute([$key, $value]);
+                }
+                $pdo->commit();
+                $_SESSION['admin_flash'] = ['success', 'Formulario, Calendly, fecha y hora actualizados.'];
+            } catch (Throwable $e) {
+                if ($pdo->inTransaction()) {
+                    $pdo->rollBack();
+                }
+                $_SESSION['admin_flash'] = ['error', 'No se guardó la configuración: ' . $e->getMessage()];
+            }
         }
     } elseif ($action === 'clear_registrations') {
         if (($_POST['confirm_clear'] ?? '') !== '1') {
@@ -56,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $title = (string) app_setting('form_title', $defaultTitle);
+$event = event_config();
 $rows = $pdo->query('SELECT * FROM registrations ORDER BY id DESC')->fetchAll();
 $flash = $_SESSION['admin_flash'] ?? null;
 unset($_SESSION['admin_flash']);
@@ -74,7 +106,7 @@ $answersFor = static function (array $row): array {
     <title>Informes de inscritos</title>
     <link rel="stylesheet" href="../public/assets/css/app.css?v=20260803-4">
     <style>
-        .reports{max-width:1500px}.admin-nav{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px}.admin-nav a{color:#044f8c;font-weight:700}.panel{background:#fff;padding:24px;border-radius:14px;box-shadow:0 10px 30px #044f8c12;margin-bottom:24px}.panel h2{margin-top:0}.settings-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}.settings-form button,.danger button{margin:0}.flash{padding:14px 18px;border-radius:10px;margin-bottom:20px}.flash.success{background:#e8f5ec;color:#17652f}.flash.error{background:#fff0f0;color:#a01919}.summary{font-size:18px;color:#044f8c}.table-wrap{width:100%;overflow:auto;border:1px solid #d9e3ef;border-radius:12px}table{width:100%;min-width:1500px;border-collapse:collapse;background:#fff}th,td{padding:11px 12px;border-bottom:1px solid #e5ebf2;text-align:left;vertical-align:top;font-size:13px;white-space:nowrap}th{position:sticky;top:0;background:#044f8c;color:#fff;z-index:1}tbody tr:nth-child(even){background:#f8f8f8}.empty{padding:36px;text-align:center;color:#555}.danger{border:1px solid #e1251b}.danger button{background:#e1251b}.danger button:hover{background:#c90000}.confirm{display:flex;align-items:flex-start;gap:10px;margin:16px 0}.confirm input{width:auto;min-height:auto;margin-top:3px}@media(max-width:700px){.reports{padding:0 12px}.panel{padding:18px}.settings-form{grid-template-columns:1fr}.settings-form button{width:100%}}
+        .reports{max-width:1500px}.admin-nav{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px}.admin-nav a{color:#044f8c;font-weight:700}.panel{background:#fff;padding:24px;border-radius:14px;box-shadow:0 10px 30px #044f8c12;margin-bottom:24px}.panel h2{margin-top:0}.settings-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.settings-form .wide{grid-column:1/-1}.settings-form button,.danger button{margin:0}.help{color:#555;font-size:13px;margin:6px 0 0}.flash{padding:14px 18px;border-radius:10px;margin-bottom:20px}.flash.success{background:#e8f5ec;color:#17652f}.flash.error{background:#fff0f0;color:#a01919}.summary{font-size:18px;color:#044f8c}.table-wrap{width:100%;overflow:auto;border:1px solid #d9e3ef;border-radius:12px}table{width:100%;min-width:1500px;border-collapse:collapse;background:#fff}th,td{padding:11px 12px;border-bottom:1px solid #e5ebf2;text-align:left;vertical-align:top;font-size:13px;white-space:nowrap}th{position:sticky;top:0;background:#044f8c;color:#fff;z-index:1}tbody tr:nth-child(even){background:#f8f8f8}.empty{padding:36px;text-align:center;color:#555}.danger{border:1px solid #e1251b}.danger button{background:#e1251b}.danger button:hover{background:#c90000}.confirm{display:flex;align-items:flex-start;gap:10px;margin:16px 0}.confirm input{width:auto;min-height:auto;margin-top:3px}@media(max-width:700px){.reports{padding:0 12px}.panel{padding:18px}.settings-form{grid-template-columns:1fr}.settings-form .wide{grid-column:auto}.settings-form button{width:100%}}
     </style>
 </head>
 <body>
@@ -85,14 +117,25 @@ $answersFor = static function (array $row): array {
     <?php if ($flash): ?><div class="flash <?=$escape($flash[0])?>" role="status"><?=$escape($flash[1])?></div><?php endif; ?>
 
     <section class="panel">
-        <h2>Nombre del formulario</h2>
+        <h2>Configuración del formulario y Calendly</h2>
         <form method="post" class="settings-form">
             <input type="hidden" name="csrf" value="<?=$escape(csrf())?>">
-            <input type="hidden" name="action" value="update_title">
-            <label>Nombre visible y usado al compartir
+            <input type="hidden" name="action" value="update_event_settings">
+            <label class="wide">Nombre visible y usado al compartir
                 <input type="text" name="form_title" value="<?=$escape($title)?>" maxlength="180" required>
             </label>
-            <button type="submit">Guardar nombre</button>
+            <label class="wide">Enlace del evento de Calendly
+                <input type="url" name="calendly_url" value="<?=$escape($event['calendly_url'])?>" placeholder="https://calendly.com/usuario/evento" required>
+                <span class="help">Acepta el enlace público del evento o su URI API. El sistema identifica automáticamente el tipo de evento.</span>
+            </label>
+            <label>Fecha del evento
+                <input type="date" name="event_date" value="<?=$escape($event['date'])?>" min="<?=date('Y-m-d')?>" required>
+            </label>
+            <label>Hora del evento
+                <input type="time" name="event_time" value="<?=$escape($event['time'])?>" required>
+                <span class="help">Zona horaria: America/Bogota.</span>
+            </label>
+            <button type="submit" class="wide">Guardar configuración</button>
         </form>
     </section>
 

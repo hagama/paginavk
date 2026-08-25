@@ -35,3 +35,19 @@ function csrf(): string { return $_SESSION['csrf'] ??= bin2hex(random_bytes(32))
 function json_response(array $data,int $status=200): never { http_response_code($status); header('Content-Type: application/json; charset=utf-8'); echo json_encode($data,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); exit; }
 function mask(string $v): string { return strlen($v)<5?'***':substr($v,0,2).'***'.substr($v,-2); }
 function app_setting(string $key, mixed $default=null): mixed { try {$q=db()->prepare('SELECT setting_value FROM app_settings WHERE setting_key=? LIMIT 1');$q->execute([$key]);$value=$q->fetchColumn();return $value===false?$default:$value;}catch(Throwable){return $default;} }
+function event_config(): array {
+    return [
+        'date'=>(string)app_setting('event_date',envv('EVENT_DATE','2026-08-13')),
+        'time'=>(string)app_setting('event_time',envv('EVENT_TIME','17:00')),
+        'timezone'=>(string)app_setting('event_timezone',envv('EVENT_TIMEZONE','America/Bogota')),
+        'calendly_url'=>(string)app_setting('calendly_url',envv('CALENDLY_SCHEDULING_URL','')),
+        'calendly_event_type_uri'=>(string)app_setting('calendly_event_type_uri',envv('CALENDLY_EVENT_TYPE_URI','')),
+    ];
+}
+function event_start(array $config): DateTimeImmutable { return new DateTimeImmutable($config['date'].' '.$config['time'],new DateTimeZone($config['timezone'])); }
+function event_date_label(DateTimeImmutable $date): string {
+    $days=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+    $months=[1=>'enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    $hour=(int)$date->format('g');$minutes=$date->format('i');$period=(int)$date->format('G')<12?'a. m.':'p. m.';
+    return ucfirst($days[(int)$date->format('w')]).' '.$date->format('j').' de '.$months[(int)$date->format('n')].' de '.$date->format('Y').' · '.$hour.':'.$minutes.' '.$period;
+}
