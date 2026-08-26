@@ -413,8 +413,9 @@ $eventosAgora = cargarEventosAgora();
                 <div class="podcast-top">
                     <div class="podcast-info">
                         <h3>
-                            Las ideas que transforman una carrera no siempre vienen de un libro.
-                            A veces vienen de una conversación.
+                            Podcast VK: Las ideas que transforman una carrera no siempre vienen de un libro. A veces vienen de una conversación. Dale play.
+
+
                         </h3>
                     </div>
                 </div>
