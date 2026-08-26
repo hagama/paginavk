@@ -301,7 +301,7 @@
         <div class="carousel-inner">
             <!-- SLIDE 1 -->
             <div class="carousel-item active hero-slide">
-                <video muted loop playsinline preload="none"  data-video-src="recursos-multimedia/home/banner-1.mp4" aria-hidden="true" tabindex="-1" fetchpriority="high">
+                <video muted loop playsinline preload="none"  data-video-src="recursos-multimedia/home/banner-1-vk (1).mp4" aria-hidden="true" tabindex="-1" fetchpriority="high">
                     <track kind="captions" srclang="es" label="Español" src="<?= asset_url('recursos-multimedia/home/captions-es.vtt') ?>">
                 </video>
                 <div class="hero-overlay">
@@ -322,7 +322,7 @@
 
             <!-- SLIDE 3 -->
             <div class="carousel-item hero-slide">
-                <video muted loop playsinline preload="none" poster="<?= asset_url('recursos-multimedia/home/banner-2-background.webp') ?>" data-video-src="recursos-multimedia/home/banner-3.mp4" aria-hidden="true" tabindex="-1">
+                <video muted loop playsinline preload="none" poster="<?= asset_url('recursos-multimedia/home/banner-2-background.webp') ?>" data-video-src="recursos-multimedia/home/banner-3-vk (1).mp4" aria-hidden="true" tabindex="-1">
                     <track kind="captions" srclang="es" label="Español" src="<?= asset_url('recursos-multimedia/home/captions-es.vtt') ?>">
                 </video>
                 <div class="hero-overlay">

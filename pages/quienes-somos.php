@@ -274,7 +274,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Vilma Fuentes</h4>
-                            <p class="text-p4"></p>
+                            <p class="text-p4">Desde una perspectiva integral acompaño a ejecutivos en su transición de carrera y respondo por la excelencia en la presentación de nuestros servicios</p>
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Álvaro Bermúdez</h4>
-                            <p class="text-p4"></p>
+                            <p class="text-p4">Líder en desarrollo de negocios y relaciones institucionales</p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +307,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Diana Ruiz</h4>
-                            <p class="text-p4">Lideró el área de mercadeo y acompañó a los profesionales en sus procesos de transición con metodología, estructura y empatía.</p>
+                            <p class="text-p4">Lidero el área de mercadeo y acompaño a los profesionales en sus procesos de transición con metodología, estructura y empatía.</p>
                         </div>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Alejandra Sierra</h4>
-                            <p class="text-p4">Consultora Senior. Acompañó transiciones de carrera integrando estrategia, empleabilidad y gestión emocional.</p>
+                            <p class="text-p4">Consultora Senior. Acompaño transiciones de carrera integrando estrategia, empleabilidad y gestión emocional.</p>
                         </div>
                     </div>
                 </div>
@@ -352,7 +352,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Humberto Coral</h4>
-                            <p class="text-p4">Coach de liderazgo consciente. Acompañó a las personas hacia su independencia laboral con sentido, propósito y disfrute.</p>
+                            <p class="text-p4">Coach de liderazgo consciente. Acompaño a las personas hacia su independencia laboral con sentido, propósito y disfrute.</p>
                         </div>
                     </div>
                 </div>
@@ -363,7 +363,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Monica Cubides</h4>
-                            <p class="text-p4">Acompañó la experiencia de usuarios y la coordinación de proyectos de outplacement y desarrollo, asegurando un servicio cercano, estratégico y efectivo.</p>
+                            <p class="text-p4">Acompaño la experiencia de usuarios y la coordinación de proyectos de outplacement y desarrollo, asegurando un servicio cercano, estratégico y efectivo.</p>
                         </div>
                     </div>
                 </div>
@@ -385,7 +385,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Gina Sanchez</h4>
-                            <p class="text-p4">Impulsó el crecimiento laboral con metodologías y estrategias que transforman y potencian talento.</p>
+                            <p class="text-p4">Impulso el crecimiento laboral con metodologías y estrategias que transforman y potencian talento.</p>
                         </div>
                     </div>
                 </div>
@@ -396,7 +396,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Marita Teresa Figueroa</h4>
-                            <p class="text-p4">Facilitó transiciones de carrera con foco en empleabilidad y desarrollo humano.</p>
+                            <p class="text-p4">Facilito transiciones de carrera con foco en empleabilidad y desarrollo humano.</p>
                         </div>
                     </div>
                 </div>
@@ -407,7 +407,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Alfredo Peñaloza</h4>
-                            <p class="text-p4">Acompañó procesos de transición de carrera, desarrollo de talento y medición de experiencia del empleado.</p>
+                            <p class="text-p4">Acompaño procesos de transición de carrera, desarrollo de talento y medición de experiencia del empleado.</p>
                         </div>
                     </div>
                 </div>
@@ -418,7 +418,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Harold Gama</h4>
-                            <p class="text-p4">Facilitó la implementación de soluciones tecnológicas con foco en eficiencia operativa, continuidad del negocio y mejora de la experiencia del usuario.</p>
+                            <p class="text-p4">Facilito la implementación de soluciones tecnológicas con foco en eficiencia operativa, continuidad del negocio y mejora de la experiencia del usuario.</p>
                         </div>
                     </div>
                 </div>
@@ -429,7 +429,7 @@
                         </div>
                         <div class="talento-back">
                             <h4>Tatiana Padilla</h4>
-                            <p class="text-p4">Gestionó los procesos administrativos y financieros de la compañía, brindando soporte oportuno y contribuyendo al buen funcionamiento de la operación.</p>
+                            <p class="text-p4">Gestiono los procesos administrativos y financieros de la compañía, brindando soporte oportuno y contribuyendo al buen funcionamiento de la operación.</p>
                         </div>
                     </div>
                 </div>
