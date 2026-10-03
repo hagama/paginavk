@@ -322,6 +322,18 @@
                         </div>
                     </div>
                 </div>
+
+                 <div class="talento-card">
+                    <div class="talento-inner">
+                        <div class="talento-front">
+                            <img src="../recursos-multimedia/quienes-somos/talento/talento-camila-diago.png" alt="Camila Diago" width="600" height="800" loading="lazy" decoding="async">
+                        </div>
+                        <div class="talento-back">
+                            <h4>Camila Diago</h4>
+                            <p class="text-p4">Consultora Senior. Acompaño transiciones de carrera integrando estrategia, empleabilidad y gestión emocional.</p>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="talento-card">
                     <div class="talento-inner">
