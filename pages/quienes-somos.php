@@ -330,7 +330,8 @@
                         </div>
                         <div class="talento-back">
                             <h4>Camila Diago</h4>
-                            <p class="text-p4">Consultora Senior. Acompaño transiciones de carrera integrando estrategia, empleabilidad y gestión emocional.</p>
+                            <p class="text-p4">Lidero la gestión e implementación de procesos operativos de la compañía con soporte en tecnología.
+</p>
                         </div>
                     </div>
                 </div>
