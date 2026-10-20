@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#044f8c">
+  <meta name="description" content="Formulario Alumni de Vásquez Kennedy para actualizar información profesional y de transición de carrera.">
+  <title>Alumni | Vásquez Kennedy</title>
+  <link rel="icon" href="../../recursos-multimedia/logos/icon-vasquez-kennedy.ico">
+  <link rel="stylesheet" href="../public/assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/alumni.css">
+  <style>.access-fields{grid-template-columns:minmax(0,1fr);max-width:560px}</style>
+  <script src="assets/js/alumni.js" defer></script>
+</head>
+<body>
+  <header class="alumni-header">
+    <a class="brand" href="../../index.php" aria-label="Inicio de Vásquez Kennedy">
+      <img src="../../recursos-multimedia/logos/logo-vasquez-kennedy-header.webp" alt="Vásquez Kennedy" width="120" height="52">
+    </a>
+    <span class="header-tag">Comunidad Alumni</span>
+  </header>
+
+  <main class="alumni-main">
+    <div id="access-step">
+      <section class="hero" aria-labelledby="access-title">
+        <p class="eyebrow">ALUMNI VÁSQUEZ KENNEDY</p>
+        <h1 id="access-title">Tu trayectoria continúa</h1>
+        <p>Actualiza tu información profesional y comparte cómo ha evolucionado tu carrera después del programa.</p>
+      </section>
+      <form id="access-form" class="alumni-card" novalidate>
+        <div class="step-label"><span>01</span> Identificación</div>
+        <h2>Ingresa tu cédula</h2>
+        <p class="section-intro">Para esta vista previa, ingresa 123 en el campo de cédula.</p>
+        <div class="access-fields">
+          <div class="field">
+            <label for="access-id">Número de cédula <em>*</em></label>
+            <input id="access-id" name="access_id" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]{3}" maxlength="3" placeholder="123" required>
+          </div>
+        </div>
+        <p id="access-error" class="form-feedback" role="alert" hidden></p>
+        <button type="submit" class="primary-action">Continuar al formulario <span aria-hidden="true">→</span></button>
+      </form>
+    </div>
+
+    <div id="form-step" hidden>
+      <section class="hero" aria-labelledby="form-title">
+        <p class="eyebrow">ALUMNI VÁSQUEZ KENNEDY</p>
+        <h1 id="form-title" tabindex="-1">Actualiza tu trayectoria</h1>
+        <p>Cuéntanos sobre tu empresa actual y tu transición de carrera.</p>
+        <div class="progress" aria-hidden="true"><i></i></div>
+      </section>
+
+      <form id="alumni-form" class="alumni-card" novalidate>
+        <section class="form-section" aria-labelledby="personal-title">
+          <div class="step-label"><span>01</span> Tus datos</div>
+          <h2 id="personal-title">Información personal</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="full-name">Nombre y apellido <em>*</em></label>
+              <input id="full-name" name="full_name" type="text" autocomplete="name" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="field">
+              <label for="document-id">Cédula <em>*</em></label>
+              <input id="document-id" name="document_id" type="text" inputmode="numeric" readonly aria-describedby="document-help">
+              <small id="document-help" class="field-hint">Se toma del paso anterior. <button id="change-id" type="button" class="text-button">Cambiar cédula</button></small>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="company-title">
+          <div class="step-label"><span>02</span> Tu presente profesional</div>
+          <h2 id="company-title">Empresa actual</h2>
+          <div class="grid">
+            <div class="field">
+              <label for="company-name">Nombre de la empresa <em>*</em></label>
+              <input id="company-name" name="company_name" type="text" autocomplete="organization" placeholder="Nombre de la empresa" required>
+            </div>
+            <div class="field">
+              <label for="company-website">Sitio web</label>
+              <input id="company-website" name="company_website" type="url" inputmode="url" placeholder="https://www.empresa.com">
+            </div>
+            <div class="field">
+              <label for="company-sector">Sector económico <em>*</em></label>
+              <input id="company-sector" name="company_sector" type="text" placeholder="Ej. tecnología, industria, servicios" required>
+            </div>
+            <div class="field">
+              <label for="company-location">Ubicación <em>*</em></label>
+              <input id="company-location" name="company_location" type="text" placeholder="Ciudad y país" required>
+            </div>
+            <div class="field">
+              <label for="annual-sales">Rango de ventas anuales</label>
+              <select id="annual-sales" name="annual_sales">
+                <option value="">Selecciona un rango</option>
+                <option>Menos de $1.000 millones COP</option>
+                <option>$1.000 a $5.000 millones COP</option>
+                <option>$5.001 a $20.000 millones COP</option>
+                <option>Más de $20.000 millones COP</option>
+                <option>Prefiero no responder</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="employee-count">Número de empleados</label>
+              <select id="employee-count" name="employee_count">
+                <option value="">Selecciona un rango</option>
+                <option>1 a 10</option><option>11 a 50</option><option>51 a 200</option><option>201 a 500</option><option>Más de 500</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="job-title">Cargo actual <em>*</em></label>
+              <input id="job-title" name="job_title" type="text" autocomplete="organization-title" placeholder="Tu cargo en la empresa" required>
+            </div>
+            <div class="field">
+              <label for="job-level">Nivel del cargo <em>*</em></label>
+              <select id="job-level" name="job_level" required>
+                <option value="">Selecciona una opción</option>
+                <option>Alta gerencia</option><option>Gerencia media</option><option>No directivo</option>
+              </select>
+            </div>
+          </div>
+          <div class="future-data">Los demás datos de reubicación se incorporarán desde Conekta cuando se habilite la conexión.</div>
+        </section>
+
+        <section class="form-section" aria-labelledby="hr-title">
+          <div class="step-label"><span>03</span> Contacto en tu empresa</div>
+          <h2 id="hr-title">Responsable de gestión humana</h2>
+          <div class="grid">
+            <div class="field"><label for="hr-name">Nombre</label><input id="hr-name" name="hr_name" type="text" autocomplete="off" placeholder="Nombre y apellido"></div>
+            <div class="field"><label for="hr-position">Cargo</label><input id="hr-position" name="hr_position" type="text" autocomplete="off" placeholder="Cargo de la persona responsable"></div>
+            <div class="field"><label for="hr-email">Correo electrónico</label><input id="hr-email" name="hr_email" type="email" inputmode="email" autocomplete="off" placeholder="correo@empresa.com"></div>
+            <div class="field"><label for="hr-phone">Celular</label><input id="hr-phone" name="hr_phone" type="tel" inputmode="tel" autocomplete="off" placeholder="Número de contacto"></div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="transition-title">
+          <div class="step-label"><span>04</span> Tu transición de carrera</div>
+          <h2 id="transition-title">Después del programa VK</h2>
+          <p class="section-intro">Piensa en el momento en que participaste en el programa y encontraste tu nuevo empleo.</p>
+          <div class="grid">
+            <div class="field">
+              <label for="relocation-time">Tiempo que tomó la reubicación</label>
+              <div class="input-group"><input id="relocation-time" name="relocation_time" type="number" min="0" step="1" inputmode="numeric" placeholder="Ej. 6"><select name="relocation_unit" aria-label="Unidad de tiempo"><option>Meses</option><option>Semanas</option></select></div>
+            </div>
+            <div class="field"><label for="vacancy-channel">Canal por el que encontraste la vacante</label><select id="vacancy-channel" name="vacancy_channel"><option value="">Selecciona una opción</option><option>Contactos personales</option><option>Cazatalentos</option><option>Medios digitales</option></select></div>
+            <fieldset class="field option-field"><legend>¿Cambiaste de sector económico?</legend><div class="option-row"><label><input type="radio" name="changed_sector" value="Sí"> Sí</label><label><input type="radio" name="changed_sector" value="No"> No</label></div></fieldset>
+            <fieldset class="field option-field"><legend>¿Cambiaste de profesión?</legend><div class="option-row"><label><input type="radio" name="changed_profession" value="Sí"> Sí</label><label><input type="radio" name="changed_profession" value="No"> No</label></div></fieldset>
+            <fieldset class="field option-field wide"><legend>Tu nuevo rango salarial, comparado con el anterior, es:</legend><div class="option-row"><label><input type="radio" name="salary_comparison" value="Superior"> Superior</label><label><input type="radio" name="salary_comparison" value="Similar"> Similar</label><label><input type="radio" name="salary_comparison" value="Inferior"> Inferior</label></div></fieldset>
+            <fieldset class="field option-field wide"><legend>El disfrute de tu nuevo empleo, comparado con el anterior, es:</legend><div class="option-row"><label><input type="radio" name="job_enjoyment" value="Superior"> Superior</label><label><input type="radio" name="job_enjoyment" value="Similar"> Similar</label><label><input type="radio" name="job_enjoyment" value="Inferior"> Inferior</label></div></fieldset>
+          </div>
+        </section>
+
+        <div class="form-footer">
+          <p>Vista previa visual. Las respuestas todavía no se envían ni se guardan.</p>
+          <button type="submit" class="primary-action">Finalizar formulario <span aria-hidden="true">→</span></button>
+          <p id="form-feedback" class="form-feedback" role="status" hidden></p>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
