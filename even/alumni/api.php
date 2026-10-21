@@ -105,9 +105,46 @@ try {
     if ($values['hr_email'] !== '' && !filter_var($values['hr_email'], FILTER_VALIDATE_EMAIL)) json_response(['error' => 'El correo de gestión humana no es válido.'], 422);
     if ($values['company_website'] !== '' && !filter_var($values['company_website'], FILTER_VALIDATE_URL)) json_response(['error' => 'El sitio web no es válido.'], 422);
     $db = alumni_connection('VK_DB');
-    $query = $db->prepare('INSERT INTO alumni_responses (document_id, response_json, created_at, updated_at) VALUES (?, ?, NOW(), NOW()) ON DUPLICATE KEY UPDATE response_json = VALUES(response_json), updated_at = NOW()');
-    $query->execute([$document, json_encode($values, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)]);
-    json_response(['message' => 'Tus datos se guardaron correctamente.']);
+    $profileQuery = $db->prepare('SELECT id FROM outp WHERE identificacion = ? ORDER BY id DESC LIMIT 1');
+    $profileQuery->execute([$document]);
+    $profileId = $profileQuery->fetchColumn();
+    if ($profileId === false) json_response(['error' => 'No encontramos el registro original para actualizarlo. Vuelve a consultar tu cédula.'], 404);
+
+    $levelMap = ['Alta gerencia' => 'ALTA DIRECCIÓN', 'Gerencia media' => 'GERENCIA MEDIA', 'No directivo' => 'PROFESIONAL'];
+    $channelMap = ['Contactos personales' => 'RED DE CONTACTOS PERSONALES', 'Cazatalentos' => 'CAZATALENTOS', 'Medios digitales' => 'REDES DIGITALES'];
+    $time = '';
+    if ($values['relocation_time'] !== '') {
+        $amount = (int) $values['relocation_time'];
+        $unit = $values['relocation_unit'] === 'Semanas' ? 'SEMANA' : 'MES';
+        $time = $amount . ' ' . $unit . ($amount === 1 ? '' : 'S');
+    }
+
+    $db->beginTransaction();
+    try {
+        $personUpdate = $db->prepare('UPDATE outp SET nombre1 = ? WHERE id = ?');
+        $personUpdate->execute([$values['full_name'], $profileId]);
+
+        $sessionUpdate = $db->prepare('UPDATE sesiones SET empresafin = ?, sitiowebfin = ?, sectoreconomicofin = ?, ubicacionfin = ?, rangoventasfin = ?, cargofin = ?, gerencialfin = ?, responsableghfin = ?, cargoghfin = ?, correoghfin = ?, celularghfin = ?, tiempofin = ?, cambioc = ?, cambiop = ?, canalfin = ?, mmfin = ? WHERE id = ?');
+        $sessionUpdate->execute([
+            $values['company_name'], $values['company_website'], $values['company_sector'], $values['company_location'],
+            $values['annual_sales'], $values['job_title'], $levelMap[$values['job_level']] ?? $values['job_level'],
+            $values['hr_name'], $values['hr_position'], $values['hr_email'], $values['hr_phone'], $time,
+            strtoupper($values['changed_sector']), strtoupper($values['changed_profession']),
+            $channelMap[$values['vacancy_channel']] ?? $values['vacancy_channel'], $values['salary_comparison'], $profileId,
+        ]);
+        if ($values['employee_count'] !== '' && ctype_digit($values['employee_count'])) {
+            $employeeUpdate = $db->prepare('UPDATE sesiones SET empleadosfin = ? WHERE id = ?');
+            $employeeUpdate->execute([(int) $values['employee_count'], $profileId]);
+        }
+
+        $responseUpdate = $db->prepare('INSERT INTO alumni_responses (document_id, response_json, created_at, updated_at) VALUES (?, ?, NOW(), NOW()) ON DUPLICATE KEY UPDATE response_json = VALUES(response_json), updated_at = NOW()');
+        $responseUpdate->execute([$document, json_encode($values, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)]);
+        $db->commit();
+    } catch (Throwable $error) {
+        if ($db->inTransaction()) $db->rollBack();
+        throw $error;
+    }
+    json_response(['message' => 'Tus datos se guardaron en la ficha original de VK y en Alumni.']);
 } catch (Throwable $error) {
     error_log('Alumni: ' . $error->getMessage());
     json_response(['error' => 'No fue posible conectar o guardar los datos. Contacta al administrador.'], 503);
