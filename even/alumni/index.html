@@ -30,11 +30,11 @@
       <form id="access-form" class="alumni-card" novalidate>
         <div class="step-label"><span>01</span> Identificación</div>
         <h2>Ingresa tu cédula</h2>
-        <p class="section-intro">Para esta vista previa, ingresa 123 en el campo de cédula.</p>
+        <p class="section-intro">Consultaremos tu información registrada en Conekta para completar el formulario.</p>
         <div class="access-fields">
           <div class="field">
             <label for="access-id">Número de cédula <em>*</em></label>
-            <input id="access-id" name="access_id" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]{3}" maxlength="3" placeholder="123" required>
+            <input id="access-id" name="access_id" type="text" inputmode="numeric" autocomplete="off" pattern="[0-9]{3,20}" maxlength="20" placeholder="Tu número de cédula" required>
           </div>
         </div>
         <p id="access-error" class="form-feedback" role="alert" hidden></p>
@@ -117,7 +117,7 @@
               </select>
             </div>
           </div>
-          <div class="future-data">Los demás datos de reubicación se incorporarán desde Conekta cuando se habilite la conexión.</div>
+          <div class="future-data">Revisa los datos traídos de Conekta y actualiza los que hayan cambiado.</div>
         </section>
 
         <section class="form-section" aria-labelledby="hr-title">
@@ -149,7 +149,7 @@
         </section>
 
         <div class="form-footer">
-          <p>Vista previa visual. Las respuestas todavía no se envían ni se guardan.</p>
+          <p>Al finalizar, tus respuestas se guardarán en la base de datos de VK.</p>
           <button type="submit" class="primary-action">Finalizar formulario <span aria-hidden="true">→</span></button>
           <p id="form-feedback" class="form-feedback" role="status" hidden></p>
         </div>
