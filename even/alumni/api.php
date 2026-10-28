@@ -33,16 +33,18 @@ function alumni_document(mixed $value): string
 
 function alumni_source(PDO $db, string $document): ?array
 {
-    $query = $db->prepare('SELECT o.id, o.nombre1, o.identificacion, s.empresafin, s.sitiowebfin, s.sectoreconomicofin, s.ubicacionfin, s.rangoventasfin, s.empleadosfin, s.cargofin, s.gerencialfin, s.responsableghfin, s.cargoghfin, s.correoghfin, s.celularghfin, s.tiempofin, s.canalfin, s.mmfin FROM outp o LEFT JOIN sesiones s ON s.id = o.id WHERE o.identificacion = ? ORDER BY o.id DESC LIMIT 1');
+    $query = $db->prepare('SELECT o.id, o.nombre1, o.identificacion, o.celular, o.telefono, s.empresafin, s.sitiowebfin, s.sectoreconomicofin, s.ubicacionfin, s.rangoventasfin, s.empleadosfin, s.cargofin, s.gerencialfin, s.responsableghfin, s.cargoghfin, s.correoghfin, s.celularghfin, s.tiempofin, s.canalfin, s.mmfin FROM outp o LEFT JOIN sesiones s ON s.id = o.id WHERE o.identificacion = ? ORDER BY o.id DESC LIMIT 1');
     $query->execute([$document]);
     $row = $query->fetch();
     if (!$row) return null;
     $level = mb_strtoupper(trim((string) ($row['gerencialfin'] ?? '')));
     $channel = mb_strtoupper(trim((string) ($row['canalfin'] ?? '')));
     $time = trim((string) ($row['tiempofin'] ?? ''));
+    $personalPhone = trim((string) (($row['celular'] ?? '') !== '' ? $row['celular'] : ($row['telefono'] ?? '')));
     return [
         'full_name' => trim((string) ($row['nombre1'] ?? '')),
         'document_id' => $document,
+        'personal_phone' => $personalPhone,
         'company_name' => trim((string) ($row['empresafin'] ?? '')),
         'company_website' => trim((string) ($row['sitiowebfin'] ?? '')),
         'company_sector' => trim((string) ($row['sectoreconomicofin'] ?? '')),
@@ -60,6 +62,54 @@ function alumni_source(PDO $db, string $document): ?array
         'vacancy_channel' => str_contains($channel, 'CAZATALENTOS') ? 'Cazatalentos' : (str_contains($channel, 'DIGITAL') ? 'Medios digitales' : (str_contains($channel, 'CONTACTOS') ? 'Contactos personales' : '')),
         'salary_comparison' => in_array(mb_convert_case(trim((string) ($row['mmfin'] ?? '')), MB_CASE_TITLE, 'UTF-8'), ['Superior', 'Similar', 'Inferior'], true) ? mb_convert_case(trim((string) $row['mmfin']), MB_CASE_TITLE, 'UTF-8') : '',
     ];
+}
+
+function alumni_send_notification(array $values): bool
+{
+    $recipients = ['mauricio.vasquez@vasquezkennedy.com', 'monica.cubides@vasquezkennedy.com', 'harold.gama@vasquezkennedy.com'];
+    $name = trim((string) ($values['full_name'] ?? ''));
+    $document = trim((string) ($values['document_id'] ?? ''));
+    $phone = trim((string) ($values['personal_phone'] ?? ''));
+    $body = "Se llenó o actualizó el formulario Alumni de Vásquez Kennedy.\n\n"
+        . "Nombre: {$name}\nCédula: {$document}\nCelular: {$phone}\n";
+    $subject = 'Formulario Alumni actualizado';
+
+    try {
+        if (class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
+            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+            $host = trim((string) envv('MAIL_HOST', ''));
+            if ($host !== '') {
+                $mail->isSMTP();
+                $mail->Host = $host;
+                $mail->Port = (int) envv('MAIL_PORT', 587);
+                $mail->SMTPAuth = (string) envv('MAIL_USERNAME', '') !== '';
+                $mail->Username = (string) envv('MAIL_USERNAME', '');
+                $mail->Password = (string) envv('MAIL_PASSWORD', '');
+                $encryption = strtolower((string) envv('MAIL_ENCRYPTION', 'tls'));
+                if ($encryption === 'ssl') $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
+                elseif ($encryption === 'tls') $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+            } else {
+                $mail->isMail();
+            }
+            $mail->CharSet = 'UTF-8';
+            $mail->setFrom((string) envv('MAIL_FROM', 'eventos@vasquezkennedy.com'), (string) envv('MAIL_FROM_NAME', 'Vasquez Kennedy'));
+            foreach ($recipients as $recipient) $mail->addAddress($recipient);
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+            $mail->send();
+            return true;
+        }
+
+        $from = (string) envv('MAIL_FROM', '');
+        if (!function_exists('mail') || !filter_var($from, FILTER_VALIDATE_EMAIL)) return false;
+        $headers = "From: " . str_replace(["\r", "\n"], '', (string) envv('MAIL_FROM_NAME', 'Vasquez Kennedy')) . " <{$from}>\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+        return mail(implode(',', $recipients), $encodedSubject, $body, $headers);
+    } catch (Throwable $error) {
+        error_log('Alumni notification email failed: ' . $error->getMessage());
+        return false;
+    }
 }
 
 try {
@@ -105,10 +155,12 @@ try {
     if ($values['hr_email'] !== '' && !filter_var($values['hr_email'], FILTER_VALIDATE_EMAIL)) json_response(['error' => 'El correo de gestión humana no es válido.'], 422);
     if ($values['company_website'] !== '' && !filter_var($values['company_website'], FILTER_VALIDATE_URL)) json_response(['error' => 'El sitio web no es válido.'], 422);
     $db = alumni_connection('VK_DB');
-    $profileQuery = $db->prepare('SELECT id FROM outp WHERE identificacion = ? ORDER BY id DESC LIMIT 1');
+    $profileQuery = $db->prepare('SELECT id, celular, telefono FROM outp WHERE identificacion = ? ORDER BY id DESC LIMIT 1');
     $profileQuery->execute([$document]);
-    $profileId = $profileQuery->fetchColumn();
-    if ($profileId === false) json_response(['error' => 'No encontramos el registro original para actualizarlo. Vuelve a consultar tu cédula.'], 404);
+    $profile = $profileQuery->fetch();
+    if (!$profile) json_response(['error' => 'No encontramos el registro original para actualizarlo. Vuelve a consultar tu cédula.'], 404);
+    $profileId = (int) $profile['id'];
+    $values['personal_phone'] = trim((string) (($profile['celular'] ?? '') !== '' ? $profile['celular'] : ($profile['telefono'] ?? '')));
 
     $levelMap = ['Alta gerencia' => 'ALTA DIRECCIÓN', 'Gerencia media' => 'GERENCIA MEDIA', 'No directivo' => 'PROFESIONAL'];
     $channelMap = ['Contactos personales' => 'RED DE CONTACTOS PERSONALES', 'Cazatalentos' => 'CAZATALENTOS', 'Medios digitales' => 'REDES DIGITALES'];
@@ -144,7 +196,10 @@ try {
         if ($db->inTransaction()) $db->rollBack();
         throw $error;
     }
-    json_response(['message' => 'Tus datos se guardaron en la ficha original de VK y en Alumni.']);
+    $emailSent = alumni_send_notification($values);
+    json_response(['message' => $emailSent
+        ? 'Tus datos se guardaron y el aviso fue enviado a Mauricio y Mónica.'
+        : 'Tus datos se guardaron, pero no se pudo enviar el aviso. Revisa la configuración de correo del servidor.']);
 } catch (Throwable $error) {
     error_log('Alumni: ' . $error->getMessage());
     json_response(['error' => 'No fue posible conectar o guardar los datos. Contacta al administrador.'], 503);

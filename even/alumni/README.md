@@ -8,5 +8,6 @@ El formulario consulta por cédula `outp.identificacion` en la base de Conekta. 
 2. Ejecuta [alumni_responses.sql](alumni_responses.sql) una vez **en la base de VK**. El usuario configurado para `VK_DB_*` necesita SELECT y UPDATE sobre `outp` y `sesiones`, además de SELECT, INSERT y UPDATE sobre `alumni_responses`.
 3. Publica `index.html`, `api.php`, `assets/js/alumni.js` y los demás archivos del directorio Alumni, junto con el `bootstrap.php` del proyecto `even`.
 4. Verifica con una cédula de prueba real: consulta, precarga, guarda y vuelve a consultar. La cédula `123` ya no es un acceso de demostración; solo funcionará si existe en Conekta.
+5. Para el aviso por correo, configura `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM` y `MAIL_FROM_NAME` en `even/.env`. Si no hay SMTP configurado, se intentará enviar mediante el servicio de correo local de PHP.
 
 La consulta por cédula muestra datos personales a quien conozca ese número. Antes de abrir el formulario al público, conviene añadir una verificación de identidad adicional (por ejemplo, un código enviado al correo ya registrado) y una política de tratamiento de datos.
