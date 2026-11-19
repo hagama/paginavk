@@ -53,7 +53,7 @@ function alumni_source(PDO $db, string $document): ?array
         'annual_sales' => trim((string) ($row['rangoventasfin'] ?? '')),
         'employee_count' => trim((string) ($row['empleadosfin'] ?? '')),
         'job_title' => trim((string) ($row['cargofin'] ?? '')),
-        'job_level' => str_contains($level, 'ALTA') ? 'Alta gerencia' : (str_contains($level, 'MEDIA') ? 'Gerencia media' : ($level !== '' ? 'No directivo' : '')),
+        'job_level' => ['ALTA GERENCIA' => 'ALTA DIRECCIÓN', 'NO DIRECTIVO' => 'PROFESIONAL'][$level] ?? $level,
         'hr_name' => trim((string) ($row['responsableghfin'] ?? '')),
         'hr_position' => trim((string) ($row['cargoghfin'] ?? '')),
         'hr_email' => trim((string) ($row['correoghfin'] ?? '')),
@@ -62,7 +62,7 @@ function alumni_source(PDO $db, string $document): ?array
         'relocation_unit' => stripos($time, 'SEMANA') !== false ? 'Semanas' : 'Meses',
         'changed_sector' => strtoupper(trim((string) ($row['cambioc'] ?? ''))) === 'SI' ? 'SI' : (strtoupper(trim((string) ($row['cambioc'] ?? ''))) === 'NO' ? 'No' : ''),
         'changed_profession' => strtoupper(trim((string) ($row['cambiop'] ?? ''))) === 'SI' ? 'SI' : (strtoupper(trim((string) ($row['cambiop'] ?? ''))) === 'NO' ? 'No' : ''),
-        'vacancy_channel' => str_contains($channel, 'CAZATALENTOS') ? 'Cazatalentos' : (str_contains($channel, 'DIGITAL') ? 'Medios digitales' : (str_contains($channel, 'CONTACTOS') ? 'Contactos personales' : '')),
+        'vacancy_channel' => ['CONTACTOS PERSONALES' => 'RED DE CONTACTOS PERSONALES', 'MEDIOS DIGITALES' => 'REDES DIGITALES'][$channel] ?? $channel,
         'salary_comparison' => in_array(mb_convert_case(trim((string) ($row['mmfin'] ?? '')), MB_CASE_TITLE, 'UTF-8'), ['Superior', 'Similar', 'Inferior'], true) ? mb_convert_case(trim((string) $row['mmfin']), MB_CASE_TITLE, 'UTF-8') : '',
     ];
 }

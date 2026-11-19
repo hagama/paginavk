@@ -113,7 +113,12 @@
               <label for="job-level">Nivel del cargo <em>*</em></label>
               <select id="job-level" name="job_level" required>
                 <option value="">Selecciona una opción</option>
-                <option>Alta gerencia</option><option>Gerencia media</option><option>No directivo</option>
+                <option>ALTA DIRECCIÓN</option>
+                <option>GERENCIA MEDIA</option>
+                <option>COORDINADOR OPERATIVO</option>
+                <option>PROFESIONAL</option>
+                <option>ASISTENTES Y OPERARIOS</option>
+                <option>AUXILIAR</option>
               </select>
             </div>
           </div>
@@ -140,7 +145,7 @@
               <label for="relocation-time">Tiempo que tomó la reubicación</label>
               <div class="input-group"><input id="relocation-time" name="relocation_time" type="number" min="0" step="1" inputmode="numeric" placeholder="Ej. 6"><select name="relocation_unit" aria-label="Unidad de tiempo"><option>Meses</option><option>Semanas</option></select></div>
             </div>
-            <div class="field"><label for="vacancy-channel">Canal por el que encontraste la vacante</label><select id="vacancy-channel" name="vacancy_channel"><option value="">Selecciona una opción</option><option>Contactos personales</option><option>Cazatalentos</option><option>Medios digitales</option></select></div>
+            <div class="field"><label for="vacancy-channel">Canal por el que encontraste la vacante</label><select id="vacancy-channel" name="vacancy_channel"><option value="">Selecciona una opción</option><option>RED DE CONTACTOS PERSONALES</option><option>REDES DIGITALES</option><option>CAZATALENTOS</option><option>BOLSA DE EMPLEO</option><option>GESTIÓN DE CONTACTOS DE VK</option></select></div>
             <fieldset class="field option-field"><legend>¿Cambiaste de sector económico?</legend><div class="option-row"><label><input type="radio" name="changed_sector" value="SI"> SI</label><label><input type="radio" name="changed_sector" value="No"> No</label></div></fieldset>
             <fieldset class="field option-field"><legend>¿Cambiaste de profesión?</legend><div class="option-row"><label><input type="radio" name="changed_profession" value="SI"> SI</label><label><input type="radio" name="changed_profession" value="No"> No</label></div></fieldset>
             <fieldset class="field option-field wide"><legend>Tu nuevo rango salarial, comparado con el anterior, es:</legend><div class="option-row"><label><input type="radio" name="salary_comparison" value="Superior"> Superior</label><label><input type="radio" name="salary_comparison" value="Similar"> Similar</label><label><input type="radio" name="salary_comparison" value="Inferior"> Inferior</label></div></fieldset>
