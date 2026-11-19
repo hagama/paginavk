@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+
 require dirname(__DIR__) . '/bootstrap.php';
 
 header('Cache-Control: no-store');
@@ -33,7 +34,7 @@ function alumni_document(mixed $value): string
 
 function alumni_source(PDO $db, string $document): ?array
 {
-    $query = $db->prepare('SELECT o.id, o.nombre1, o.identificacion, o.celular, o.telefono, s.empresafin, s.sitiowebfin, s.sectoreconomicofin, s.ubicacionfin, s.rangoventasfin, s.empleadosfin, s.cargofin, s.gerencialfin, s.responsableghfin, s.cargoghfin, s.correoghfin, s.celularghfin, s.tiempofin, s.canalfin, s.mmfin FROM outp o LEFT JOIN sesiones s ON s.id = o.id WHERE o.identificacion = ? ORDER BY o.id DESC LIMIT 1');
+    $query = $db->prepare('SELECT o.id, o.nombre1, o.identificacion, o.celular, o.telefono, s.empresafin, s.sitiowebfin, s.sectoreconomicofin, s.ubicacionfin, s.rangoventasfin, s.empleadosfin, s.cargofin, s.gerencialfin, s.responsableghfin, s.cargoghfin, s.correoghfin, s.celularghfin, s.tiempofin, s.canalfin, s.mmfin, s.cambioc, s.cambiop FROM outp o LEFT JOIN sesiones s ON s.id = o.id WHERE o.identificacion = ? ORDER BY o.id DESC LIMIT 1');
     $query->execute([$document]);
     $row = $query->fetch();
     if (!$row) return null;
@@ -58,7 +59,9 @@ function alumni_source(PDO $db, string $document): ?array
         'hr_email' => trim((string) ($row['correoghfin'] ?? '')),
         'hr_phone' => trim((string) ($row['celularghfin'] ?? '')),
         'relocation_time' => preg_match('/\d+/', $time, $matches) ? $matches[0] : '',
-        'relocation_unit' => 'Meses',
+        'relocation_unit' => stripos($time, 'SEMANA') !== false ? 'Semanas' : 'Meses',
+        'changed_sector' => strtoupper(trim((string) ($row['cambioc'] ?? ''))) === 'SI' ? 'SI' : (strtoupper(trim((string) ($row['cambioc'] ?? ''))) === 'NO' ? 'No' : ''),
+        'changed_profession' => strtoupper(trim((string) ($row['cambiop'] ?? ''))) === 'SI' ? 'SI' : (strtoupper(trim((string) ($row['cambiop'] ?? ''))) === 'NO' ? 'No' : ''),
         'vacancy_channel' => str_contains($channel, 'CAZATALENTOS') ? 'Cazatalentos' : (str_contains($channel, 'DIGITAL') ? 'Medios digitales' : (str_contains($channel, 'CONTACTOS') ? 'Contactos personales' : '')),
         'salary_comparison' => in_array(mb_convert_case(trim((string) ($row['mmfin'] ?? '')), MB_CASE_TITLE, 'UTF-8'), ['Superior', 'Similar', 'Inferior'], true) ? mb_convert_case(trim((string) $row['mmfin']), MB_CASE_TITLE, 'UTF-8') : '',
     ];
@@ -136,7 +139,18 @@ try {
         $savedQuery->execute([$document]);
         $saved = $savedQuery->fetchColumn();
         $stored = $saved ? json_decode((string) $saved, true) : [];
-        json_response(['data' => array_merge($source, is_array($stored) ? $stored : [])]);
+        $stored = is_array($stored) ? $stored : [];
+        // Recuperar rangos que las versiones anteriores guardaron solo en el JSON.
+        if (($source['employee_count'] === '' || ctype_digit($source['employee_count']))
+            && in_array(($stored['employee_count'] ?? ''), ['1 a 10', '11 a 50', '51 a 200', '201 a 500', 'Más de 500'], true)) {
+            $source['employee_count'] = $stored['employee_count'];
+        }
+        if (ctype_digit($source['employee_count']) && (int) $source['employee_count'] > 0) {
+            $count = (int) $source['employee_count'];
+            $source['employee_count'] = $count <= 10 ? '1 a 10' : ($count <= 50 ? '11 a 50' : ($count <= 200 ? '51 a 200' : ($count <= 500 ? '201 a 500' : 'Más de 500')));
+        }
+        // La ficha de sesiones es la fuente de los campos compartidos.
+        json_response(['data' => array_merge($stored, $source)]);
     }
     if ($action !== 'save') json_response(['error' => 'Acción no válida.'], 400);
     if (($_SESSION['alumni_document'] ?? '') !== $document || (int) ($_SESSION['alumni_verified_at'] ?? 0) < time() - 1800) {
@@ -168,29 +182,30 @@ try {
     if ($values['relocation_time'] !== '') {
         $amount = (int) $values['relocation_time'];
         $unit = $values['relocation_unit'] === 'Semanas' ? 'SEMANA' : 'MES';
-        $time = $amount . ' ' . $unit . ($amount === 1 ? '' : 'S');
+        $time = $amount . ' ' . ($unit === 'SEMANA' ? ($amount === 1 ? 'SEMANA' : 'SEMANAS') : ($amount === 1 ? 'MES' : 'MESES'));
     }
 
     $db->beginTransaction();
     try {
+        $sessionExists = $db->prepare('SELECT id FROM sesiones WHERE id = ?');
+        $sessionExists->execute([$profileId]);
+        if ($sessionExists->fetchColumn() === false) {
+            throw new RuntimeException('No existe la ficha de sesiones para el registro.');
+        }
+        // La respuesta InnoDB se puede revertir si falla la ficha MyISAM.
+        $responseUpdate = $db->prepare('INSERT INTO alumni_responses (document_id, response_json, created_at, updated_at) VALUES (?, ?, NOW(), NOW()) ON DUPLICATE KEY UPDATE response_json = VALUES(response_json), updated_at = NOW()');
+        $responseUpdate->execute([$document, json_encode($values, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)]);
         $personUpdate = $db->prepare('UPDATE outp SET nombre1 = ? WHERE id = ?');
         $personUpdate->execute([$values['full_name'], $profileId]);
-
-        $sessionUpdate = $db->prepare('UPDATE sesiones SET empresafin = ?, sitiowebfin = ?, sectoreconomicofin = ?, ubicacionfin = ?, rangoventasfin = ?, cargofin = ?, gerencialfin = ?, responsableghfin = ?, cargoghfin = ?, correoghfin = ?, celularghfin = ?, tiempofin = ?, cambioc = ?, cambiop = ?, canalfin = ?, mmfin = ? WHERE id = ?');
+        $sessionUpdate = $db->prepare('UPDATE sesiones SET empresafin = ?, sitiowebfin = ?, sectoreconomicofin = ?, ubicacionfin = ?, rangoventasfin = ?, empleadosfin = ?, cargofin = ?, gerencialfin = ?, responsableghfin = ?, cargoghfin = ?, correoghfin = ?, celularghfin = ?, tiempofin = ?, cambioc = ?, cambiop = ?, canalfin = ?, mmfin = ?, fecha_actualizacion_reubicacion = CURRENT_DATE() WHERE id = ?');
         $sessionUpdate->execute([
             $values['company_name'], $values['company_website'], $values['company_sector'], $values['company_location'],
-            $values['annual_sales'], $values['job_title'], $levelMap[$values['job_level']] ?? $values['job_level'],
+            $values['annual_sales'], $values['employee_count'], $values['job_title'], $levelMap[$values['job_level']] ?? $values['job_level'],
             $values['hr_name'], $values['hr_position'], $values['hr_email'], $values['hr_phone'], $time,
             strtoupper($values['changed_sector']), strtoupper($values['changed_profession']),
             $channelMap[$values['vacancy_channel']] ?? $values['vacancy_channel'], $values['salary_comparison'], $profileId,
         ]);
-        if ($values['employee_count'] !== '' && ctype_digit($values['employee_count'])) {
-            $employeeUpdate = $db->prepare('UPDATE sesiones SET empleadosfin = ? WHERE id = ?');
-            $employeeUpdate->execute([(int) $values['employee_count'], $profileId]);
-        }
 
-        $responseUpdate = $db->prepare('INSERT INTO alumni_responses (document_id, response_json, created_at, updated_at) VALUES (?, ?, NOW(), NOW()) ON DUPLICATE KEY UPDATE response_json = VALUES(response_json), updated_at = NOW()');
-        $responseUpdate->execute([$document, json_encode($values, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)]);
         $db->commit();
     } catch (Throwable $error) {
         if ($db->inTransaction()) $db->rollBack();
